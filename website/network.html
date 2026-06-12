@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
-<!-- @dsCard group="Components" name="Website â€” Our Network" subtitle="Hero Â· Stats Â· Extended network grid Â· CTA" viewport="1280x1600" -->
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Website — Our Network" subtitle="Hero · Stats · Extended network grid · CTA" viewport="1280x1600" -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Robotmea â€” Our Network</title>
+  <title>Robotmea — Our Network</title>
   <link rel="stylesheet" href="../colors_and_type.css">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,7 +19,7 @@
 /* global React */
 
 /* ============================================================
-   Header â€” sticky top nav, shared across all pages
+   Header — sticky top nav, shared across all pages
    ============================================================ */
 function RM_Header({ active }) {
   const items = [
@@ -46,7 +46,7 @@ function RM_Header({ active }) {
                 info@robotmea.com
               </span>
             </div>
-            <div className="rm-utility-locales">Islamabad Â· Dubai Â· Seoul Â· Shanghai</div>
+            <div className="rm-utility-locales">Islamabad · Dubai · Seoul · Shanghai</div>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ function RM_Header({ active }) {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
               </button>
               <a href="etm.html" className="rm-btn rm-btn--primary rm-btn--sm rm-btn--pill">
-                ETM Deck<span className="rm-btn__arrow">â†’</span>
+                ETM Deck<span className="rm-btn__arrow">→</span>
               </a>
             </div>
           </div>
@@ -78,7 +78,7 @@ function RM_Header({ active }) {
 }
 
 /* ============================================================
-   Brand divider â€” 4-tick + eyebrow + heading
+   Brand divider — 4-tick + eyebrow + heading
    ============================================================ */
 function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) {
   return (
@@ -94,7 +94,7 @@ function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) 
 }
 
 /* ============================================================
-   Triple-credential badge â€” used everywhere
+   Triple-credential badge — used everywhere
    ============================================================ */
 function RM_Credentials({ variant = "ghost", layout = "row" }) {
   const items = [
@@ -118,7 +118,7 @@ function RM_Credentials({ variant = "ghost", layout = "row" }) {
 }
 
 /* ============================================================
-   Footer â€” shared across all pages
+   Footer — shared across all pages
    ============================================================ */
 function RM_Footer() {
   const cols = [
@@ -155,9 +155,9 @@ function RM_Footer() {
         <div className="rm-footer__top">
           <div className="rm-footer__brand">
             <img src="../assets/logo-full.png" alt="Robotmea" />
-            <p>Robotmea is Pakistan's EdTech authority for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education â€” accredited by Robotron, South Korea, and the parent of the Educational Transformation Movement.</p>
+            <p>Robotmea is Pakistan's EdTech authority for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education — accredited by Robotron, South Korea, and the parent of the Educational Transformation Movement.</p>
             <div className="rm-footer__statement">
-              "A Project of Robotmea Â· Powered by ETM on South Korean Educational Standards Â· Accredited by Robotron, South Korea."
+              "A Project of Robotmea · Powered by ETM on South Korean Educational Standards · Accredited by Robotron, South Korea."
             </div>
             <div className="rm-footer__social">
               <a href="#" aria-label="LinkedIn">in</a>
@@ -176,8 +176,8 @@ function RM_Footer() {
           </div>
         </div>
         <div className="rm-footer__bottom">
-          <span>Â© {new Date().getFullYear()} Robotmea Â· A Time Dimension Group Company</span>
-          <span>Privacy Â· Terms Â· Cookie Policy</span>
+          <span>© {new Date().getFullYear()} Robotmea · A Time Dimension Group Company</span>
+          <span>Privacy · Terms · Cookie Policy</span>
         </div>
       </div>
     </footer>
@@ -185,7 +185,7 @@ function RM_Footer() {
 }
 
 /* ============================================================
-   Page-stub â€” shared placeholder for not-yet-built pages
+   Page-stub — shared placeholder for not-yet-built pages
    ============================================================ */
 function RM_PageStub({ eyebrow, title, body, primaryCta = "Back to Home", primaryHref = "index.html" }) {
   return (
@@ -194,7 +194,7 @@ function RM_PageStub({ eyebrow, title, body, primaryCta = "Back to Home", primar
         <div className="rm-eyebrow rm-eyebrow--center rm-stub__eyebrow">{eyebrow}</div>
         <h1 className="rm-h1 rm-stub__h1">{title}</h1>
         <p className="rm-stub__body">{body}</p>
-        <a href={primaryHref} className="rm-btn rm-btn--primary">{primaryCta}<span className="rm-btn__arrow">â†’</span></a>
+        <a href={primaryHref} className="rm-btn rm-btn--primary">{primaryCta}<span className="rm-btn__arrow">→</span></a>
       </div>
     </section>
   );
@@ -222,7 +222,7 @@ function NetHero() {
           <span className="rm-net-hero__title-accent">& Partners On The Ground.</span>
         </h1>
         <p className="rm-net-hero__lead">
-          Robotmea is delivered through a network of institutions across Pakistan and beyond â€” universities, school chains, residential schools, community foundations, and learning centres. Each operates Robotmea programmes inside its own brand, on its own ground, to a shared global standard.
+          Robotmea is delivered through a network of institutions across Pakistan and beyond — universities, school chains, residential schools, community foundations, and learning centres. Each operates Robotmea programmes inside its own brand, on its own ground, to a shared global standard.
         </p>
       </div>
     </section>
@@ -234,7 +234,7 @@ function NetStats() {
   const stats = [
     { c: "var(--rm-orange)", n: "250+", l: "Discovery & Innovation Hubs" },
     { c: "var(--rm-blue)",   n: "120+", l: "Institutions" },
-    { c: "var(--rm-green)",  n: "All",  l: "Levels â€” K-12 To University" },
+    { c: "var(--rm-green)",  n: "All",  l: "Levels — K-12 To University" },
     { c: "var(--rm-red)",    n: "1",    l: "Shared Robotron Standard" },
   ];
   return (
@@ -253,7 +253,7 @@ function NetStats() {
   );
 }
 
-/* ============ Tier 2 â€” Long-tail school network grid ============ */
+/* ============ Tier 2 — Long-tail school network grid ============ */
 function NetGrid() {
   // Curated, uniform partner logos ("Logos for our partners section" set)
   const slugs = [
@@ -288,7 +288,7 @@ function NetGrid() {
           />
           <div>
             <p className="rm-net-tier__lead">
-              The wider Robotmea network â€” schools, technical centres, NGOs, and learning institutions across Pakistan implementing our STEAM, Robotics, AI, and emerging-technologies programmes.
+              The wider Robotmea network — schools, technical centres, NGOs, and learning institutions across Pakistan implementing our STEAM, Robotics, AI, and emerging-technologies programmes.
             </p>
             <span className="rm-net-tier__count" style={{ "--accent": "var(--rm-blue)" }}>
               {total}+ Institutions
@@ -324,11 +324,11 @@ function NetCTA() {
           Add your institution<br />to the Robotmea network.
         </h2>
         <p className="rm-net-cta__sub">
-          Whether you run a single campus, a school chain, a university, or a foundation â€” Robotmea partners with institutions of every scale. Start with a 90-minute feasibility session.
+          Whether you run a single campus, a school chain, a university, or a foundation — Robotmea partners with institutions of every scale. Start with a 90-minute feasibility session.
         </p>
         <div style={{ display: "inline-flex", gap: 14, flexWrap: "wrap", justifyContent: "center" }}>
           <a href="contact.html" className="rm-btn rm-btn--primary rm-btn--lg">
-            Talk To Us<span className="rm-btn__arrow">â†’</span>
+            Talk To Us<span className="rm-btn__arrow">→</span>
           </a>
           <a href="institute.html#transform" className="rm-btn rm-btn--ghost-light rm-btn--lg">
             See The 6-Step Plan

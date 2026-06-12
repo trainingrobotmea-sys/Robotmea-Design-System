@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
-<!-- @dsCard group="Components" name="Website â€” International Partners" subtitle="Hero Â· Metrics Â· 6 partner cards Â· Accreditations Â· Global presence map Â· CTA" viewport="1280x1800" -->
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Website — International Partners" subtitle="Hero · Metrics · 6 partner cards · Accreditations · Global presence map · CTA" viewport="1280x1800" -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Robotmea â€” International Partners</title>
+  <title>Robotmea — International Partners</title>
   <link rel="stylesheet" href="../colors_and_type.css">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,7 +19,7 @@
 /* global React */
 
 /* ============================================================
-   Header â€” sticky top nav, shared across all pages
+   Header — sticky top nav, shared across all pages
    ============================================================ */
 function RM_Header({ active }) {
   const items = [
@@ -46,7 +46,7 @@ function RM_Header({ active }) {
                 info@robotmea.com
               </span>
             </div>
-            <div className="rm-utility-locales">Islamabad Â· Dubai Â· Seoul Â· Shanghai</div>
+            <div className="rm-utility-locales">Islamabad · Dubai · Seoul · Shanghai</div>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ function RM_Header({ active }) {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
               </button>
               <a href="etm.html" className="rm-btn rm-btn--primary rm-btn--sm rm-btn--pill">
-                ETM Deck<span className="rm-btn__arrow">â†’</span>
+                ETM Deck<span className="rm-btn__arrow">→</span>
               </a>
             </div>
           </div>
@@ -78,7 +78,7 @@ function RM_Header({ active }) {
 }
 
 /* ============================================================
-   Brand divider â€” 4-tick + eyebrow + heading
+   Brand divider — 4-tick + eyebrow + heading
    ============================================================ */
 function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) {
   return (
@@ -94,7 +94,7 @@ function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) 
 }
 
 /* ============================================================
-   Triple-credential badge â€” used everywhere
+   Triple-credential badge — used everywhere
    ============================================================ */
 function RM_Credentials({ variant = "ghost", layout = "row" }) {
   const items = [
@@ -118,7 +118,7 @@ function RM_Credentials({ variant = "ghost", layout = "row" }) {
 }
 
 /* ============================================================
-   Footer â€” shared across all pages
+   Footer — shared across all pages
    ============================================================ */
 function RM_Footer() {
   const cols = [
@@ -155,9 +155,9 @@ function RM_Footer() {
         <div className="rm-footer__top">
           <div className="rm-footer__brand">
             <img src="../assets/logo-full.png" alt="Robotmea" />
-            <p>Robotmea is Pakistan's EdTech authority for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education â€” accredited by Robotron, South Korea, and the parent of the Educational Transformation Movement.</p>
+            <p>Robotmea is Pakistan's EdTech authority for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education — accredited by Robotron, South Korea, and the parent of the Educational Transformation Movement.</p>
             <div className="rm-footer__statement">
-              "A Project of Robotmea Â· Powered by ETM on South Korean Educational Standards Â· Accredited by Robotron, South Korea."
+              "A Project of Robotmea · Powered by ETM on South Korean Educational Standards · Accredited by Robotron, South Korea."
             </div>
             <div className="rm-footer__social">
               <a href="#" aria-label="LinkedIn">in</a>
@@ -176,8 +176,8 @@ function RM_Footer() {
           </div>
         </div>
         <div className="rm-footer__bottom">
-          <span>Â© {new Date().getFullYear()} Robotmea Â· A Time Dimension Group Company</span>
-          <span>Privacy Â· Terms Â· Cookie Policy</span>
+          <span>© {new Date().getFullYear()} Robotmea · A Time Dimension Group Company</span>
+          <span>Privacy · Terms · Cookie Policy</span>
         </div>
       </div>
     </footer>
@@ -185,7 +185,7 @@ function RM_Footer() {
 }
 
 /* ============================================================
-   Page-stub â€” shared placeholder for not-yet-built pages
+   Page-stub — shared placeholder for not-yet-built pages
    ============================================================ */
 function RM_PageStub({ eyebrow, title, body, primaryCta = "Back to Home", primaryHref = "index.html" }) {
   return (
@@ -194,7 +194,7 @@ function RM_PageStub({ eyebrow, title, body, primaryCta = "Back to Home", primar
         <div className="rm-eyebrow rm-eyebrow--center rm-stub__eyebrow">{eyebrow}</div>
         <h1 className="rm-h1 rm-stub__h1">{title}</h1>
         <p className="rm-stub__body">{body}</p>
-        <a href={primaryHref} className="rm-btn rm-btn--primary">{primaryCta}<span className="rm-btn__arrow">â†’</span></a>
+        <a href={primaryHref} className="rm-btn rm-btn--primary">{primaryCta}<span className="rm-btn__arrow">→</span></a>
       </div>
     </section>
   );
@@ -222,7 +222,7 @@ function IntlHero() {
           <span className="rm-intl-hero__title-accent">Draws Its Standard.</span>
         </h1>
         <p className="rm-intl-hero__lead">
-          Robotmea is not a local vendor; we are the Pakistani delivery arm of a network of South Korean research institutions, hardware innovators, and chambers of commerce â€” organisations with decades of evidence behind every kit, every curriculum, every certification we put our name to.
+          Robotmea is not a local vendor; we are the Pakistani delivery arm of a network of South Korean research institutions, hardware innovators, and chambers of commerce — organisations with decades of evidence behind every kit, every curriculum, every certification we put our name to.
         </p>
       </div>
     </section>
@@ -235,7 +235,7 @@ function IntlMetrics() {
     { c: "var(--rm-orange)", n: "30+",  l: "Years Combined Heritage",  sub: "Across our South Korean R&D and accreditation partners." },
     { c: "var(--rm-blue)",   n: "07",   l: "International Partners",   sub: "Across Korea, the Middle East and connectivity technologies." },
     { c: "var(--rm-green)",  n: "11",   l: "Patents Held",             sub: "Granted to Neopia for educational electronic block systems." },
-    { c: "var(--rm-red)",    l: "ISO 9001 Â· CE Â· FCC", n: "Certified", sub: "Quality, safety and electromagnetic-compliance marks held by partners." },
+    { c: "var(--rm-red)",    l: "ISO 9001 · CE · FCC", n: "Certified", sub: "Quality, safety and electromagnetic-compliance marks held by partners." },
   ];
   return (
     <section className="rm-intl-metrics" data-screen-label="02 Metrics">
@@ -261,10 +261,10 @@ function IntlPartners() {
       logo: "../assets/partners/robotron.png",
       country: "Republic of Korea",
       c: "var(--rm-orange)",
-      role: "Accreditor Â· Curriculum Anchor",
+      role: "Accreditor · Curriculum Anchor",
       name: "Robotron",
       strap: "Two decades of Korean STEAM heritage.",
-      lead: "Robotron is a Republic-of-Korea EdTech research and content provider founded at the turn of the century. Selected by the Korean government for next-generation robotics R&D, certified to ISO 9001 / CE / FCC, and adopted across Korea's public schools as the reference STEAM platform â€” Robotron is the single most important institutional anchor in Robotmea's network.",
+      lead: "Robotron is a Republic-of-Korea EdTech research and content provider founded at the turn of the century. Selected by the Korean government for next-generation robotics R&D, certified to ISO 9001 / CE / FCC, and adopted across Korea's public schools as the reference STEAM platform — Robotron is the single most important institutional anchor in Robotmea's network.",
       facts: [
         { n: "2001",     l: "Founded" },
         { n: "ISO 9001", l: "Certified" },
@@ -277,7 +277,7 @@ function IntlPartners() {
       logo: "../assets/partners/neopia.png",
       country: "Republic of Korea",
       c: "var(--rm-blue)",
-      role: "Hardware Â· AI Coding Content",
+      role: "Hardware · AI Coding Content",
       name: "Neopia",
       strap: "Korea's pioneers of the educational electronic block.",
       lead: "Neopia is Korea's leading provider of robotics products and AI-coding content for schools. Selected for the Ministry of Knowledge Economy's Next-Generation Digital Leader Development Program and holding eleven patents for electronic-block systems, Neopia's content has been adopted as classroom teaching material across the Korean curriculum for two decades.",
@@ -296,7 +296,7 @@ function IntlPartners() {
       role: "Robotics Hardware Partner",
       name: "MiniRobot",
       strap: "Performance-grade robotics, built for the classroom.",
-      lead: "MiniRobot is an Incheon-based Korean designer of educational humanoid and competition-grade robotics platforms â€” the same kits used in Korean schools, science museums and theme parks. MiniRobot's hardware powers the Robotmea robotics tracks and the ETM Garage, giving Pakistani students access to the same machines on which Korea trains its own engineers.",
+      lead: "MiniRobot is an Incheon-based Korean designer of educational humanoid and competition-grade robotics platforms — the same kits used in Korean schools, science museums and theme parks. MiniRobot's hardware powers the Robotmea robotics tracks and the ETM Garage, giving Pakistani students access to the same machines on which Korea trains its own engineers.",
       facts: [
         { n: "Incheon", l: "South Korea" },
         { n: "K-12",    l: "Curriculum Fit" },
@@ -312,7 +312,7 @@ function IntlPartners() {
       role: "Parent Group",
       name: "Time Dimension Middle East",
       strap: "The MENA holding arm behind Robotmea.",
-      lead: "TDME is Robotmea's Middle-East-headquartered parent group â€” focused on EdTech, applied innovation, and youth development across the MENA region. TDME provides Robotmea with regional capital, government relationships across the Gulf, and a direct line into MENA innovation funds and procurement frameworks.",
+      lead: "TDME is Robotmea's Middle-East-headquartered parent group — focused on EdTech, applied innovation, and youth development across the MENA region. TDME provides Robotmea with regional capital, government relationships across the Gulf, and a direct line into MENA innovation funds and procurement frameworks.",
       facts: [
         { n: "MENA", l: "Regional Reach" },
         { n: "EdTech", l: "Sector Focus" },
@@ -326,9 +326,9 @@ function IntlPartners() {
       country: "Global Connectivity",
       c: "var(--rm-blue)",
       role: "Collaborative Connectivity Partner",
-      name: "esimÂ·gen",
+      name: "esim·gen",
       strap: "Keeping the Robotmea team connected across the globe.",
-      lead: "esimÂ·gen is Robotmea's collaborative partner for connectivity services â€” providing the SIM and eSIM infrastructure that keeps the Robotmea team online wherever the work takes us. As our people, devices and IoT-classroom hardware move between Pakistan, Korea, the Middle East and beyond, esimÂ·gen ensures seamless, friction-free connectivity across borders.",
+      lead: "esim·gen is Robotmea's collaborative partner for connectivity services — providing the SIM and eSIM infrastructure that keeps the Robotmea team online wherever the work takes us. As our people, devices and IoT-classroom hardware move between Pakistan, Korea, the Middle East and beyond, esim·gen ensures seamless, friction-free connectivity across borders.",
       facts: [
         { n: "eSIM", l: "Provisioning" },
         { n: "Global", l: "Coverage" },
@@ -339,12 +339,12 @@ function IntlPartners() {
     },
     {
       logo: "../assets/partners/sinion.jpeg",
-      country: "R&D Â· China",
+      country: "R&D · China",
       c: "var(--rm-orange)",
-      role: "R&D Partner Â· China",
+      role: "R&D Partner · China",
       name: "Sinion Smart Connections",
       strap: "Our gateway to China's emerging technologies.",
-      lead: "Sinion is Robotmea's R&D partner in China â€” our direct access point to the emerging technologies coming out of the world's fastest-moving hardware ecosystem. From new robotics platforms to AI and IoT hardware, Sinion sources, evaluates and tailors the latest Chinese innovations for the Middle East, Africa and Pakistan, so our classrooms run on technology that is both cutting-edge and regionally fit.",
+      lead: "Sinion is Robotmea's R&D partner in China — our direct access point to the emerging technologies coming out of the world's fastest-moving hardware ecosystem. From new robotics platforms to AI and IoT hardware, Sinion sources, evaluates and tailors the latest Chinese innovations for the Middle East, Africa and Pakistan, so our classrooms run on technology that is both cutting-edge and regionally fit.",
       facts: [
         { n: "R&D",       l: "In China" },
         { n: "Emerging",  l: "Technologies" },
@@ -360,7 +360,7 @@ function IntlPartners() {
         <RM_Divider
           eyebrow="Our International Partners"
           heading="The institutions our standard rests on."
-          lead="Each partner anchors a different layer of Robotmea's work â€” accreditation, hardware, curriculum, capital, connectivity. Together they form the global ecosystem that gives Pakistani classrooms world-class footing."
+          lead="Each partner anchors a different layer of Robotmea's work — accreditation, hardware, curriculum, capital, connectivity. Together they form the global ecosystem that gives Pakistani classrooms world-class footing."
         />
         <div style={{ marginTop: 16 }}>
           {partners.map(p => (
@@ -406,18 +406,18 @@ function IntlAccreds() {
     {
       tag: "Accreditation",
       title: "Robotron, South Korea",
-      body: "Robotmea is officially accredited by Robotron â€” every IERDG diploma, ETM school standard, and curriculum we publish carries the Robotron standard.",
+      body: "Robotmea is officially accredited by Robotron — every IERDG diploma, ETM school standard, and curriculum we publish carries the Robotron standard.",
       icon: <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>,
     },
     {
       tag: "Quality Mark",
-      title: "ISO 9001 â€” Quality Management",
+      title: "ISO 9001 — Quality Management",
       body: "Our hardware and curriculum partners operate to ISO 9001 quality management standards, audited annually.",
       icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg>,
     },
     {
       tag: "Product Safety",
-      title: "CE Marking â€” European Conformity",
+      title: "CE Marking — European Conformity",
       body: "All electronic kits in our deployment meet European Conformity standards for health, safety and environmental protection.",
       icon: <svg viewBox="0 0 24 24"><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z"/><path d="M9 9l-1 6M14 9l-1 6M16 9h-3M16 12h-3"/></svg>,
     },
@@ -436,7 +436,7 @@ function IntlAccreds() {
     {
       tag: "Methodology",
       title: "STEAM + PBIL Standard",
-      body: "Programmes are delivered to a published STEAM + Project-Based Inquiry Learning framework â€” the same standard adopted in Korean public schools.",
+      body: "Programmes are delivered to a published STEAM + Project-Based Inquiry Learning framework — the same standard adopted in Korean public schools.",
       icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2M19 5l-2 2M7 17l-2 2M5 19l2-2M17 7l2-2"/></svg>,
     },
     {
@@ -448,7 +448,7 @@ function IntlAccreds() {
     {
       tag: "Teacher Development",
       title: "Faculty Development Cell",
-      body: "Every Robotmea-partnered school operates an FDC â€” quarterly classroom audits, continuous CPD, peer review built into the standard.",
+      body: "Every Robotmea-partnered school operates an FDC — quarterly classroom audits, continuous CPD, peer review built into the standard.",
       icon: <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2"/><path d="M22 12l-3 3-2-2"/></svg>,
     },
   ];
@@ -475,14 +475,14 @@ function IntlAccreds() {
   );
 }
 
-/* ============ Global Presence â€” map + footprint list ============ */
+/* ============ Global Presence — map + footprint list ============ */
 function IntlPresence() {
   const places = [
-    { c: "var(--rm-orange)", flag: "PK", where: "Pakistan", what: "Delivery Headquarters Â· ETM Schools" },
-    { c: "var(--rm-blue)",   flag: "KR", where: "Republic of Korea", what: "Robotron Â· Neopia Â· MiniRobot" },
-    { c: "var(--rm-red)",    flag: "AE", where: "United Arab Emirates", what: "TDME â€” Parent Group, MENA Office" },
+    { c: "var(--rm-orange)", flag: "PK", where: "Pakistan", what: "Delivery Headquarters · ETM Schools" },
+    { c: "var(--rm-blue)",   flag: "KR", where: "Republic of Korea", what: "Robotron · Neopia · MiniRobot" },
+    { c: "var(--rm-red)",    flag: "AE", where: "United Arab Emirates", what: "TDME — Parent Group, MENA Office" },
     { c: "var(--rm-green)",  flag: "CN", where: "China", what: "Industry & Manufacturing Partners" },
-    { c: "var(--rm-blue)",   flag: "INTL", where: "Cross-Border", what: "esimÂ·gen â€” Connectivity Across Markets" },
+    { c: "var(--rm-blue)",   flag: "INTL", where: "Cross-Border", what: "esim·gen — Connectivity Across Markets" },
   ];
   return (
     <section className="rm-presence" data-screen-label="05 Presence">
@@ -490,7 +490,7 @@ function IntlPresence() {
         <RM_Divider
           eyebrow="Our Global Footprint"
           heading="Where the network runs."
-          lead="Robotmea is operated from Pakistan, anchored in Korea, capitalised from the UAE, manufactured through China, and connected globally â€” a deliberate cross-border architecture that gives Pakistani students access to the world's leading EdTech infrastructure."
+          lead="Robotmea is operated from Pakistan, anchored in Korea, capitalised from the UAE, manufactured through China, and connected globally — a deliberate cross-border architecture that gives Pakistani students access to the world's leading EdTech infrastructure."
         />
         <div className="rm-presence__layout">
           <div className="rm-presence__map">
@@ -524,10 +524,10 @@ function IntlPresence() {
               </g>
               {/* Markers */}
               <g>
-                {/* Pakistan â€” HQ */}
+                {/* Pakistan — HQ */}
                 <circle cx="525" cy="175" r="14" fill="#ff870b" opacity=".25"/>
                 <circle cx="525" cy="175" r="7" fill="#ff870b" stroke="white" strokeWidth="3"/>
-                <text x="525" y="208" textAnchor="middle" fontFamily="Montserrat, sans-serif" fontSize="11" fontWeight="800" fill="#14202b" letterSpacing="1.5">PAKISTAN Â· HQ</text>
+                <text x="525" y="208" textAnchor="middle" fontFamily="Montserrat, sans-serif" fontSize="11" fontWeight="800" fill="#14202b" letterSpacing="1.5">PAKISTAN · HQ</text>
 
                 {/* Korea */}
                 <circle cx="660" cy="130" r="11" fill="#449eb8" opacity=".22"/>
@@ -577,11 +577,11 @@ function IntlCTA() {
           Plug into the Robotmea<br />ecosystem.
         </h2>
         <p className="rm-intl-cta__sub">
-          Are you a research institution, technology company, hardware innovator, or chamber of commerce that wants to plug into a 30+ country EdTech network? COPR Nexus runs partner intake â€” start the conversation today.
+          Are you a research institution, technology company, hardware innovator, or chamber of commerce that wants to plug into a 30+ country EdTech network? COPR Nexus runs partner intake — start the conversation today.
         </p>
         <div style={{ display: "inline-flex", gap: 14, flexWrap: "wrap", justifyContent: "center" }}>
           <a href="contact.html" className="rm-btn rm-btn--primary rm-btn--lg">
-            Talk to COPR Nexus<span className="rm-btn__arrow">â†’</span>
+            Talk to COPR Nexus<span className="rm-btn__arrow">→</span>
           </a>
           <a href="copr-nexus.html" className="rm-btn rm-btn--ghost-light rm-btn--lg">
             Explore COPR Nexus

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
-<!-- @dsCard group="Components" name="Website â€” Contact Us" subtitle="Hero Â· 3 front doors Â· Form + offices sidebar Â· Quick-route action cards" viewport="1280x1400" -->
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Website — Contact Us" subtitle="Hero · 3 front doors · Form + offices sidebar · Quick-route action cards" viewport="1280x1400" -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Robotmea â€” Contact Us</title>
+  <title>Robotmea — Contact Us</title>
   <link rel="stylesheet" href="../colors_and_type.css">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,7 +19,7 @@
 /* global React */
 
 /* ============================================================
-   Header â€” sticky top nav, shared across all pages
+   Header — sticky top nav, shared across all pages
    ============================================================ */
 function RM_Header({ active }) {
   const items = [
@@ -46,7 +46,7 @@ function RM_Header({ active }) {
                 info@robotmea.com
               </span>
             </div>
-            <div className="rm-utility-locales">Islamabad Â· Dubai Â· Seoul Â· Shanghai</div>
+            <div className="rm-utility-locales">Islamabad · Dubai · Seoul · Shanghai</div>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ function RM_Header({ active }) {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
               </button>
               <a href="etm.html" className="rm-btn rm-btn--primary rm-btn--sm rm-btn--pill">
-                ETM Deck<span className="rm-btn__arrow">â†’</span>
+                ETM Deck<span className="rm-btn__arrow">→</span>
               </a>
             </div>
           </div>
@@ -78,7 +78,7 @@ function RM_Header({ active }) {
 }
 
 /* ============================================================
-   Brand divider â€” 4-tick + eyebrow + heading
+   Brand divider — 4-tick + eyebrow + heading
    ============================================================ */
 function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) {
   return (
@@ -94,7 +94,7 @@ function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) 
 }
 
 /* ============================================================
-   Triple-credential badge â€” used everywhere
+   Triple-credential badge — used everywhere
    ============================================================ */
 function RM_Credentials({ variant = "ghost", layout = "row" }) {
   const items = [
@@ -118,7 +118,7 @@ function RM_Credentials({ variant = "ghost", layout = "row" }) {
 }
 
 /* ============================================================
-   Footer â€” shared across all pages
+   Footer — shared across all pages
    ============================================================ */
 function RM_Footer() {
   const cols = [
@@ -155,9 +155,9 @@ function RM_Footer() {
         <div className="rm-footer__top">
           <div className="rm-footer__brand">
             <img src="../assets/logo-full.png" alt="Robotmea" />
-            <p>Robotmea is Pakistan's EdTech authority for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education â€” accredited by Robotron, South Korea, and the parent of the Educational Transformation Movement.</p>
+            <p>Robotmea is Pakistan's EdTech authority for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education — accredited by Robotron, South Korea, and the parent of the Educational Transformation Movement.</p>
             <div className="rm-footer__statement">
-              "A Project of Robotmea Â· Powered by ETM on South Korean Educational Standards Â· Accredited by Robotron, South Korea."
+              "A Project of Robotmea · Powered by ETM on South Korean Educational Standards · Accredited by Robotron, South Korea."
             </div>
             <div className="rm-footer__social">
               <a href="#" aria-label="LinkedIn">in</a>
@@ -176,8 +176,8 @@ function RM_Footer() {
           </div>
         </div>
         <div className="rm-footer__bottom">
-          <span>Â© {new Date().getFullYear()} Robotmea Â· A Time Dimension Group Company</span>
-          <span>Privacy Â· Terms Â· Cookie Policy</span>
+          <span>© {new Date().getFullYear()} Robotmea · A Time Dimension Group Company</span>
+          <span>Privacy · Terms · Cookie Policy</span>
         </div>
       </div>
     </footer>
@@ -185,7 +185,7 @@ function RM_Footer() {
 }
 
 /* ============================================================
-   Page-stub â€” shared placeholder for not-yet-built pages
+   Page-stub — shared placeholder for not-yet-built pages
    ============================================================ */
 function RM_PageStub({ eyebrow, title, body, primaryCta = "Back to Home", primaryHref = "index.html" }) {
   return (
@@ -194,7 +194,7 @@ function RM_PageStub({ eyebrow, title, body, primaryCta = "Back to Home", primar
         <div className="rm-eyebrow rm-eyebrow--center rm-stub__eyebrow">{eyebrow}</div>
         <h1 className="rm-h1 rm-stub__h1">{title}</h1>
         <p className="rm-stub__body">{body}</p>
-        <a href={primaryHref} className="rm-btn rm-btn--primary">{primaryCta}<span className="rm-btn__arrow">â†’</span></a>
+        <a href={primaryHref} className="rm-btn rm-btn--primary">{primaryCta}<span className="rm-btn__arrow">→</span></a>
       </div>
     </section>
   );
@@ -222,7 +222,7 @@ function ContactHero() {
           <span className="rm-contact-hero__title-accent">Something Together.</span>
         </h1>
         <p className="rm-contact-hero__lead">
-          Whether you're a parent, a principal, an investor, a government partner, or press â€” there's a desk at Robotmea for you. Pick the right door below or fill in the form and we'll route your message to the right wing.
+          Whether you're a parent, a principal, an investor, a government partner, or press — there's a desk at Robotmea for you. Pick the right door below or fill in the form and we'll route your message to the right wing.
         </p>
       </div>
     </section>
@@ -236,7 +236,7 @@ function ContactDoors() {
       c: "var(--rm-blue)",
       tag: "Institute Desk",
       name: "IERDG",
-      for: "For principals, ETM investors, diploma applicants, teachers and parents â€” anything connected to the Institute or one of its five programs.",
+      for: "For principals, ETM investors, diploma applicants, teachers and parents — anything connected to the Institute or one of its five programs.",
       email: "institute@robotmea.com",
       icon: <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>,
     },
@@ -244,7 +244,7 @@ function ContactDoors() {
       c: "var(--rm-orange)",
       tag: "Communications Desk",
       name: "COPR Nexus",
-      for: "For press, government, partnerships, events and anything COPR Nexus handles â€” including international partner intake.",
+      for: "For press, government, partnerships, events and anything COPR Nexus handles — including international partner intake.",
       email: "nexus@robotmea.com",
       icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>,
     },
@@ -274,7 +274,7 @@ function ContactDoors() {
               <p className="rm-door__for">{d.for}</p>
               <span className="rm-door__email">
                 {d.email}
-                <span className="rm-door__email-arrow">â†’</span>
+                <span className="rm-door__email-arrow">→</span>
               </span>
             </a>
           ))}
@@ -296,13 +296,13 @@ function ContactForm() {
         />
         <div className="rm-contact-form-section__layout">
           {/* Form */}
-          <form className="rm-form" onSubmit={(e) => { e.preventDefault(); alert("Thanks â€” your message has been queued. Wire this form to /api/contact in production."); }}>
+          <form className="rm-form" onSubmit={(e) => { e.preventDefault(); alert("Thanks — your message has been queued. Wire this form to /api/contact in production."); }}>
             <div className="rm-form__head">
               <div>
                 <h3 className="rm-form__h">Tell us about your enquiry</h3>
                 <p className="rm-form__sub">Required fields marked with <span className="rm-form__req">*</span></p>
               </div>
-              <div className="rm-form__counter">8 fields Â· ~2 min</div>
+              <div className="rm-form__counter">8 fields · ~2 min</div>
             </div>
             <div className="rm-form__grid">
               <div className="rm-form__field">
@@ -333,9 +333,9 @@ function ContactForm() {
                 </select>
               </div>
               <div className="rm-form__field">
-                <label className="rm-form__label">I am aâ€¦ <span className="rm-form__req">*</span></label>
+                <label className="rm-form__label">I am a… <span className="rm-form__req">*</span></label>
                 <select className="rm-form__select" required defaultValue="">
-                  <option value="" disabled>Pick oneâ€¦</option>
+                  <option value="" disabled>Pick one…</option>
                   <option>Parent</option>
                   <option>School Principal / Owner</option>
                   <option>Investor</option>
@@ -348,10 +348,10 @@ function ContactForm() {
               <div className="rm-form__field rm-form__field--full">
                 <label className="rm-form__label">What's this about? <span className="rm-form__req">*</span></label>
                 <select className="rm-form__select" required defaultValue="">
-                  <option value="" disabled>Pick the wingâ€¦</option>
-                  <option>IERDG â€” Institute (K-12, FDC, RETC, diplomas)</option>
+                  <option value="" disabled>Pick the wing…</option>
+                  <option>IERDG — Institute (K-12, FDC, RETC, diplomas)</option>
                   <option>Educational Transformation Movement (ETM)</option>
-                  <option>COPR Nexus â€” Communications / Press / Partnerships</option>
+                  <option>COPR Nexus — Communications / Press / Partnerships</option>
                   <option>International Partner Intake</option>
                   <option>Careers</option>
                   <option>General Enquiry</option>
@@ -359,7 +359,7 @@ function ContactForm() {
               </div>
               <div className="rm-form__field rm-form__field--full">
                 <label className="rm-form__label">Message <span className="rm-form__req">*</span></label>
-                <textarea className="rm-form__textarea" placeholder="Tell us what you'd like to discuss â€” feasibility session, partnership, diploma admissions, press enquiryâ€¦" required></textarea>
+                <textarea className="rm-form__textarea" placeholder="Tell us what you'd like to discuss — feasibility session, partnership, diploma admissions, press enquiry…" required></textarea>
               </div>
             </div>
             <div className="rm-form__footer">
@@ -367,7 +367,7 @@ function ContactForm() {
                 By submitting this form you agree to be contacted by Robotmea. See our <a href="#">privacy policy</a>.
               </p>
               <button type="submit" className="rm-btn rm-btn--primary rm-btn--lg">
-                Send Message<span className="rm-btn__arrow">â†’</span>
+                Send Message<span className="rm-btn__arrow">→</span>
               </button>
             </div>
           </form>
@@ -382,7 +382,7 @@ function ContactForm() {
               <h4 className="rm-office__h">Pakistan Office</h4>
               <p className="rm-office__addr">
                 Plot 1, Street 1, F-Block, H-13<br />
-                Paris City, Islamabad â€” near NUST
+                Paris City, Islamabad — near NUST
               </p>
               <div className="rm-office__row">
                 <svg viewBox="0 0 24 24"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>
@@ -429,7 +429,7 @@ function ContactForm() {
                 <a className="rm-c-social__btn" href="https://www.facebook.com/robotami/" target="_blank" rel="noreferrer" aria-label="Facebook">f</a>
                 <a className="rm-c-social__btn" href="#" aria-label="Instagram">IG</a>
                 <a className="rm-c-social__btn" href="#" aria-label="YouTube">YT</a>
-                <a className="rm-c-social__btn" href="#" aria-label="X / Twitter">ð•</a>
+                <a className="rm-c-social__btn" href="#" aria-label="X / Twitter">𝕏</a>
               </div>
             </div>
           </div>
@@ -446,7 +446,7 @@ function ContactQuickRoutes() {
       icon: <svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg> },
     { c: "var(--rm-blue)",   h: "Transform My School", sub: "The 6-step IERDG plan for principals.", to: "institute.html#transform",
       icon: <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> },
-    { c: "var(--rm-green)",  h: "Build a Solution", sub: "7-step Solution Finder Â· download a PDF brief.", to: "copr-nexus.html#finder",
+    { c: "var(--rm-green)",  h: "Build a Solution", sub: "7-step Solution Finder · download a PDF brief.", to: "copr-nexus.html#finder",
       icon: <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg> },
     { c: "var(--rm-red)",    h: "Careers / HR", sub: "Drop your CV to hr@robotmea.com.", to: "mailto:hr@robotmea.com",
       icon: <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> },
@@ -465,7 +465,7 @@ function ContactQuickRoutes() {
               <div className="rm-qroute__icon">{r.icon}</div>
               <h4 className="rm-qroute__h">{r.h}</h4>
               <p className="rm-qroute__sub">{r.sub}</p>
-              <span className="rm-qroute__arrow">Open â†’</span>
+              <span className="rm-qroute__arrow">Open →</span>
             </a>
           ))}
         </div>

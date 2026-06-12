@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:trainingrobotmea-sys.github.io)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}
