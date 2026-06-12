@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Type" name="Mono Type" subtitle="Code, tokens, labels — JetBrains Mono" viewport="700x250" -->
+<html><head><meta charset="utf-8"><title>Mono Type</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg-1); font-family: var(--font-body); }
+  .wrap { display: flex; flex-direction: column; gap: 16px; }
+  .mono-lg { font-family: var(--font-mono); font-weight: 500; font-size: 22px; color: var(--fg-1); letter-spacing: -.01em; }
+  .mono-row { font-family: var(--font-mono); font-size: 13px; color: var(--fg-2); display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { background: var(--rm-night); color: #fff; padding: 4px 10px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 12px; }
+  .weights { display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline; }
+  .w { font-family: var(--font-mono); font-size: 18px; color: var(--fg-1); }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); }
+</style></head>
+<body>
+  <div class="wrap">
+    <div class="mono-lg">JetBrains&nbsp;Mono — 0123456789</div>
+    <div class="weights">
+      <span class="w" style="font-weight:400">Regular</span>
+      <span class="w" style="font-weight:500">Medium</span>
+      <span class="w" style="font-weight:600">SemiBold</span>
+      <span class="w" style="font-weight:700">Bold</span>
+      <span class="w" style="font-weight:400;font-style:italic">Italic</span>
+    </div>
+    <div class="mono-row">
+      <span class="chip">--rm-blue</span>
+      <span class="chip">#ff870b</span>
+      <span class="chip">clamp(34px, 4.4vw, 60px)</span>
+    </div>
+    <div class="meta">var(--font-mono) · self-hosted /fonts/JetBrainsMono-*.ttf</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Secondary Colors" subtitle="Red + Green — accent pillars" viewport="700x190" -->
+<html><head><meta charset="utf-8"><title>Brand Colors — Secondary</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--bg-1); }
+  .row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .sw { display: flex; flex-direction: column; gap: 8px; }
+  .chip { height: 90px; border-radius: var(--radius-lg); box-shadow: var(--shadow-1); }
+  .chip.red { background: var(--rm-red); }
+  .chip.green { background: var(--rm-green); }
+  .meta { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-body); }
+  .name { font-weight: 700; font-size: 13px; color: var(--fg-1); letter-spacing: .04em; text-transform: uppercase; }
+  .hex { font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
+  .role { font-size: 11px; color: var(--fg-3); margin-top: 2px; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="sw">
+      <div class="chip red"></div>
+      <div class="meta"><span class="name">Robotmea Red</span><span class="hex">#EB4848</span></div>
+      <div class="role">Secondary · innovation pillar, danger</div>
+    </div>
+    <div class="sw">
+      <div class="chip green"></div>
+      <div class="meta"><span class="name">Robotmea Green</span><span class="hex">#7D9E3E</span></div>
+      <div class="role">Secondary · IoT pillar, success</div>
+    </div>
+  </div>
+</body></html>

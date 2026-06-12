@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Blue Scale" subtitle="50 → 900 tints/shades" viewport="700x170" -->
+<html><head><meta charset="utf-8"><title>Blue Scale</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--bg-1); font-family: var(--font-body); }
+  .scale { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
+  .step { display: flex; flex-direction: column; gap: 6px; }
+  .sw { height: 64px; border-radius: var(--radius-md); }
+  .lbl { font-size: 10px; color: var(--fg-3); text-align: center; font-family: var(--font-mono); }
+  .name { font-size: 9px; color: var(--fg-2); text-align: center; letter-spacing: .04em; text-transform: uppercase; font-weight: 600; }
+</style></head>
+<body>
+  <div class="scale">
+    <div class="step"><div class="sw" style="background:var(--rm-blue-50);border:1px solid var(--border-1)"></div><div class="name">50</div><div class="lbl">ECF5F8</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-blue-100)"></div><div class="name">100</div><div class="lbl">D4EAF0</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-blue-200)"></div><div class="name">200</div><div class="lbl">A8D4E2</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-blue-300)"></div><div class="name">300</div><div class="lbl">7CBDD1</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-blue-500);outline:2px solid var(--fg-1);outline-offset:2px"></div><div class="name">500★</div><div class="lbl">449EB8</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-blue-600)"></div><div class="name">600</div><div class="lbl">2F87A1</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-blue-700)"></div><div class="name">700</div><div class="lbl">226B81</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-blue-900)"></div><div class="name">900</div><div class="lbl">133E4B</div></div>
+  </div>
+</body></html>

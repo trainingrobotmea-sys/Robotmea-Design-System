@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Semantic Colors" subtitle="Info, success, warning, danger" viewport="700x170" -->
+<html><head><meta charset="utf-8"><title>Semantic Colors</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--bg-1); font-family: var(--font-body); }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .tile { border-radius: var(--radius-lg); padding: 14px; color: white; display: flex; flex-direction: column; gap: 6px; min-height: 90px; }
+  .tile .nm { font-weight: 800; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .tile .desc { font-size: 11px; opacity: .9; line-height: 1.4; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="tile" style="background:var(--info)"><span class="nm">Info</span><span class="desc">var(--info)<br>#449EB8</span></div>
+    <div class="tile" style="background:var(--success)"><span class="nm">Success</span><span class="desc">var(--success)<br>#7D9E3E</span></div>
+    <div class="tile" style="background:var(--warning)"><span class="nm">Warning</span><span class="desc">var(--warning)<br>#FF870B</span></div>
+    <div class="tile" style="background:var(--danger)"><span class="nm">Danger</span><span class="desc">var(--danger)<br>#EB4848</span></div>
+  </div>
+</body></html>

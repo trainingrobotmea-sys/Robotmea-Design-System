@@ -1,0 +1,571 @@
+/* global React */
+
+/* ============================================================
+   COPR Solution Finder — 7-step interactive wizard
+   - Q1 supports multi-select
+   - Forward navigation blocked on unanswered steps
+   - Submits to /api/copr-finder (graceful fallback if absent)
+   - Generates a downloadable PDF brief on completion
+   ============================================================ */
+function CoprFinder() {
+  const STEPS = [
+    {
+      key: "grade",
+      tag: "Grade Range",
+      q: "Which grade range(s) are you looking to serve?",
+      qsub: "Pick all that apply. We'll layer programmes to match.",
+      kind: "multi",
+      options: [
+        { v: "pre",     tag: "Q1", title: "Pre-Primary Program",   sub: "Nursery and Prep" },
+        { v: "primary", tag: "Q1", title: "Primary Year Program",  sub: "Grade 1 to Grade 5" },
+        { v: "middle",  tag: "Q1", title: "Middle Year Program",   sub: "Grade 6 to Grade 8" },
+        { v: "higher",  tag: "Q1", title: "Higher Year Program",   sub: "Grade 9 to Grade 12" },
+      ],
+    },
+    {
+      key: "hardware",
+      tag: "Emerging Tech",
+      q: "Which emerging technologies hardware do you want to deploy?",
+      qsub: "Select one or more. We'll size the Discovery & Innovation Hub or ETM Garage around your selection.",
+      kind: "multi",
+      options: [
+        { v: "robotics", tag: "Hardware", title: "Robotics",                   sub: "Educational robotics kits, competition platforms, MiniRobot library" },
+        { v: "ai",       tag: "Hardware", title: "AI",                         sub: "Edge AI dev kits, classroom AI workbenches, model-training stations" },
+        { v: "vr",       tag: "Hardware", title: "Virtual Reality",            sub: "VR headsets, immersive learning content, AR/VR authoring tools" },
+        { v: "3d",       tag: "Hardware", title: "3D Printing & Prototyping",  sub: "3D printers, laser cutters, CAD workstations, fabrication consumables" },
+      ],
+    },
+    {
+      key: "model",
+      tag: "Academic Model",
+      q: "Which academic model fits your school's intent?",
+      qsub: "Two paths — both fully supported. The difference is how deep the technology runs through the curriculum.",
+      kind: "compare",
+      options: [
+        {
+          v: "addition",
+          tag: "Model A · Addition",
+          c: "var(--rm-blue)",
+          glow: "rgba(68,158,184,.4)",
+          title: "Addition of a Subject",
+          lead: "Robotmea is added as a stand-alone subject inside your existing curriculum, taught once a week. The rest of the academic plan stays as it is.",
+          bullets: [
+            "AI, Robotics & STEAM Lab establishment",
+            "Teacher training on the addition framework",
+            "Lesson plans, scheme of work, teacher's guide",
+            "Rubrics, learning logs, student manuals",
+          ],
+          time: "Cadence",
+          timeValue: "80 min / week",
+        },
+        {
+          v: "integration",
+          tag: "Model B · Integration",
+          c: "var(--rm-orange)",
+          glow: "rgba(255,135,11,.45)",
+          title: "Integration of a Subject",
+          lead: "Technology becomes the centre of the curriculum. Existing subjects (science, math, language, social studies) spin around it through problem-based inquiry learning.",
+          bullets: [
+            "Establishment of Discovery & Innovation Hub",
+            "Teacher training on integration methodology",
+            "Master Integration Sheet + Lab Integrated Manual",
+            "Practical workbook + assessment system",
+          ],
+          time: "Cadence",
+          timeValue: "Across all subjects",
+        },
+      ],
+    },
+    {
+      key: "training",
+      tag: "Training Mode",
+      q: "How would you like us to conduct teacher trainings?",
+      qsub: "Three formats — pick the one that fits your team's geography and bandwidth.",
+      kind: "single",
+      options: [
+        { v: "online",  tag: "Mode 01", title: "Online",                       sub: "Live virtual cohorts + on-demand library, ideal for distributed teams" },
+        { v: "campus",  tag: "Mode 02", title: "Onsite at Your Campus",        sub: "Our trainers come to your school for residencies and CPD blocks" },
+        { v: "centre",  tag: "Mode 03", title: "Onsite at a Robotmea Centre",  sub: "Your teachers attend our accredited centres for immersive cohorts" },
+      ],
+    },
+    {
+      key: "me",
+      tag: "M&E Support",
+      q: "Do you want our team to provide Monitoring & Evaluation support?",
+      qsub: "Our M&E wing runs quarterly audits, anonymised central data, and an annual Impact Report you can share with your board and parents.",
+      kind: "yn",
+      options: [
+        { v: "yes", tag: "Recommended", title: "Yes, include M&E", sub: "Quarterly audits + Impact Report + dedicated M&E contact" },
+        { v: "no",  tag: "Not now",    title: "Skip for now",       sub: "We can add M&E in a follow-up cycle if your needs change" },
+      ],
+    },
+    {
+      key: "assessment",
+      tag: "Assessment Module",
+      q: "Would you like to opt for the Robotmea Assessment Module?",
+      qsub: "Standardised rubrics, portfolio reviews, and Robotron-aligned skill benchmarks across your cohort.",
+      kind: "yn",
+      options: [
+        { v: "yes", tag: "Recommended", title: "Yes, add Assessment Module", sub: "Robotron-aligned rubrics, portfolio reviews, skill benchmarks" },
+        { v: "no",  tag: "Not now",    title: "Skip for now",                sub: "We'll still use our internal assessment toolkit" },
+      ],
+    },
+    {
+      key: "tool",
+      tag: "Monitoring Tool",
+      q: "Are you interested in the Robotmea Program Monitoring Tool?",
+      qsub: "An online platform for real-time programme visibility — attendance, project progress, teacher feedback, parent dashboards. Available at additional cost.",
+      kind: "yn",
+      options: [
+        { v: "yes", tag: "Premium", title: "Yes, include the Tool", sub: "Real-time dashboards, parent visibility, full programme telemetry" },
+        { v: "no",  tag: "Not now", title: "Skip for now",          sub: "Standard reporting only" },
+      ],
+    },
+  ];
+
+  const TOTAL = STEPS.length;
+  const [step, setStep] = React.useState(0);
+  const [answers, setAnswers] = React.useState({});
+  const [showSummary, setShowSummary] = React.useState(false);
+
+  const current = STEPS[step];
+  const currentAnswer = answers[current.key];
+
+  const isAnswered = (s) => {
+    const a = answers[s.key];
+    if (s.kind === "multi") return Array.isArray(a) && a.length > 0;
+    return !!a;
+  };
+  const allAnsweredUpTo = (i) => STEPS.slice(0, i).every(isAnswered);
+
+  const pick = (v) => {
+    if (current.kind === "multi") {
+      const cur = Array.isArray(currentAnswer) ? currentAnswer : [];
+      const next = cur.includes(v) ? cur.filter(x => x !== v) : [...cur, v];
+      setAnswers({ ...answers, [current.key]: next });
+    } else {
+      setAnswers({ ...answers, [current.key]: v });
+    }
+  };
+
+  const goNext = () => {
+    if (!isAnswered(current)) return; // hard-block
+    if (step < TOTAL - 1) setStep(step + 1);
+    else setShowSummary(true);
+  };
+  const goBack = () => { if (step > 0) setStep(step - 1); };
+  const restart = () => { setAnswers({}); setStep(0); setShowSummary(false); };
+
+  if (showSummary) {
+    return <FinderSummary answers={answers} steps={STEPS} restart={restart} />;
+  }
+
+  const progress = ((step + 1) / TOTAL) * 100;
+  const isSelected = (v) => {
+    if (current.kind === "multi") return Array.isArray(currentAnswer) && currentAnswer.includes(v);
+    return currentAnswer === v;
+  };
+
+  return (
+    <section id="finder" className="rm-finder" data-screen-label="03 Solution Finder">
+      <div className="rm-container">
+        <div className="rm-finder__intro">
+          <RM_Divider
+            align="left"
+            eyebrow="Solution Finder"
+            heading={<>Tell us what you need.<br />We'll build your package.</>}
+          />
+          <p className="rm-finder__lead">
+            Seven short questions. Three minutes. By the end, you'll have a custom Robotmea programme brief — grade bands, hardware, academic model, training format, and support add-ons — to share with our team for a discovery call. You'll also be able to download it as a PDF.
+          </p>
+        </div>
+
+        <div className="rm-finder__panel">
+          {/* Progress header */}
+          <div className="rm-finder__head">
+            <div className="rm-finder__head-top">
+              <div className="rm-finder__step-tag">
+                <span className="rm-finder__step-tag-num">{String(step + 1).padStart(2, "0")}</span>
+                {current.tag}
+              </div>
+              <div className="rm-finder__progress-text">Step {step + 1} of {TOTAL}</div>
+            </div>
+            <div className="rm-finder__progress-bar">
+              <div className="rm-finder__progress-fill" style={{ width: progress + "%" }}></div>
+            </div>
+            <div className="rm-finder__steps">
+              {STEPS.map((s, i) => {
+                const done = i < step && isAnswered(s);
+                const cur = i === step;
+                // Forward jumps only allowed if all previous steps answered.
+                const reachable = i <= step || allAnsweredUpTo(i);
+                return (
+                  <button key={s.key}
+                          disabled={!reachable}
+                          className={"rm-finder__dot " + (done ? "is-done " : "") + (cur ? "is-current " : "")}
+                          onClick={() => reachable && setStep(i)}
+                          aria-label={s.tag}>
+                    <span className="rm-finder__dot-num">{i + 1}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Body */}
+          <div className="rm-finder__body">
+            <h3 className="rm-finder__q">{current.q}</h3>
+            <p className="rm-finder__qsub">{current.qsub}</p>
+
+            {current.kind === "compare" ? (
+              <div className="rm-finder__compare">
+                {current.options.map(o => (
+                  <button key={o.v}
+                          type="button"
+                          className={"rm-finder__compare-card " + (isSelected(o.v) ? "is-selected" : "")}
+                          style={{ "--accent": o.c, "--accent-glow": o.glow }}
+                          onClick={() => pick(o.v)}>
+                    <div className="rm-finder__compare-top">
+                      <div className="rm-finder__compare-tag">{o.tag}</div>
+                      <div className="rm-finder__compare-check">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                    </div>
+                    <h4 className="rm-finder__compare-title">{o.title}</h4>
+                    <p className="rm-finder__compare-lead">{o.lead}</p>
+                    <ul className="rm-finder__compare-bullets">
+                      {o.bullets.map(x => <li key={x}>{x}</li>)}
+                    </ul>
+                    <div className="rm-finder__compare-time">
+                      <span>{o.time}</span>
+                      <strong>{o.timeValue}</strong>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className={
+                "rm-finder__options " +
+                (current.kind === "yn" ? "rm-finder__options--yn" :
+                 current.options.length === 3 ? "rm-finder__options--3" : "rm-finder__options--4")
+              }>
+                {current.options.map(o => (
+                  <button key={o.v}
+                          type="button"
+                          className={"rm-finder__opt " + (isSelected(o.v) ? "is-selected" : "")}
+                          onClick={() => pick(o.v)}>
+                    <span className="rm-finder__opt-check">
+                      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    <span className="rm-finder__opt-tag">{o.tag}</span>
+                    <h4 className="rm-finder__opt-title">{o.title}</h4>
+                    <p className="rm-finder__opt-sub">{o.sub}</p>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Live hint once an answer is captured */}
+            {isAnswered(current) && (
+              <div className="rm-finder__hint" role="status">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                {current.kind === "multi"
+                  ? <span><strong>Selected.</strong> You can pick more than one. Click <strong>Continue</strong> below when you're done.</span>
+                  : <span><strong>Selected.</strong> Click <strong>Continue</strong> below to move to the next step.</span>}
+              </div>
+            )}
+          </div>
+
+          {/* Footer (sticky) */}
+          <div className="rm-finder__footer">
+            <button className="rm-finder__back" onClick={goBack} disabled={step === 0}>
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+              Back
+            </button>
+            <button
+              className="rm-btn rm-btn--primary rm-finder__next"
+              onClick={goNext}
+              disabled={!isAnswered(current)}>
+              {step === TOTAL - 1 ? "See My Solution" : "Continue"}
+              <span className="rm-btn__arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   Summary screen — answers + 6-step roadmap + PDF download
+   ============================================================ */
+function FinderSummary({ answers, steps, restart }) {
+  const [sending, setSending] = React.useState(false);
+  const [sent, setSent] = React.useState(false);
+
+  const find = (k) => {
+    const s = steps.find(x => x.key === k);
+    const v = answers[k];
+    if (!s || !v) return null;
+    if (Array.isArray(v)) {
+      return v.map(vv => s.options.find(o => o.v === vv)?.title).filter(Boolean).join(" · ");
+    }
+    return s.options.find(o => o.v === v)?.title;
+  };
+
+  const rows = [
+    { label: "Grade band(s)",        value: find("grade")      || "—",
+      icon: <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> },
+    { label: "Emerging tech hardware", value: find("hardware")  || "—",
+      icon: <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg> },
+    { label: "Academic model",         value: find("model")     || "—",
+      icon: <svg viewBox="0 0 24 24"><path d="M2 3h7a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-7a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h8z"/></svg> },
+    { label: "Training mode",          value: find("training")  || "—",
+      icon: <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2"/><path d="M17 11l3 3 4-5"/></svg> },
+    { label: "Monitoring & Evaluation", value: answers.me === "yes" ? "Included" : "Skip for now",
+      icon: <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg> },
+    { label: "Assessment Module",      value: answers.assessment === "yes" ? "Included" : "Skip for now",
+      icon: <svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> },
+    { label: "Program Monitoring Tool", value: answers.tool === "yes" ? "Included (premium)" : "Skip for now",
+      icon: <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 21h10M12 17v4"/></svg> },
+  ];
+
+  const roadmap = [
+    { t: "Contact a Robotmea Representative", b: "Our team reaches out within 7 working days with a costed proposal." },
+    { t: "Finalize the Program",              b: "Sign-off on the academic model, hardware list, and rollout schedule." },
+    { t: "Establish the Lab",                 b: "We set up the STEAM Lab, Discovery & Innovation Hub, or ETM Garage." },
+    { t: "Acquire the Curriculum",            b: "Globally adopted AI, Robotics & STEAM content delivered to your faculty." },
+    { t: "Spare 80 Minutes a Week",           b: "Teacher training delivered in your chosen format — online or onsite." },
+    { t: "Roll Out the Program",              b: "Launch your future-ready cohort with IERDG monitoring and support." },
+  ];
+
+  /* ---- POST to backend (graceful failure if endpoint absent) ---- */
+  const submit = React.useCallback(() => {
+    try {
+      const payload = {
+        source: "copr-solution-finder",
+        submittedAt: new Date().toISOString(),
+        answers,
+        rows: rows.map(r => ({ label: r.label, value: r.value })),
+      };
+      fetch("/api/copr-finder", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => {/* backend may not exist yet */});
+    } catch (_) {}
+  }, [answers]);
+  React.useEffect(() => { submit(); }, [submit]);
+
+  /* ---- PDF generation (uses jsPDF when available) ---- */
+  const downloadPDF = () => {
+    const { jsPDF } = window.jspdf || {};
+    if (!jsPDF) { alert("PDF library is still loading. Try again in a moment."); return; }
+    const doc = new jsPDF({ unit: "pt", format: "a4" });
+    const W = doc.internal.pageSize.getWidth();
+    const M = 56;
+
+    // Top bar
+    doc.setFillColor(15, 26, 36); doc.rect(0, 0, W, 96, "F");
+    doc.setFillColor(255, 135, 11); doc.rect(0, 0, W, 6, "F");
+    doc.setTextColor(255); doc.setFont("helvetica", "bold");
+    doc.setFontSize(20); doc.text("ROBOTMEA", M, 50);
+    doc.setFontSize(10); doc.setFont("helvetica", "normal");
+    doc.setTextColor(255, 135, 11);
+    doc.text("COPR NEXUS · CUSTOM PROGRAMME BRIEF", M, 70);
+    doc.setTextColor(180, 200, 215);
+    doc.text(new Date().toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" }), W - M, 70, { align: "right" });
+
+    // Title
+    let y = 140;
+    doc.setTextColor(20, 32, 43); doc.setFont("helvetica", "bold");
+    doc.setFontSize(22); doc.text("Your Custom Robotmea Programme", M, y); y += 14;
+    doc.setFontSize(11); doc.setFont("helvetica", "normal"); doc.setTextColor(91, 103, 112);
+    const lead = "The following selections form the basis for your Robotmea programme proposal. Share this brief with our team to receive a costed proposal within 7 working days.";
+    doc.text(doc.splitTextToSize(lead, W - M*2), M, y + 14); y += 50;
+
+    // Selections table
+    doc.setDrawColor(221, 227, 232);
+    doc.setLineWidth(0.5);
+    rows.forEach((r) => {
+      doc.setFillColor(247, 249, 251); doc.rect(M, y, W - M*2, 36, "F");
+      doc.setTextColor(91, 103, 112); doc.setFont("helvetica", "bold"); doc.setFontSize(8);
+      doc.text(r.label.toUpperCase(), M + 14, y + 14);
+      doc.setTextColor(20, 32, 43); doc.setFontSize(11);
+      doc.text(doc.splitTextToSize(r.value, W - M*2 - 28), M + 14, y + 28);
+      y += 42;
+    });
+
+    // Next steps
+    y += 14;
+    doc.setFillColor(15, 26, 36); doc.rect(M, y, W - M*2, 38, "F");
+    doc.setTextColor(255, 135, 11); doc.setFont("helvetica", "bold"); doc.setFontSize(9);
+    doc.text("NEXT STEPS · YOUR PATH TO ROLLOUT", M + 14, y + 16);
+    doc.setTextColor(255); doc.setFontSize(13);
+    doc.text("Six steps from this brief to a future-ready cohort.", M + 14, y + 32);
+    y += 52;
+
+    roadmap.forEach((s, i) => {
+      doc.setFillColor(255, 135, 11);
+      doc.circle(M + 14, y + 12, 11, "F");
+      doc.setTextColor(255); doc.setFont("helvetica", "bold"); doc.setFontSize(10);
+      doc.text(String(i + 1).padStart(2, "0"), M + 14, y + 16, { align: "center" });
+      doc.setTextColor(20, 32, 43); doc.setFont("helvetica", "bold"); doc.setFontSize(11);
+      doc.text(s.t, M + 38, y + 12);
+      doc.setTextColor(91, 103, 112); doc.setFont("helvetica", "normal"); doc.setFontSize(10);
+      const body = doc.splitTextToSize(s.b, W - M*2 - 40);
+      doc.text(body, M + 38, y + 28);
+      y += 22 + body.length * 12;
+    });
+
+    // Footer
+    y = Math.max(y + 14, doc.internal.pageSize.getHeight() - 70);
+    doc.setDrawColor(221, 227, 232); doc.setLineWidth(0.5);
+    doc.line(M, y, W - M, y); y += 18;
+    doc.setTextColor(91, 103, 112); doc.setFont("helvetica", "normal"); doc.setFontSize(9);
+    doc.text("Robotmea · COPR Nexus · institute@robotmea.com", M, y);
+    doc.text("Transforming the Future of Youth", W - M, y, { align: "right" });
+
+    doc.save("robotmea-programme-brief.pdf");
+  };
+
+  /* ---- Generate PDF + email it to COPR Team (no separate download) ---- */
+  const generateAndSend = async () => {
+    if (sending || sent) return;
+    setSending(true);
+    try {
+      const { jsPDF } = window.jspdf || {};
+      let pdfDataUrl = null;
+      if (jsPDF) {
+        const doc = new jsPDF({ unit: "pt", format: "a4" });
+        const W = doc.internal.pageSize.getWidth();
+        const M = 56;
+        doc.setFillColor(15, 26, 36); doc.rect(0, 0, W, 96, "F");
+        doc.setFillColor(255, 135, 11); doc.rect(0, 0, W, 6, "F");
+        doc.setTextColor(255); doc.setFont("helvetica", "bold");
+        doc.setFontSize(20); doc.text("ROBOTMEA", M, 50);
+        doc.setFontSize(10); doc.setFont("helvetica", "normal");
+        doc.setTextColor(255, 135, 11);
+        doc.text("COPR NEXUS · CUSTOM PROGRAMME BRIEF", M, 70);
+        let y = 140;
+        doc.setTextColor(20, 32, 43); doc.setFont("helvetica", "bold");
+        doc.setFontSize(22); doc.text("Your Custom Robotmea Programme", M, y); y += 30;
+        doc.setFontSize(11); doc.setFont("helvetica", "normal"); doc.setTextColor(91, 103, 112);
+        const lead = "Brief submitted to the COPR Nexus team. Expect a costed proposal within 7 working days.";
+        doc.text(doc.splitTextToSize(lead, W - M*2), M, y); y += 28;
+        rows.forEach((r) => {
+          doc.setFillColor(247, 249, 251); doc.rect(M, y, W - M*2, 36, "F");
+          doc.setTextColor(91, 103, 112); doc.setFont("helvetica", "bold"); doc.setFontSize(8);
+          doc.text(r.label.toUpperCase(), M + 14, y + 14);
+          doc.setTextColor(20, 32, 43); doc.setFontSize(11);
+          doc.text(doc.splitTextToSize(r.value, W - M*2 - 28), M + 14, y + 28);
+          y += 42;
+        });
+        pdfDataUrl = doc.output("datauristring");
+      }
+      try {
+        await fetch("/api/copr-finder/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            source: "copr-solution-finder",
+            submittedAt: new Date().toISOString(),
+            answers,
+            rows: rows.map(r => ({ label: r.label, value: r.value })),
+            pdfBase64: pdfDataUrl,
+          }),
+        });
+      } catch (_) {/* backend may not exist yet */}
+      // Visual confirmation regardless of backend status
+      setTimeout(() => { setSending(false); setSent(true); }, 700);
+    } catch (e) {
+      setSending(false);
+      alert("Something went wrong generating the PDF. Please try again or use 'Download PDF'.");
+    }
+  };
+
+  return (
+    <section id="finder" className="rm-finder" data-screen-label="03 Solution Finder Summary">
+      <div className="rm-container">
+        <div className="rm-finder__intro">
+          <RM_Divider
+            align="left"
+            eyebrow="Your Custom Brief"
+            heading={<>Your Robotmea<br />programme. Ready.</>}
+          />
+          <p className="rm-finder__lead">
+            Here's the package you've configured. Download the brief as a PDF, or send it directly to our team — we'll have a costed proposal back to you within seven working days.
+          </p>
+        </div>
+
+        <div className="rm-finder__panel">
+          <div className="rm-summary">
+            <div className="rm-summary__top">
+              <div className="rm-summary__seal">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <div className="rm-summary__tag">Custom Brief Generated</div>
+                <h3 className="rm-summary__h">Your Robotmea Programme</h3>
+              </div>
+            </div>
+
+            <div className="rm-summary__grid">
+              {rows.map(r => (
+                <div key={r.label} className="rm-summary__row">
+                  <div className="rm-summary__row-icon">{r.icon}</div>
+                  <div>
+                    <div className="rm-summary__row-label">{r.label}</div>
+                    <div className="rm-summary__row-value">{r.value}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Roadmap — the 6 next-steps */}
+            <div className="rm-roadmap">
+              <div className="rm-roadmap__h">Next Steps · Your Path To Rollout</div>
+              <div className="rm-roadmap__grid">
+                {roadmap.map((s, i) => (
+                  <div key={s.t} className="rm-roadmap__step">
+                    <div className="rm-roadmap__step-num">{String(i + 1).padStart(2, "0")}</div>
+                    <h4 className="rm-roadmap__step-title">{s.t}</h4>
+                    <p className="rm-roadmap__step-body">{s.b}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rm-summary__cta">
+              <div className="rm-summary__cta-eyebrow">
+                Download the brief, send it directly to our COPR Team, or open the full contact form — whichever's fastest.
+              </div>
+              <button onClick={downloadPDF} className="rm-btn rm-btn--lg rm-finder__pdf">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 8 }}>
+                  <path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><rect x="3" y="17" width="18" height="4" rx="1"/>
+                </svg>
+                Download PDF
+              </button>
+              <button onClick={generateAndSend} className="rm-btn rm-btn--primary rm-btn--lg" disabled={sending}>
+                {sending
+                  ? <>Sending…</>
+                  : sent
+                    ? <>Sent to COPR Team ✓</>
+                    : <>Generate PDF &amp; Send to COPR Team<span className="rm-btn__arrow">→</span></>
+                }
+              </button>
+              <a href="contact.html" className="rm-btn rm-btn--lg rm-finder__pdf">
+                Open Contact Form
+              </a>
+              <button className="rm-summary__restart" onClick={restart}>
+                ← Start over
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { CoprFinder });

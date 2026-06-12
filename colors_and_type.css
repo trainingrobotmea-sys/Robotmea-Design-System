@@ -1,0 +1,342 @@
+/* ============================================================
+   ROBOTMEA DESIGN SYSTEM — colors_and_type.css
+   Primary brand colors are pulled from the Robotmea logo.
+   Type pairs Century Gothic (brand) with Montserrat (UI/body).
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+/* Self-hosted from /fonts/. No external Google Fonts dependency. */
+
+@font-face {
+  font-family: "Century Gothic";
+  src: url("fonts/CenturyGothic-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Century Gothic";
+  src: url("fonts/CenturyGothic-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Italic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-Black.ttf") format("truetype");
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+
+/* JetBrains Mono — self-hosted from /fonts/. Used for --font-mono (code, tokens, labels). */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Italic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Medium.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-SemiBold.ttf") format("truetype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/JetBrainsMono-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* ============== COLORS — Brand ============== */
+  --rm-blue:    #449eb8;   /* primary — wordmark, links, headings */
+  --rm-orange:  #ff870b;   /* primary action / energy */
+  --rm-red:     #eb4848;   /* secondary — innovation / accent */
+  --rm-green:   #7d9e3e;   /* secondary — IoT / growth */
+
+  /* Brand color tints (light surfaces) */
+  --rm-blue-50:    #ecf5f8;
+  --rm-blue-100:   #d4eaf0;
+  --rm-blue-200:   #a8d4e2;
+  --rm-blue-300:   #7cbdd1;
+  --rm-blue-500:   #449eb8;
+  --rm-blue-600:   #2f87a1;
+  --rm-blue-700:   #226b81;
+  --rm-blue-900:   #133e4b;
+
+  --rm-orange-50:  #fff3e6;
+  --rm-orange-100: #ffe1c1;
+  --rm-orange-200: #ffc285;
+  --rm-orange-500: #ff870b;
+  --rm-orange-600: #e57400;
+  --rm-orange-700: #b65b00;
+
+  --rm-red-50:     #fdecec;
+  --rm-red-500:    #eb4848;
+  --rm-red-600:    #d12f2f;
+
+  --rm-green-50:   #f1f5e7;
+  --rm-green-500:  #7d9e3e;
+  --rm-green-600:  #66832f;
+
+  /* ============== COLORS — Neutrals ============== */
+  --rm-white:    #ffffff;
+  --rm-paper:    #f7f9fb;   /* light page bg */
+  --rm-mist:     #eef2f5;   /* section bg / dividers */
+  --rm-line:     #dde3e8;   /* hairlines */
+  --rm-ink-300:  #9aa3ad;
+  --rm-ink-500:  #5b6770;   /* secondary text */
+  --rm-ink-700:  #2f3a44;   /* body text */
+  --rm-ink-900:  #14202b;   /* headings on light */
+  --rm-night:    #0f1a24;   /* dark sections */
+
+  /* ============== COLOR — Semantic ============== */
+  --fg-1: var(--rm-ink-900);
+  --fg-2: var(--rm-ink-700);
+  --fg-3: var(--rm-ink-500);
+  --fg-muted: var(--rm-ink-300);
+  --fg-on-color: #ffffff;
+
+  --bg-1: var(--rm-white);
+  --bg-2: var(--rm-paper);
+  --bg-3: var(--rm-mist);
+  --bg-dark: var(--rm-night);
+
+  --border-1: var(--rm-line);
+  --border-strong: var(--rm-ink-300);
+
+  --brand:           var(--rm-blue);
+  --brand-contrast:  var(--rm-orange);
+  --action:          var(--rm-orange);
+  --action-hover:    var(--rm-orange-600);
+  --link:            var(--rm-blue-600);
+  --link-hover:      var(--rm-blue-700);
+
+  --success: var(--rm-green);
+  --danger:  var(--rm-red);
+  --info:    var(--rm-blue);
+  --warning: var(--rm-orange);
+
+  /* ============== TYPOGRAPHY ============== */
+  --font-display: "Century Gothic", "Questrial", "Avenir Next", "Avenir", "Segoe UI", system-ui, sans-serif;
+  --font-body:    "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* Weights (brand uses bold all-caps for impact, regular for body) */
+  --fw-light: 300;     /* @kind font */
+  --fw-regular: 400;   /* @kind font */
+  --fw-medium: 500;    /* @kind font */
+  --fw-semibold: 600;  /* @kind font */
+  --fw-bold: 700;      /* @kind font */
+  --fw-black: 900;     /* @kind font */
+
+  /* Letter spacing */
+  --tracking-tight:   -0.01em; /* @kind font */
+  --tracking-normal:  0em;     /* @kind font */
+  --tracking-wide:    0.04em;  /* @kind font */
+  --tracking-caps:    0.08em;  /* @kind font */
+  --tracking-display: 0.02em;  /* @kind font */
+
+  /* Line heights */
+  --lh-tight:  1.1;  /* @kind font */
+  --lh-snug:   1.25; /* @kind font */
+  --lh-normal: 1.5;  /* @kind font */
+  --lh-loose:  1.7;  /* @kind font */
+
+  /* ============== SPACING ============== */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-8:  32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+  --s-32: 128px;
+
+  /* ============== RADII ============== */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+
+  /* ============== ELEVATION / SHADOWS ============== */
+  --shadow-1: 0 1px 2px rgba(15,26,36,.06), 0 1px 3px rgba(15,26,36,.05);
+  --shadow-2: 0 4px 12px rgba(15,26,36,.08);
+  --shadow-3: 0 10px 28px rgba(15,26,36,.12);
+  --shadow-pop: 0 18px 40px -10px rgba(68,158,184,.35);
+  --shadow-warm: 0 18px 40px -10px rgba(255,135,11,.35);
+
+  /* ============== MOTION ============== */
+  --ease-out: cubic-bezier(.2,.7,.2,1); /* @kind other */
+  --ease-inout: cubic-bezier(.65,.05,.36,1); /* @kind other */
+  --dur-fast: 140ms; /* @kind other */
+  --dur-med:  240ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+
+  /* ============== Layout ============== */
+  --container: 1200px;
+  --container-narrow: 880px;
+}
+
+/* ============================================================
+   SEMANTIC TYPE SCALE
+   Display = Century Gothic (or fallback Questrial), all-caps, bold.
+   Body / UI = Montserrat.
+   ============================================================ */
+
+html, body {
+  font-family: var(--font-body);
+  color: var(--fg-2);
+  background: var(--bg-1);
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: var(--lh-normal);
+}
+
+.eyebrow,
+.rm-eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--fw-bold);
+  font-size: 13px;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--rm-orange);
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg-1);
+  text-transform: uppercase;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg-1);
+  text-transform: uppercase;
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 26px;
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 20px;
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+  letter-spacing: var(--tracking-wide);
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: 18px;
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+}
+
+p, .body {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: 16px;
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+}
+
+.body-sm {
+  font-size: 14px;
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+}
+
+.caption {
+  font-size: 12px;
+  line-height: var(--lh-normal);
+  color: var(--fg-3);
+  letter-spacing: 0.02em;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--fg-3);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--link-hover); }

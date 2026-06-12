@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Primary Colors" subtitle="Blue + Orange — the wordmark + action pair" viewport="700x190" -->
+<html><head><meta charset="utf-8"><title>Brand Colors — Primary</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--bg-1); }
+  .row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .sw { display: flex; flex-direction: column; gap: 8px; }
+  .chip { height: 90px; border-radius: var(--radius-lg); position: relative; box-shadow: var(--shadow-1); }
+  .chip.blue { background: var(--rm-blue); }
+  .chip.orange { background: var(--rm-orange); }
+  .meta { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-body); }
+  .name { font-weight: 700; font-size: 13px; color: var(--fg-1); letter-spacing: .04em; text-transform: uppercase; }
+  .hex { font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
+  .role { font-size: 11px; color: var(--fg-3); margin-top: 2px; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="sw">
+      <div class="chip blue"></div>
+      <div class="meta"><span class="name">Robotmea Blue</span><span class="hex">#449EB8</span></div>
+      <div class="role">Primary · wordmark, links, brand</div>
+    </div>
+    <div class="sw">
+      <div class="chip orange"></div>
+      <div class="meta"><span class="name">Robotmea Orange</span><span class="hex">#FF870B</span></div>
+      <div class="role">Primary action · energy, CTAs</div>
+    </div>
+  </div>
+</body></html>

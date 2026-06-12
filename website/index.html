@@ -1,0 +1,1016 @@
+﻿<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Website â€” Homepage" subtitle="Hero slider (4 slides) Â· video bg Â· Vision + Strategic Objective Â· 6-step Principals flow Â· updated footer copy" viewport="1280x1200" -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robotmea â€” Transforming Education For A Better Tomorrow</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" data-from="common.jsx">
+/* global React */
+
+/* ============================================================
+   Header â€” sticky top nav, shared across all pages
+   ============================================================ */
+function RM_Header({ active }) {
+  const items = [
+    { label: "Home", href: "index.html", key: "home" },
+    { label: "IERDG", href: "institute.html", key: "institute" },
+    { label: "COPR Nexus", href: "copr-nexus.html", key: "copr" },
+    { label: "International Partners", href: "partners.html", key: "partners" },
+    { label: "Our Network", href: "network.html", key: "network" },
+    { label: "Contact Us", href: "contact.html", key: "contact" },
+  ];
+  return (
+    <header className="rm-header">
+      <div className="rm-pillar-strip"><span></span><span></span><span></span><span></span></div>
+      <div className="rm-header__utility">
+        <div className="rm-container">
+          <div className="rm-utility-row">
+            <div className="rm-utility-left">
+              <span className="rm-utility-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>
+                +92 51 6128144
+              </span>
+              <span className="rm-utility-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 6l10 7 10-7v12H2zM2 4h20l-10 7z"/></svg>
+                info@robotmea.com
+              </span>
+            </div>
+            <div className="rm-utility-locales">Islamabad Â· Dubai Â· Seoul Â· Shanghai</div>
+          </div>
+        </div>
+      </div>
+      <div className="rm-header__bar">
+        <div className="rm-container">
+          <div className="rm-row rm-row--between">
+            <a className="rm-brand" href="index.html"><img src="../assets/logo-full.png" alt="Robotmea" /></a>
+            <nav className="rm-nav">
+              {items.map(it => (
+                <a key={it.key} href={it.href}
+                   className={"rm-nav__item " + (active === it.key ? "is-active" : "")}>
+                  {it.label}
+                </a>
+              ))}
+            </nav>
+            <div className="rm-header__actions">
+              <button className="rm-search-btn" aria-label="Search">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              </button>
+              <a href="etm.html" className="rm-btn rm-btn--primary rm-btn--sm rm-btn--pill">
+                ETM Deck<span className="rm-btn__arrow">â†’</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+/* ============================================================
+   Brand divider â€” 4-tick + eyebrow + heading
+   ============================================================ */
+function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) {
+  return (
+    <div className={"rm-divider " + (align === "left" ? "rm-divider--left" : "")}>
+      <div className="rm-divider__ticks">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      {eyebrow && <div className={"rm-eyebrow " + (align === "center" ? "rm-eyebrow--center " : "") + (dark ? "rm-eyebrow--white" : "")}>{eyebrow}</div>}
+      {heading && <h2 className={"rm-h2 " + (dark ? "rm-h2--on-dark" : "")} style={{ marginTop: 14 }}>{heading}</h2>}
+      {lead && <p className={"rm-lead " + (dark ? "rm-lead--on-dark" : "")} style={{ marginTop: 18 }}>{lead}</p>}
+    </div>
+  );
+}
+
+/* ============================================================
+   Triple-credential badge â€” used everywhere
+   ============================================================ */
+function RM_Credentials({ variant = "ghost", layout = "row" }) {
+  const items = [
+    { color: "orange", text: "A Project of Robotmea" },
+    { color: "blue",   text: "Powered by ETM on South Korean Educational Standards" },
+    { color: "green",  text: "Accredited by Robotron, South Korea" },
+  ];
+  return (
+    <div className={[
+      "rm-credentials",
+      variant === "solid" ? "rm-credentials--solid" : "",
+      layout === "stacked" ? "rm-credentials--stacked" : "",
+    ].join(" ")}>
+      {items.map((it, i) => (
+        <span key={i} className={"rm-credential rm-credential--" + it.color}>
+          <span className="rm-credential__dot"></span>{it.text}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+/* ============================================================
+   Footer â€” shared across all pages
+   ============================================================ */
+function RM_Footer() {
+  const cols = [
+    { h: "Company",  items: [
+      ["About Robotmea", "institute.html"],
+      ["IERDG", "institute.html"],
+      ["COPR Nexus", "copr-nexus.html"],
+      ["Careers", "contact.html"],
+    ]},
+    { h: "Programs", items: [
+      ["K-12 Program", "institute.html#k12"],
+      ["ETM", "etm.html"],
+      ["Robotmea Emerging Tech Centre", "institute.html#retc"],
+      ["Faculty Development Cell", "institute.html#fdc"],
+      ["International Diploma Program", "institute.html#idp"],
+    ]},
+    { h: "Network",  items: [
+      ["International Partners", "partners.html"],
+      ["Our Network", "network.html"],
+      ["ETM Schools", "etm.html"],
+      ["Become a Partner", "contact.html"],
+    ]},
+    { h: "Connect",  items: [
+      ["Contact Us", "contact.html"],
+      ["Press / Media", "copr-nexus.html"],
+      ["Investor Pack", "etm.html"],
+      ["Newsletter", "contact.html"],
+    ]},
+  ];
+  return (
+    <footer className="rm-footer">
+      <div className="rm-pillar-strip rm-footer__pillar-strip"><span></span><span></span><span></span><span></span></div>
+      <div className="rm-container">
+        <div className="rm-footer__top">
+          <div className="rm-footer__brand">
+            <img src="../assets/logo-full.png" alt="Robotmea" />
+            <p>Robotmea is Pakistan's EdTech authority for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education â€” accredited by Robotron, South Korea, and the parent of the Educational Transformation Movement.</p>
+            <div className="rm-footer__statement">
+              "A Project of Robotmea Â· Powered by ETM on South Korean Educational Standards Â· Accredited by Robotron, South Korea."
+            </div>
+            <div className="rm-footer__social">
+              <a href="#" aria-label="LinkedIn">in</a>
+              <a href="#" aria-label="Instagram">IG</a>
+              <a href="#" aria-label="YouTube">YT</a>
+              <a href="#" aria-label="Facebook">f</a>
+            </div>
+          </div>
+          <div className="rm-footer__cols">
+            {cols.map(c => (
+              <div key={c.h} className="rm-footer__col">
+                <div className="rm-footer__h">{c.h}</div>
+                {c.items.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="rm-footer__bottom">
+          <span>Â© {new Date().getFullYear()} Robotmea Â· A Time Dimension Group Company</span>
+          <span>Privacy Â· Terms Â· Cookie Policy</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ============================================================
+   Page-stub â€” shared placeholder for not-yet-built pages
+   ============================================================ */
+function RM_PageStub({ eyebrow, title, body, primaryCta = "Back to Home", primaryHref = "index.html" }) {
+  return (
+    <section className="rm-stub">
+      <div className="rm-container rm-container--narrow">
+        <div className="rm-eyebrow rm-eyebrow--center rm-stub__eyebrow">{eyebrow}</div>
+        <h1 className="rm-h1 rm-stub__h1">{title}</h1>
+        <p className="rm-stub__body">{body}</p>
+        <a href={primaryHref} className="rm-btn rm-btn--primary">{primaryCta}<span className="rm-btn__arrow">â†’</span></a>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, {
+  RM_Header, RM_Footer, RM_Divider, RM_Credentials, RM_PageStub,
+});
+
+</script>
+  <script type="text/babel" data-from="home-sections.jsx">
+/* global React */
+/* Home page section components */
+
+/* ============ Hero â€” with slider over fixed video background ============ */
+const { useState, useEffect, useRef } = React;
+
+function HomeHero() {
+  const slides = [
+    {
+      key: "main",
+      eyebrow: "Robotmea â€” A Time Dimension Group Company",
+      titleTop: "Transforming",
+      titleAccent: "The Future Of Youth.",
+      sub: <>Robotmea is Pakistan's EdTech authority for <strong style={{ color: 'white' }}>Emerging Technologies (AI, Robotics, AR/VR, Simulation)</strong> and <strong style={{ color: 'white' }}>STEAM Education</strong> â€” accredited by <strong style={{ color: 'white' }}>Robotron, South Korea</strong>, and the parent of the Educational Transformation Movement (ETM) that powers Pakistan's first ETM schools.</>,
+      showCredentials: true,
+      primary: { label: "Explore the Institute", href: "institute.html" },
+      secondary: { label: "Join the ETM Movement", href: "etm.html" },
+    },
+    {
+      key: "institute",
+      tag: "Spotlight Â· The Institute",
+      eyebrow: "IERDG",
+      titleTop: "Where Excellence",
+      titleAccent: "Matters.",
+      sub: <>Five programs. One mission. <strong style={{ color: 'white' }}>Robotron-accredited.</strong> A global <strong style={{ color: 'white' }}>Institute for EdTech Research, Development &amp; Growth</strong> â€” K-12 transformation, the Faculty Development Cell, the Emerging Technologies Centre, and internationally-aligned diplomas.</>,
+      showCredentials: false,
+      primary: { label: "Enter the Institute", href: "institute.html" },
+      secondary: { label: "See the 6-Step Plan", href: "institute.html#transform" },
+    },
+    {
+      key: "diploma",
+      tag: "Spotlight Â· International Diplomas",
+      eyebrow: "International Diploma Programs",
+      titleTop: "Internationally",
+      titleAccent: "Certified Diplomas.",
+      sub: <>One to three year <strong style={{ color: 'white' }}>Robotron-certified diplomas</strong> in Robotics, AI, IoT and applied emerging technologies â€” South-Korean benchmarked, internationally recognised, delivered in Pakistan.</>,
+      showCredentials: false,
+      primary: { label: "Explore Diplomas", href: "institute.html#idp" },
+      secondary: { label: "Apply Now", href: "contact.html" },
+    },
+    {
+      key: "etm",
+      tag: "Spotlight Â· Educational Transformation Movement",
+      eyebrow: "For Investors",
+      titleTop: "Establish Pakistan's",
+      titleAccent: "Next ETM School.",
+      sub: <>ETM is Robotmea's franchise system for South-Korean-accredited Emerging Technologies schools. Investors keep their land, capital, and brand; we bring the operating standard â€” <strong style={{ color: 'white' }}>Robotron Certified Â· ETM Powered Â· South Korean Accredited.</strong></>,
+      showCredentials: false,
+      primary: { label: "Investor Pack", href: "etm.html" },
+      secondary: { label: "Book a Discovery Call", href: "contact.html" },
+    },
+  ];
+
+  const [idx, setIdx] = useState(0);
+  const [tick, setTick] = useState(0); // forces progress-bar restart on dot change
+  const hoverRef = useRef(false);
+
+  // Auto-advance every 7s unless user is hovering the hero
+  useEffect(() => {
+    const t = setInterval(() => {
+      if (!hoverRef.current) {
+        setIdx(i => (i + 1) % slides.length);
+        setTick(x => x + 1);
+      }
+    }, 7000);
+    return () => clearInterval(t);
+  }, [slides.length]);
+
+  const go = (n) => {
+    setIdx((n + slides.length) % slides.length);
+    setTick(x => x + 1);
+  };
+
+  return (
+    <section className="rm-hero" data-screen-label="01 Hero"
+             onMouseEnter={() => { hoverRef.current = true; }}
+             onMouseLeave={() => { hoverRef.current = false; }}>
+      <video
+        className="rm-hero__video"
+        src="hero-bg.mp4"
+        autoPlay muted loop playsInline
+        preload="auto"
+      ></video>
+      <div className="rm-hero__bg"></div>
+      <div className="rm-pillar-strip rm-hero__pillar-strip"><span></span><span></span><span></span><span></span></div>
+
+      <div className="rm-container rm-hero__inner">
+        <div className="rm-hero__slider">
+          {slides.map((s, i) => (
+            <div key={s.key} className={"rm-hero__slide " + (i === idx ? "is-active" : "")} aria-hidden={i !== idx}>
+              {s.tag && (
+                <div className="rm-hero__slide-accent">{s.tag}</div>
+              )}
+              <div className="rm-eyebrow rm-eyebrow--white" style={{ marginBottom: 22 }}>
+                {s.eyebrow}
+              </div>
+              <h1 className="rm-h1 rm-h1--on-dark rm-hero__title">
+                {s.titleTop}<br />
+                <span className="rm-hero__title-accent">{s.titleAccent}</span>
+              </h1>
+              <p className="rm-hero__sub">{s.sub}</p>
+              {s.showCredentials && (
+                <div style={{ margin: "30px 0 10px" }}>
+                  <RM_Credentials variant="ghost" layout="row" />
+                </div>
+              )}
+              <div className="rm-hero__ctas">
+                <a href={s.primary.href} className="rm-btn rm-btn--primary rm-btn--lg">
+                  {s.primary.label}<span className="rm-btn__arrow">â†’</span>
+                </a>
+                <a href={s.secondary.href} className="rm-btn rm-btn--ghost-light rm-btn--lg">
+                  {s.secondary.label}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="rm-hero__nav">
+          <div className="rm-hero__nav-inner">
+            <div className="rm-hero__dots" key={tick}>
+              {slides.map((s, i) => (
+                <button key={s.key}
+                        className={"rm-hero__dot " + (i === idx ? "is-active" : "")}
+                        onClick={() => go(i)}
+                        aria-label={"Slide " + (i + 1)}></button>
+              ))}
+            </div>
+            <div className="rm-hero__counter">
+              <span className="rm-hero__counter-current">{String(idx + 1).padStart(2, "0")}</span>
+              <span> / {String(slides.length).padStart(2, "0")}</span>
+            </div>
+          </div>
+          <div className="rm-hero__arrows">
+            <button className="rm-hero__arrow" onClick={() => go(idx - 1)} aria-label="Previous">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button className="rm-hero__arrow" onClick={() => go(idx + 1)} aria-label="Next">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Trust strip â€” international partners (Shandong removed; larger logos) ============ */
+function HomeTrust() {
+  const partners = [
+    { src: "../assets/partners/robotron.png",  alt: "Robotron",  role: "Accreditation",       c: "var(--rm-orange)" },
+    { src: "../assets/partners/minirobot.png", alt: "MiniRobot", role: "Robotics Hardware",   c: "var(--rm-blue)" },
+    { src: "../assets/partners/neopia.png",    alt: "Neopia",    role: "EdTech Systems",      c: "var(--rm-green)" },
+    { src: "../assets/partners/sinion.jpeg",   alt: "Sinion",    role: "R&D Â· China",         c: "var(--rm-red)" },
+    { src: "../assets/partners/tdme.png",      alt: "TDME",      role: "Industry Partner",     c: "var(--rm-orange)" },
+    { src: "../assets/partners/esim-gen.png",  alt: "esimÂ·gen",  role: "Connectivity",        c: "var(--rm-blue)" },
+  ];
+  const metrics = [
+    { n: "25+", l: "Years of R&D" },
+    { n: "06",  l: "Global Partners" },
+    { n: "03",  l: "Continents" },
+  ];
+  return (
+    <section className="rm-trust">
+      <div className="rm-container rm-trust__inner">
+        <div className="rm-trust__aside">
+          <span className="rm-trust__eyebrow">The Alliance</span>
+          <h2 className="rm-trust__title">
+            Robotmea is powered by the world&rsquo;s<br /><em>leading technology partners.</em>
+          </h2>
+          <p className="rm-trust__sub">
+            From international accreditation and robotics hardware to dedicated R&amp;D labs and global connectivity, every layer of a Robotmea classroom is built on partners who lead their field &mdash; so your students learn on technology the world already trusts.
+          </p>
+          <div className="rm-trust__meta">
+            {metrics.map(m => (
+              <div key={m.l} className="rm-trust__meta-item">
+                <strong>{m.n}</strong>
+                <span>{m.l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="rm-trust__logos">
+          {partners.map(p => (
+            <div key={p.alt} className="rm-trust__cell" style={{ "--accent": p.c }} title={p.alt}>
+              <div className="rm-trust__logo-wrap">
+                <img src={p.src} alt={p.alt} className="rm-trust__logo" />
+              </div>
+              <div className="rm-trust__cap">
+                <span className="rm-trust__dot"></span>
+                <span className="rm-trust__role">{p.role}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Who We Are â€” Korean legacy positioning ============ */
+function HomeWhoWeAre() {
+  return (
+    <section className="rm-section rm-section--paper" data-screen-label="02 Who We Are">
+      <div className="rm-container">
+        <div className="rm-two-col">
+          <div style={{ position: 'relative' }}>
+            <div className="rm-photo-frame rm-photo-frame--poster" style={{ aspectRatio: '2 / 3' }}>
+              <img
+                src="../assets/legacy-korea-poster.png"
+                alt="Robotmea â€” carrying the legacy of South Korea's EdTech giants, alongside Korean technology partners Mini Robot, Neopia, Robotron and Sinion"
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+            <div className="rm-floating-badge" style={{ right: -20, bottom: -28 }}>
+              <strong>25+ Years</strong>
+              <span>Of South Korean EdTech Research</span>
+            </div>
+          </div>
+          <div>
+            <RM_Divider
+              align="left"
+              eyebrow="Who We Are"
+              heading={<>Carrying the legacy of<br />South Korea's EdTech giants.</>}
+            />
+            <p className="rm-lead" style={{ marginTop: 22 }}>
+              For three decades, South Korea has quietly engineered the world's most sophisticated EdTech infrastructure â€” the standards, the research, the teacher pathways, the curriculum architecture. <strong>Robotmea is the institution chartered to bring that heritage to Pakistan.</strong>
+            </p>
+            <p className="rm-body" style={{ marginTop: 18 }}>
+              We are accredited by <strong>Robotron, South Korea</strong> â€” a research institution with 25+ years of work across the public, private and development sectors globally â€” and partnered with the country's leading robotics, platform and connectivity innovators. Every curriculum we publish, every diploma we award, every school standard we certify carries that lineage.
+            </p>
+            <p className="rm-body" style={{ marginTop: 14 }}>
+              Through the <strong>Institute (IERDG)</strong> and the <strong>Nexus (COPR Nexus)</strong>, we don't import devices; we transplant a complete educational operating system.
+            </p>
+            <a href="institute.html" className="rm-btn rm-btn--outline" style={{ marginTop: 28 }}>
+              Read our story<span className="rm-btn__arrow">â†’</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Two pillar cards (IERDG + COPR Nexus) ============ */
+function HomePillars() {
+  // Icons rendered as inline SVG so they stay crisp + sized inside the box
+  const InstituteIcon = (
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 4l12 5-12 5L4 9l12-5z"/>
+      <path d="M8 12v6c0 2 4 4 8 4s8-2 8-4v-6"/>
+      <path d="M28 9v9"/>
+    </svg>
+  );
+  const CoprIcon = (
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="10"/>
+      <path d="M6 16h20M16 6c3 3 4.5 6.5 4.5 10s-1.5 7-4.5 10c-3-3-4.5-6.5-4.5-10S13 9 16 6z"/>
+    </svg>
+  );
+  return (
+    <section className="rm-section rm-section--tight" data-screen-label="03 Pillars">
+      <div className="rm-container">
+        <RM_Divider eyebrow="What We Do" heading="Two engines. One mission." />
+        <div className="rm-grid rm-grid--2" style={{ marginTop: 56, gap: 20 }}>
+          <a href="institute.html" className="rm-pillar-card rm-pillar-card--institute">
+            <div className="rm-pillar-card__icon">{InstituteIcon}</div>
+            <div className="rm-pillar-card__sub">The Institute</div>
+            <h3 className="rm-pillar-card__title">IERDG</h3>
+            <p className="rm-pillar-card__tagline">Where excellence matters.</p>
+            <p className="rm-pillar-card__body">
+              Five programs â€” K-12, ETM, the Faculty Development Cell, the Robotmea Emerging Technologies Centre and International Diplomas â€” move EdTech from theory into Pakistani classrooms, accredited by Robotron, South Korea.
+            </p>
+            <span className="rm-pillar-card__cta">
+              Enter the Institute
+              <span className="rm-pillar-card__cta-arrow">â†’</span>
+            </span>
+            <div className="rm-pillar-card__deco"></div>
+          </a>
+          <a href="copr-nexus.html" className="rm-pillar-card rm-pillar-card--copr">
+            <div className="rm-pillar-card__icon">{CoprIcon}</div>
+            <div className="rm-pillar-card__sub">The Nexus</div>
+            <h3 className="rm-pillar-card__title">COPR Nexus</h3>
+            <p className="rm-pillar-card__tagline">Transactional to Transformational.</p>
+            <p className="rm-pillar-card__body">
+              Communications, outreach and public relations â€” the engine that takes the Institute's work to ministries, press, parents and partners. Built on nine working formulas.
+            </p>
+            <span className="rm-pillar-card__cta">
+              Enter COPR Nexus
+              <span className="rm-pillar-card__cta-arrow">â†’</span>
+            </span>
+            <div className="rm-pillar-card__deco"></div>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ ETM spotlight band â€” the investor moment ============ */
+function HomeETMBand() {
+  const badges = [
+    { num: "01", text: "A Project of Robotmea" },
+    { num: "02", text: "Powered by ETM on South Korean Educational Standards" },
+    { num: "03", text: "Accredited by Robotron, South Korea" },
+  ];
+  return (
+    <section className="rm-etm-band" data-screen-label="04 ETM Spotlight">
+      <div className="rm-container rm-etm-band__inner">
+        <div className="rm-etm-band__copy">
+          <div className="rm-eyebrow rm-eyebrow--white">Educational Transformation Movement</div>
+          <h2 className="rm-h2 rm-etm-band__heading" style={{ marginTop: 18 }}>
+            Pakistan's first<br />
+            <span style={{ color: 'var(--rm-orange)' }}>ETM-powered schools</span> â€”<br />
+            established under your name.
+          </h2>
+          <p className="rm-etm-band__statement">
+            "A Project of Robotmea, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
+          </p>
+          <p className="rm-etm-band__lead">
+            ETM is Robotmea's franchise system for building South-Korean-accredited Emerging Technologies schools across Pakistan. Investors keep their land, capital, and brand; we bring the academic plan, the Discovery & Innovation Hub, the ETM Garage, the teacher training, and the Robotron accreditation.
+          </p>
+          <div className="rm-etm-band__ctas">
+            <a href="etm.html" className="rm-btn rm-btn--primary rm-btn--lg">
+              Investor Deep Dive<span className="rm-btn__arrow">â†’</span>
+            </a>
+            <a href="contact.html" className="rm-btn rm-btn--ghost-light rm-btn--lg">
+              Book a Discovery Call
+            </a>
+          </div>
+        </div>
+        <div className="rm-etm-band__badges">
+          {badges.map(b => (
+            <div key={b.num} className="rm-etm-badge">
+              <div className="rm-etm-badge__num">{b.num}</div>
+              <div className="rm-etm-badge__txt">{b.text}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Five-point ETM story ============ */
+function HomeFivePoint() {
+  const points = [
+    { n: "01", t: "ETM-Powered Model", b: "Pakistan's first ETM-powered schools, built on South Korean Educational Standards and accredited by Robotron." },
+    { n: "02", t: "Student-Centric Environment", b: "No homework. No rote learning. No exam pressure. PBIL in Discovery & Innovation Hubs and the ETM Garage." },
+    { n: "03", t: "Islamic Values at the Core", b: "Friends of Quran lounge, the Prophet ï·º as Role Model programme, compulsory Arabic, and an integrated one-book STEAM model." },
+    { n: "04", t: "Emerging Technologies", b: "Robotics, AI and innovation from the early years â€” including TechNutrition 365, our holistic ECCE programme." },
+    { n: "05", t: "Reimagined Roles", b: "Principal as Mentor. Teacher as Coach. Student as Learner. Backed by the Faculty Development Cell and regular ETM audits." },
+  ];
+  return (
+    <section className="rm-section rm-section--mist" data-screen-label="05 Five-Point ETM Story">
+      <div className="rm-container">
+        <RM_Divider
+          eyebrow="What Makes ETM Different"
+          heading="The five-point story."
+          lead="Every ETM school is built on the same five non-negotiables â€” the structural reasons ETM produces graduates the existing system cannot."
+        />
+        <div className="rm-five-point" style={{ marginTop: 56 }}>
+          {points.map(p => (
+            <div key={p.n} className="rm-five-point__card">
+              <div className="rm-five-point__num">{p.n}</div>
+              <h3 className="rm-five-point__title">{p.t}</h3>
+              <p className="rm-five-point__body">{p.b}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ NGIS featured card ============ */
+function HomeNGIS() {
+  return (
+    <section className="rm-section" data-screen-label="06 NGIS Feature">
+      <div className="rm-container">
+        <div className="rm-ngis">
+          <div>
+            <div className="rm-ngis__eyebrow">
+              <span style={{ width: 22, height: 2, background: "var(--rm-orange)" }}></span>
+              The First ETM School
+            </div>
+            <h2 className="rm-ngis__title">NGIS â€” NextGen International School.</h2>
+            <p className="rm-ngis__strap">
+              "A Project of Robotmea, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
+            </p>
+            <p className="rm-ngis__body">
+              The first school operating under the ETM franchise â€” two campuses in Karachi, opening for Pre-Primary through Grade 5, with the first cohort enrolling from August. NGIS is the live, working demonstration of the model future ETM schools will inherit.
+            </p>
+            <a href="etm.html#ngis" className="rm-btn rm-btn--primary">
+              Visit NGIS<span className="rm-btn__arrow">â†’</span>
+            </a>
+          </div>
+          <div className="rm-ngis__facts">
+            <div className="rm-ngis__fact">
+              <div className="rm-ngis__fact-label">Campuses</div>
+              <div className="rm-ngis__fact-value">Jinnah Avenue<br />Model Colony</div>
+            </div>
+            <div className="rm-ngis__fact">
+              <div className="rm-ngis__fact-label">City</div>
+              <div className="rm-ngis__fact-value">Karachi,<br />Pakistan</div>
+            </div>
+            <div className="rm-ngis__fact">
+              <div className="rm-ngis__fact-label">Grades</div>
+              <div className="rm-ngis__fact-value">Pre-Primary<br />through Grade 5</div>
+            </div>
+            <div className="rm-ngis__fact">
+              <div className="rm-ngis__fact-label">Enrolment</div>
+              <div className="rm-ngis__fact-value">Opens<br />August</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Stats strip ============ */
+function HomeStats() {
+  const stats = [
+    { n: "300+",  l: "Schools in Our Network" },
+    { n: "30+",   l: "Countries of Operation" },
+    { n: "5,000+",l: "Teachers Trained" },
+    { n: "200+",  l: "Projects Delivered" },
+    { n: "200K+", l: "Students Reached" },
+  ];
+  return (
+    <section className="rm-stats" data-screen-label="07 Stats">
+      <div className="rm-pillar-strip" style={{ position: "absolute", top: 0, left: 0, right: 0 }}>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div className="rm-container">
+        <div className="rm-stats__grid">
+          {stats.map(s => (
+            <div key={s.l} className="rm-stat">
+              <div className="rm-stat__n">{s.n}</div>
+              <div className="rm-stat__l">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ COPR Formulas band â€” redesigned (no image, branded cards) ============ */
+function HomeCOPR() {
+  // Each formula split into [left, right, result] so we can colour the equation
+  const formulas = [
+    { l: "Hardwork + Exposure",                         r: "Excellence",     color: "var(--rm-orange)" },
+    { l: "Unity + Faith",                               r: "Discipline",     color: "var(--rm-blue)"   },
+    { l: "Communication + Creativity",                  r: "Innovation",     color: "var(--rm-green)"  },
+    { l: "Heterogeneous Connectivity + Local Understanding", r: "Real Change", color: "var(--rm-red)"    },
+    { l: "Market Research + Business Intelligence",     r: "Success",        color: "var(--rm-orange)" },
+    { l: "Transparency + Leadership",                   r: "Vision",         color: "var(--rm-blue)"   },
+    { l: "Strategic Thinking + Skills",                 r: "Impact",         color: "var(--rm-green)"  },
+    { l: "Passion + Pragmatic Approach",                r: "Value Creation", color: "var(--rm-red)"    },
+  ];
+  return (
+    <section className="rm-section rm-copr-band" data-screen-label="08 COPR Formulas">
+      <div className="rm-container">
+        <RM_Divider
+          eyebrow="How We Think"
+          heading="Nine formulas that govern how we work."
+          lead="The COPR Nexus operating system â€” nine equations we apply to every conversation, every campaign, every partnership."
+        />
+        <div className="rm-copr-grid">
+          {formulas.map((f, i) => (
+            <div key={i} className="rm-formula-card" style={{ "--accent": f.color }}>
+              <div className="rm-formula-card__num">{String(i + 1).padStart(2, "0")}</div>
+              <p className="rm-formula-card__eq">
+                {f.l} <span style={{ color: "var(--fg-muted)" }}>=</span>
+                <span className="rm-formula-card__result">{f.r}</span>
+              </p>
+            </div>
+          ))}
+          <div className="rm-formula-card rm-formula-card--featured">
+            <div className="rm-formula-card__num">09</div>
+            <p className="rm-formula-card__eq">
+              COPR Nexus <span style={{ color: "rgba(255,255,255,.4)" }}>=</span>
+              <span className="rm-formula-card__result">&nbsp;Transactional to Transformational</span>
+            </p>
+          </div>
+        </div>
+        <div style={{ textAlign: "center", marginTop: 36 }}>
+          <a href="copr-nexus.html" className="rm-btn rm-btn--outline">
+            See COPR Nexus<span className="rm-btn__arrow">â†’</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Testimonial ============ */
+function HomeTestimonial() {
+  return (
+    <section className="rm-section rm-section--blue" data-screen-label="09 Testimonial">
+      <div className="rm-container">
+        <RM_Divider dark eyebrow="Voices" heading="What partners are saying." />
+        <div className="rm-testimonial-grid">
+          <figure className="rm-quote-card">
+            <div className="rm-quote-card__mark">&ldquo;</div>
+            <blockquote className="rm-quote-card__quote">
+              There is no escape from technology in the present times. If we have to win our share and bring this technology to our service and benefit, we need to act fast and act right. I believe Robotmea has come as a vanguard to the region&rsquo;s educational needs and to help transform the schooling landscape. Let&rsquo;s join hands to embed technology in our school curriculums to the benefit of our future generations.
+            </blockquote>
+            <figcaption className="rm-quote-card__author">
+              <div className="rm-avatar" data-initials="KM"></div>
+              <div>
+                <div className="rm-quote-card__name">Kashif Suhail Malik</div>
+                <div className="rm-quote-card__role">Master Trainer Â· IPD and IIUI School</div>
+              </div>
+            </figcaption>
+          </figure>
+          <figure className="rm-quote-card">
+            <div className="rm-quote-card__mark">&ldquo;</div>
+            <blockquote className="rm-quote-card__quote">
+              I have seen students are behaving differently after taking Robotmea Robotic &amp; STEAM based classes and they are learning real technology and becoming more innovative. Robotmea trained teachers are inculcating the real core competencies of 21st century educational skills such as critical thinking, creativity, communication, collaboration and most importantly character building. Well-done Robotmea team for reshaping Middle East, Africa &amp; Pakistan towards innovative societies on the tenets of innovation &amp; entrepreneurship.
+            </blockquote>
+            <figcaption className="rm-quote-card__author">
+              <div className="rm-avatar" data-initials="WA"></div>
+              <div>
+                <div className="rm-quote-card__name">Wajiha Akram</div>
+                <div className="rm-quote-card__role">Minister of State for Federal Education &amp; Professional Training</div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Network logo wall ============ */
+function HomeNetwork() {
+  // 14 chosen from assets/network/ â€” full grid lives on /network
+  const logos = [
+    "named-aces.png","named-alda.png","named-iiu-islamabad.png","named-iqra-residential.png",
+    "named-leaders-harbor.png","named-nobel-stem.jpg","named-pioneer-signature.png","named-read-foundation.png",
+    "partner-01.png","partner-04.png","partner-09.png","partner-13.png","partner-21.png","partner-34.png",
+  ];
+  return (
+    <section className="rm-network">
+      <div className="rm-container">
+        <RM_Divider
+          eyebrow="Our Network"
+          heading="On the ground."
+          lead="The schools, institutions and partners across Pakistan running Robotmea programmes."
+        />
+        <div className="rm-network__grid" style={{ marginTop: 48 }}>
+          {logos.map(l => (
+            <div key={l} className="rm-network__cell">
+              <img src={"../assets/network/" + l} alt="Network partner" />
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: "center", marginTop: 36 }}>
+          <a href="network.html" className="rm-btn rm-btn--outline">
+            See full network<span className="rm-btn__arrow">â†’</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Final CTA band ============ */
+function HomeFinalCTA() {
+  return (
+    <section className="rm-final-cta" data-screen-label="11 Final CTA">
+      <div className="rm-container rm-final-cta__inner">
+        <div className="rm-eyebrow rm-eyebrow--center rm-eyebrow--white" style={{ color: "rgba(255,255,255,.85)", marginBottom: 18 }}>
+          Get In Touch
+        </div>
+        <h2 className="rm-h2 rm-final-cta__heading">
+          Join the ETM movement<br />to make your child relevant.
+        </h2>
+        <p className="rm-final-cta__sub">
+          Whether you're a parent, a principal, an investor, a government partner, or press â€” there's a desk at Robotmea for you.
+        </p>
+        <div className="rm-final-cta__ctas">
+          <a href="contact.html" className="rm-btn rm-btn--primary rm-btn--lg">
+            Contact IERDG<span className="rm-btn__arrow">â†’</span>
+          </a>
+          <a href="contact.html" className="rm-btn rm-btn--ghost-light rm-btn--lg">
+            Contact COPR Nexus
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Vision + Strategic Objective (two parallel manifestos) ============ */
+function HomeVisionStrategic() {
+  return (
+    <section className="rm-vision-band" data-screen-label="03 Vision & Strategy">
+      <div className="rm-container rm-vision-band__inner">
+        <div className="rm-manifesto">
+          <div className="rm-manifesto__label">
+            <span className="rm-manifesto__label-num">01</span> Our Vision
+          </div>
+          <div className="rm-manifesto__mark">â€œ</div>
+          <h2 className="rm-manifesto__statement">
+            Transforming<br />
+            <span className="rm-manifesto-accent">The Future Of Youth.</span>
+          </h2>
+          <p className="rm-manifesto__sub">
+            The next Pakistani generation â€” every Pakistani generation â€” deserves a fair shot at the world it is about to inherit. That is the work.
+          </p>
+          <div className="rm-manifesto__sig">Robotmea</div>
+        </div>
+
+        <div className="rm-vision-band__divider" aria-hidden="true"></div>
+
+        <div className="rm-manifesto">
+          <div className="rm-manifesto__label">
+            <span className="rm-manifesto__label-num">02</span> Strategic Objective
+          </div>
+          <div className="rm-manifesto__mark">â€œ</div>
+          <h2 className="rm-manifesto__statement">
+            Innovative Education<br />
+            <span className="rm-manifesto-accent">For Shaping Wisdom-Driven Economies.</span>
+          </h2>
+          <p className="rm-manifesto__sub">
+            EdTech is the lever. Wisdom-driven economies â€” economies whose growth is built on what their people know, build and invent â€” are the outcome.
+          </p>
+          <div className="rm-manifesto__sig">Robotmea</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Why Robotmea \u2014 World-class positioning ============ */
+function HomeWhy() {
+  const items = [
+    {
+      accent: "var(--rm-blue)",
+      accentSoft: "var(--rm-blue-50)",
+      title: "Accredited, not affiliated",
+      body: "Robotmea is formally accredited by Robotron, South Korea \u2014 a recognised research and accreditation body \u2014 not a reseller or affiliate.",
+      icon: <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+    },
+    {
+      accent: "var(--rm-orange)",
+      accentSoft: "var(--rm-orange-50)",
+      title: "Curriculum-first",
+      body: "We are an institute built around curriculum, teacher training and accreditation \u2014 an internationally-aligned curriculum is the heart of the work, not the hardware.",
+      icon: <svg viewBox="0 0 24 24"><path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 0-3 3z" transform="translate(0 -2)"/><path d="M4 4v18"/><path d="M8 8h6M8 12h6"/></svg>
+    },
+    {
+      accent: "var(--rm-green)",
+      accentSoft: "var(--rm-green-50)",
+      title: "Evidence-led",
+      body: "Every program operates under a published Monitoring & Evaluation rubric. We measure, we publish, we feed the findings back into the curriculum.",
+      icon: <svg viewBox="0 0 24 24"><path d="M3 21V8M9 21V12M15 21V4M21 21V14"/></svg>
+    },
+    {
+      accent: "var(--rm-red)",
+      accentSoft: "var(--rm-red-50)",
+      title: "Globally connected",
+      body: "An international partner network across South Korea, the Middle East and China keeps the work plugged into world-class research, hardware and industry.",
+      icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+    },
+  ];
+  return (
+    <section className="rm-section rm-section--tight rm-why" data-screen-label="04 Why Robotmea">
+      <div className="rm-container">
+        <RM_Divider
+          eyebrow="Why Robotmea"
+          heading="A world-class EdTech institution."
+          lead="Four reasons Pakistani school boards, ministries and investors treat Robotmea as a peer to the world's leading EdTech institutions."
+        />
+        <div className="rm-why__grid">
+          {items.map(it => (
+            <div key={it.title} className="rm-why__card" style={{ "--accent": it.accent, "--accent-soft": it.accentSoft }}>
+              <div className="rm-why__icon">{it.icon}</div>
+              <h3 className="rm-why__title">{it.title}</h3>
+              <p className="rm-why__body">{it.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ For Principals â€” 6-step school transformation ============ */
+function HomePrincipals() {
+  const steps = [
+    {
+      n: "01", t: "Technical Feasibility", color: "var(--rm-blue)",
+      b: "Plan a feasibility session with our EdTech Specialists. We assess your campus, your curriculum and your readiness.",
+      icon: <svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    },
+    {
+      n: "02", t: "Discovery & Innovation Hub", color: "var(--rm-orange)",
+      b: "Establish your school's flagship D&I Hub â€” built to the IERDG standard, designed for your space.",
+      icon: <svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 2 1.5 3.3h5c0-1.3.5-2.5 1.5-3.3A7 7 0 0 0 12 2z"/></svg>
+    },
+    {
+      n: "03", t: "Adopt the Curriculum", color: "var(--rm-green)",
+      b: "Bring in IERDG's globally adopted AI, Robotics and STEAM curriculum â€” integrated with your existing learning outcomes.",
+      icon: <svg viewBox="0 0 24 24"><path d="M2 3h7a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-7a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h8z"/></svg>
+    },
+    {
+      n: "04", t: "Train Your Teachers", color: "var(--rm-red)",
+      b: "Certify your faculty on the Robotron standard. Continuous Professional Development through our Faculty Development Cell.",
+      icon: <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    },
+    {
+      n: "05", t: "Monitoring & Evaluation", color: "var(--rm-blue)",
+      b: "Stay connected through our published M&E framework. Quarterly audits, measurable outcomes, transparent reporting.",
+      icon: <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+    },
+    {
+      n: "06", t: "Keep On Improving", color: "var(--rm-orange)",
+      b: "Annual curriculum refresh, teacher recertification, and exposure to the broader Robotmea network. The work never stops.",
+      icon: <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+    },
+  ];
+  return (
+    <section className="rm-principals" data-screen-label="06 For Principals">
+      <div className="rm-container">
+        <div className="rm-principals__intro">
+          <RM_Divider
+            align="left"
+            eyebrow="For School Principals"
+            heading={<>Transform your school<br />in six steps.</>}
+          />
+          <p className="rm-principals__lead">
+            Already running a school? IERDG partners with existing institutions to bring South Korean EdTech standards into your classroom â€” without rebuilding anything. You keep your name, your team, your community; we bring the curriculum, the training, and the accreditation.
+          </p>
+        </div>
+        <div className="rm-process-flow">
+          {steps.map(s => (
+            <div key={s.n} className="rm-process-step" style={{ "--accent": s.color }}>
+              <div className="rm-process-step__icon">{s.icon}</div>
+              <div className="rm-process-step__num">Step {s.n}</div>
+              <h3 className="rm-process-step__title">{s.t}</h3>
+              <p className="rm-process-step__body">{s.b}</p>
+            </div>
+          ))}
+        </div>
+        <div className="rm-principals__cta-row">
+          <div className="rm-principals__cta-text">
+            <div className="rm-principals__cta-eyebrow">Ready to start?</div>
+            <div className="rm-principals__cta-h">See the full transformation plan inside IERDG.</div>
+          </div>
+          <div className="rm-principals__cta-actions">
+            <a href="institute.html#transform" className="rm-btn rm-btn--primary">
+              Open the Plan<span className="rm-btn__arrow">â†’</span>
+            </a>
+            <a href="contact.html" className="rm-btn rm-btn--ghost-light">
+              Book a Session
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, {
+  HomeHero, HomeTrust, HomeWhoWeAre, HomeVisionStrategic, HomeWhy,
+  HomePillars, HomePrincipals, HomeETMBand, HomeFivePoint, HomeNGIS, HomeStats,
+  HomeCOPR, HomeTestimonial, HomeNetwork, HomeFinalCTA,
+});
+
+</script>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <>
+          <RM_Header active="home" />
+          <main>
+            <HomeHero />
+            <HomeTrust />
+            <HomeWhoWeAre />
+            <HomeVisionStrategic />
+            <HomeWhy />
+            <HomePillars />
+            <HomePrincipals />
+            <HomeETMBand />
+            <HomeFivePoint />
+            <HomeStats />
+            <HomeCOPR />
+            <HomeTestimonial />
+            <HomeNetwork />
+            <HomeFinalCTA />
+          </main>
+          <RM_Footer />
+        </>
+      );
+    }
+    const root = ReactDOM.createRoot(document.getElementById('app'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
+
+

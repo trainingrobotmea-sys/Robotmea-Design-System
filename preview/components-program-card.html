@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Program Card" subtitle="Top-border-accent program tile" viewport="700x260" -->
+<html><head><meta charset="utf-8"><title>Program Card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-2); font-family: var(--font-body); }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .card {
+    background: white; border-radius: var(--radius-lg); padding: 18px;
+    box-shadow: var(--shadow-1); display: flex; flex-direction: column; gap: 10px;
+    border-top: 4px solid var(--rm-blue);
+  }
+  .card.orange { border-top-color: var(--rm-orange); }
+  .ico { width: 44px; height: 44px; border-radius: 12px; background: var(--rm-blue-50); display: flex; align-items: center; justify-content: center; color: var(--rm-blue); font-size: 22px; font-weight: 800; }
+  .ico.orange { background: var(--rm-orange-50); color: var(--rm-orange); }
+  .ttl { font-family: var(--font-display); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: .04em; color: var(--fg-1); }
+  .desc { font-size: 13px; color: var(--fg-2); line-height: 1.55; }
+  .link { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--rm-orange); }
+</style></head>
+<body>
+  <div class="grid">
+    <div class="card">
+      <div class="ico">S</div>
+      <div class="ttl">School Program</div>
+      <div class="desc">A complete K-12 STEAM and robotics curriculum, delivered alongside your school's existing programme.</div>
+      <span class="link">Learn more →</span>
+    </div>
+    <div class="card orange">
+      <div class="ico orange">T</div>
+      <div class="ttl">Technical College</div>
+      <div class="desc">Applied-tech pipeline for upper-secondary students entering industry or higher education.</div>
+      <span class="link">Learn more →</span>
+    </div>
+  </div>
+</body></html>

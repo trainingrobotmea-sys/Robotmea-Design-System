@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Robotmea â€” Website Review Deck</title>
+<style>
+  html, body { margin: 0; padding: 0; width: 1920px; height: 1080px; background: #0f1a24; overflow: hidden; font-family: sans-serif; }
+  .slide { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; opacity: 0; }
+  .slide.active { opacity: 1; z-index: 10; }
+  .slide iframe { width: 1280px; height: 720px; border: none; transform: scale(1.5); transform-origin: 0 0; display: block; }
+  .label {
+    position: absolute; top: 24px; left: 24px;
+    background: rgba(15,26,36,.92); color: white;
+    padding: 10px 18px; border-radius: 6px;
+    font: 700 13px/1 -apple-system, sans-serif;
+    letter-spacing: .15em; text-transform: uppercase;
+    z-index: 20;
+    border-left: 4px solid #ff870b;
+  }
+  .label span { color: #ff870b; margin-right: 10px; }
+</style>
+</head>
+<body>
+  <div class="slide active" data-screen-label="01 Home">
+    <iframe src="index.html"></iframe>
+    <div class="label"><span>01</span>Robotmea Â· Home</div>
+  </div>
+  <div class="slide" data-screen-label="02 IERDG">
+    <iframe src="institute.html"></iframe>
+    <div class="label"><span>02</span>IERDG Â· Institute</div>
+  </div>
+  <div class="slide" data-screen-label="03 ETM">
+    <iframe src="etm.html"></iframe>
+    <div class="label"><span>03</span>ETM Â· Educational Transformation Movement</div>
+  </div>
+  <div class="slide" data-screen-label="04 COPR Nexus">
+    <iframe src="copr-nexus.html"></iframe>
+    <div class="label"><span>04</span>COPR Nexus</div>
+  </div>
+  <div class="slide" data-screen-label="05 International Partners">
+    <iframe src="partners.html"></iframe>
+    <div class="label"><span>05</span>International Partners</div>
+  </div>
+  <div class="slide" data-screen-label="06 Our Network">
+    <iframe src="network.html"></iframe>
+    <div class="label"><span>06</span>Our Network</div>
+  </div>
+  <div class="slide" data-screen-label="07 Contact Us">
+    <iframe src="contact.html"></iframe>
+    <div class="label"><span>07</span>Contact Us</div>
+  </div>
+
+<script>
+  function goToSlide(i) {
+    document.querySelectorAll('.slide').forEach((s, idx) => {
+      s.classList.toggle('active', idx === i);
+    });
+    try { window.parent.postMessage({ slideIndexChanged: i }, '*'); } catch (e) {}
+  }
+  window.goToSlide = goToSlide;
+</script>
+</body>
+</html>
+
+

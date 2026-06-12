@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Top Nav" subtitle="Brand accent strip + dark utility + real logo + pill CTA" viewport="700x160" -->
+<html><head><meta charset="utf-8"><title>Top Nav</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 20px; background: var(--bg-2); font-family: var(--font-body); }
+  .nav-wrap {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-2);
+    border: 1px solid var(--border-1);
+  }
+  /* Brand-pillar accent bar */
+  .accent {
+    display: flex; height: 3px;
+  }
+  .accent span { flex: 1; }
+  /* Utility ribbon */
+  .utility {
+    background: var(--rm-night); color: rgba(255,255,255,.78);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 22px;
+    font-size: 11px; letter-spacing: .04em;
+  }
+  .utility .left, .utility .right { display: flex; gap: 18px; align-items: center; }
+  .utility svg { width: 11px; height: 11px; vertical-align: -1px; margin-right: 5px; color: var(--rm-orange); }
+  .locales { color: rgba(255,255,255,.55); }
+  /* Main bar */
+  .bar {
+    display: flex; align-items: center; gap: 28px;
+    padding: 14px 22px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .brand img { height: 38px; display: block; }
+  .links { display: flex; gap: 22px; flex: 1; margin-left: 12px; }
+  .lk {
+    position: relative;
+    color: var(--fg-1); text-decoration: none;
+    font-size: 11.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .09em;
+    padding: 6px 0;
+    transition: color .14s;
+  }
+  .lk:hover { color: var(--rm-blue); }
+  .lk.active { color: var(--rm-blue); }
+  .lk.active::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -2px;
+    height: 3px; border-radius: 2px; background: var(--rm-orange);
+  }
+  .lk.has-sub::after-arrow { /* dropdown caret */ }
+  .lk .caret {
+    display: inline-block; margin-left: 4px; opacity: .5;
+    font-size: 9px; transform: translateY(-1px);
+  }
+  .right-actions { display: flex; align-items: center; gap: 14px; }
+  .search-btn {
+    width: 36px; height: 36px; border-radius: 999px;
+    border: 1px solid var(--border-1); background: white;
+    display: grid; place-items: center; cursor: pointer;
+    color: var(--fg-2); transition: all .14s;
+  }
+  .search-btn:hover { border-color: var(--rm-blue); color: var(--rm-blue); }
+  .cta {
+    background: var(--rm-orange); color: white;
+    padding: 11px 20px; border-radius: 999px;
+    font-size: 11px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: .09em;
+    display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none;
+    box-shadow: var(--shadow-warm);
+    transition: all .14s;
+  }
+  .cta:hover { background: var(--rm-orange-600); transform: translateY(-1px); }
+  .cta .arrow {
+    width: 16px; height: 16px; border-radius: 999px;
+    background: rgba(255,255,255,.22);
+    display: grid; place-items: center;
+    font-size: 11px; line-height: 1;
+  }
+</style></head>
+<body>
+  <div class="nav-wrap">
+    <div class="accent">
+      <span style="background:var(--rm-blue)"></span>
+      <span style="background:var(--rm-orange)"></span>
+      <span style="background:var(--rm-green)"></span>
+      <span style="background:var(--rm-red)"></span>
+    </div>
+
+    <div class="utility">
+      <div class="left">
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>+971 4 123 4567</span>
+        <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 6l10 7 10-7v12H2zM2 4h20l-10 7z"/></svg>info@robotmea.com</span>
+      </div>
+      <div class="right">
+        <span class="locales">DUBAI · USA · PAKISTAN · S. KOREA · TANZANIA</span>
+      </div>
+    </div>
+
+    <div class="bar">
+      <a class="brand" href="#"><img src="../assets/logo-full.png" alt="Robotmea"></a>
+      <nav class="links">
+        <a href="#" class="lk active">Home</a>
+        <a href="#" class="lk">Who We Are<span class="caret">▾</span></a>
+        <a href="#" class="lk">Programs<span class="caret">▾</span></a>
+        <a href="#" class="lk">Founder's Note</a>
+        <a href="#" class="lk">Partners</a>
+        <a href="#" class="lk">Contact</a>
+      </nav>
+      <div class="right-actions">
+        <button class="search-btn" aria-label="Search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+        <a href="#" class="cta">Enroll Now<span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</body></html>

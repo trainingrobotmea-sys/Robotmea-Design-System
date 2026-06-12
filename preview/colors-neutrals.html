@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Neutrals" subtitle="Paper, mist, line, ink scale" viewport="700x160" -->
+<html><head><meta charset="utf-8"><title>Neutrals</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--bg-1); font-family: var(--font-body); }
+  .scale { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
+  .step { display: flex; flex-direction: column; gap: 6px; }
+  .sw { height: 64px; border-radius: var(--radius-md); }
+  .lbl { font-size: 10px; color: var(--fg-3); text-align: center; font-family: var(--font-mono); }
+  .name { font-size: 9px; color: var(--fg-2); text-align: center; letter-spacing: .04em; text-transform: uppercase; font-weight: 600; }
+</style></head>
+<body>
+  <div class="scale">
+    <div class="step"><div class="sw" style="background:var(--rm-white);border:1px solid var(--border-1)"></div><div class="name">White</div><div class="lbl">FFFFFF</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-paper);border:1px solid var(--border-1)"></div><div class="name">Paper</div><div class="lbl">F7F9FB</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-mist);border:1px solid var(--border-1)"></div><div class="name">Mist</div><div class="lbl">EEF2F5</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-line)"></div><div class="name">Line</div><div class="lbl">DDE3E8</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-ink-300)"></div><div class="name">Ink 300</div><div class="lbl">9AA3AD</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-ink-500)"></div><div class="name">Ink 500</div><div class="lbl">5B6770</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-ink-700)"></div><div class="name">Ink 700</div><div class="lbl">2F3A44</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-night)"></div><div class="name">Night</div><div class="lbl">0F1A24</div></div>
+  </div>
+</body></html>

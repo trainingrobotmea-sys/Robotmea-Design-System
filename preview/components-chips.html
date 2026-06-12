@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Badges & Chips" subtitle="Soft + solid pill chips" viewport="700x210" -->
+<html><head><meta charset="utf-8"><title>Badges & Chips</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: var(--bg-1); font-family: var(--font-body); }
+  .wrap { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border-radius: 999px; font-size: 11px;
+    font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  }
+  .chip-blue { background: var(--rm-blue-50); color: var(--rm-blue-700); }
+  .chip-orange { background: var(--rm-orange-50); color: var(--rm-orange-700); }
+  .chip-green { background: var(--rm-green-50); color: var(--rm-green-600); }
+  .chip-red { background: var(--rm-red-50); color: var(--rm-red-600); }
+  .chip-solid-blue { background: var(--rm-blue); color: white; }
+  .chip-solid-orange { background: var(--rm-orange); color: white; }
+  .chip-outline { background: transparent; color: var(--fg-2); border: 1.5px solid var(--border-1); }
+  .lbl { font-size: 10px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .08em; font-weight: 700; margin-bottom: 6px; }
+</style></head>
+<body>
+  <div class="lbl">Soft</div>
+  <div class="wrap">
+    <span class="chip chip-blue">STEAM</span>
+    <span class="chip chip-orange">Robotics</span>
+    <span class="chip chip-green">IoT</span>
+    <span class="chip chip-red">AI</span>
+  </div>
+  <div class="lbl">Solid</div>
+  <div class="wrap">
+    <span class="chip chip-solid-orange">New</span>
+    <span class="chip chip-solid-blue">K-12</span>
+    <span class="chip chip-outline">Hybrid</span>
+  </div>
+</body></html>

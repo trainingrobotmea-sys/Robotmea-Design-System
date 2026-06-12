@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Colors" name="Orange Scale" subtitle="50 → 700 tints/shades" viewport="700x170" -->
+<html><head><meta charset="utf-8"><title>Orange Scale</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--bg-1); font-family: var(--font-body); }
+  .scale { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .step { display: flex; flex-direction: column; gap: 6px; }
+  .sw { height: 72px; border-radius: var(--radius-md); }
+  .lbl { font-size: 10px; color: var(--fg-3); text-align: center; font-family: var(--font-mono); }
+  .name { font-size: 9px; color: var(--fg-2); text-align: center; letter-spacing: .04em; text-transform: uppercase; font-weight: 600; }
+</style></head>
+<body>
+  <div class="scale">
+    <div class="step"><div class="sw" style="background:var(--rm-orange-50);border:1px solid var(--border-1)"></div><div class="name">50</div><div class="lbl">FFF3E6</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-orange-100)"></div><div class="name">100</div><div class="lbl">FFE1C1</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-orange-200)"></div><div class="name">200</div><div class="lbl">FFC285</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-orange-500);outline:2px solid var(--fg-1);outline-offset:2px"></div><div class="name">500★</div><div class="lbl">FF870B</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-orange-600)"></div><div class="name">600</div><div class="lbl">E57400</div></div>
+    <div class="step"><div class="sw" style="background:var(--rm-orange-700)"></div><div class="name">700</div><div class="lbl">B65B00</div></div>
+  </div>
+</body></html>

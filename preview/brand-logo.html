@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Logo Lockup" subtitle="On light + on dark surfaces" viewport="700x210" -->
+<html><head><meta charset="utf-8"><title>Logo</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-1); font-family: var(--font-body); display: flex; flex-direction: column; gap: 14px; }
+  .frame { background: white; border: 1px solid var(--border-1); border-radius: var(--radius-lg); padding: 18px; display: flex; align-items: center; justify-content: center; min-height: 110px; }
+  .frame.dark { background: var(--rm-night); border-color: transparent; }
+  .frame img { max-width: 100%; max-height: 90px; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+</style></head>
+<body>
+  <div class="row">
+    <div>
+      <div class="frame"><img src="../assets/logo-full.png" alt="Robotmea logo"></div>
+      <div class="lbl" style="margin-top:6px">On light · primary lockup</div>
+    </div>
+    <div>
+      <div class="frame dark"><img src="../assets/logo-full.png" alt="Robotmea logo"></div>
+      <div class="lbl" style="margin-top:6px">On dark · same mark (wordmark stays blue)</div>
+    </div>
+  </div>
+</body></html>

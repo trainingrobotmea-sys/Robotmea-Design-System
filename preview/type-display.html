@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Type" name="Display Type" subtitle="H1 / H2 — Century Gothic Bold, all caps" viewport="700x230" -->
+<html><head><meta charset="utf-8"><title>Display Type</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 28px; background: var(--bg-1); }
+  .stack { display: flex; flex-direction: column; gap: 14px; }
+  .tag { font-size: 10px; color: var(--fg-3); text-transform: uppercase; letter-spacing: .08em; font-family: var(--font-body); font-weight: 700; }
+  .h1-demo { font-family: var(--font-display); font-weight: 700; font-size: 48px; line-height: 1.05; letter-spacing: .02em; text-transform: uppercase; color: var(--fg-1); }
+  .h2-demo { font-family: var(--font-display); font-weight: 700; font-size: 32px; line-height: 1.15; letter-spacing: .02em; text-transform: uppercase; color: var(--fg-1); }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); }
+</style></head>
+<body>
+  <div class="stack">
+    <div>
+      <div class="tag">H1 · Display · Century Gothic Bold</div>
+      <div class="h1-demo">Transforming The Future</div>
+      <div class="meta">48px / 1.05 / +.02em / uppercase</div>
+    </div>
+    <div>
+      <div class="tag">H2 · Section heading</div>
+      <div class="h2-demo">What We Offer</div>
+      <div class="meta">32px / 1.15 / +.02em / uppercase</div>
+    </div>
+  </div>
+</body></html>

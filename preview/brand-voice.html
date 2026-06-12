@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Voice Do / Don't" subtitle="Tone guardrails" viewport="700x220" -->
+<html><head><meta charset="utf-8"><title>Voice & Tone</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-1); font-family: var(--font-body); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card { padding: 14px; border-radius: var(--radius-lg); border: 1px solid var(--border-1); }
+  .card.do { border-color: var(--rm-green); background: var(--rm-green-50); }
+  .card.dont { border-color: var(--rm-red); background: var(--rm-red-50); }
+  .tag { font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .tag.do { color: var(--rm-green-600); }
+  .tag.dont { color: var(--rm-red-600); }
+  .ex { font-family: var(--font-display); font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: .02em; color: var(--fg-1); margin: 6px 0 6px; }
+  .body { font-size: 12px; color: var(--fg-2); line-height: 1.5; }
+</style></head>
+<body>
+  <div class="row">
+    <div class="card do">
+      <div class="tag do">✓ Do</div>
+      <div class="ex">Transforming the future of youth</div>
+      <div class="body">Mission-driven, ALL CAPS display, institutional voice.</div>
+    </div>
+    <div class="card dont">
+      <div class="tag dont">✗ Don't</div>
+      <div class="ex" style="text-transform:none">Hey kids! 🚀 Let's code something super cool today!</div>
+      <div class="body">Cutesy, emoji-heavy, undercuts trust with school boards.</div>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robotmea â€” Transforming Education For A Better Tomorrow</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- External resources referenced from JSX strings -->
+  <meta name="ext-resource-dependency" content="../assets/logo-full.png"     data-resource-id="logoFull" />
+  <meta name="ext-resource-dependency" content="hero-bg.mp4"                  data-resource-id="heroVideo" />
+  <meta name="ext-resource-dependency" content="../assets/partners/robotron.png"          data-resource-id="pRobotron" />
+  <meta name="ext-resource-dependency" content="../assets/partners/minirobot.png"         data-resource-id="pMinirobot" />
+  <meta name="ext-resource-dependency" content="../assets/partners/neopia.png"            data-resource-id="pNeopia" />
+  <meta name="ext-resource-dependency" content="../assets/partners/sinion.jpeg"           data-resource-id="pSinion" />
+  <meta name="ext-resource-dependency" content="../assets/partners/tdme.png"              data-resource-id="pTdme" />
+  <meta name="ext-resource-dependency" content="../assets/partners/esim-gen.png"          data-resource-id="pEsimgen" />
+  <meta name="ext-resource-dependency" content="../assets/legacy-korea-poster.png"        data-resource-id="legacyKoreaPoster" />
+
+  <!-- Network logos (14 selected for the homepage grid). IDs are slugified filenames. -->
+  <meta name="ext-resource-dependency" content="../assets/network/named-aces.png"             data-resource-id="net_named_aces_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/named-alda.png"             data-resource-id="net_named_alda_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/named-iiu-islamabad.png"    data-resource-id="net_named_iiu_islamabad_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/named-iqra-residential.png" data-resource-id="net_named_iqra_residential_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/named-leaders-harbor.png"   data-resource-id="net_named_leaders_harbor_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/named-nobel-stem.jpg"       data-resource-id="net_named_nobel_stem_jpg" />
+  <meta name="ext-resource-dependency" content="../assets/network/named-pioneer-signature.png" data-resource-id="net_named_pioneer_signature_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/named-read-foundation.png"  data-resource-id="net_named_read_foundation_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/partner-01.png"             data-resource-id="net_partner_01_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/partner-04.png"             data-resource-id="net_partner_04_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/partner-09.png"             data-resource-id="net_partner_09_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/partner-13.png"             data-resource-id="net_partner_13_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/partner-21.png"             data-resource-id="net_partner_21_png" />
+  <meta name="ext-resource-dependency" content="../assets/network/partner-34.png"             data-resource-id="net_partner_34_png" />
+
+  <template id="__bundler_thumbnail" data-bg-color="#0f1a24">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#0f1a24"/>
+      <g transform="translate(600 400)" font-family="Helvetica, Arial, sans-serif">
+        <circle r="180" fill="none" stroke="#ff870b" stroke-width="6" opacity=".7"/>
+        <circle r="120" fill="none" stroke="#449eb8" stroke-width="4" opacity=".6"/>
+        <circle r="60"  fill="#ff870b"/>
+        <text x="0" y="280" text-anchor="middle" fill="#ffffff" font-size="72" font-weight="700" letter-spacing="4">ROBOTMEA</text>
+        <text x="0" y="320" text-anchor="middle" fill="#ff870b" font-size="20" font-weight="700" letter-spacing="8">LOADINGâ€¦</text>
+      </g>
+    </svg>
+  </template>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="standalone-common.jsx"></script>
+  <script type="text/babel" src="standalone-home.jsx"></script>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <>
+          <RM_Header active="home" />
+          <main>
+            <HomeHero />
+            <HomeTrust />
+            <HomeWhoWeAre />
+            <HomeVisionStrategic />
+            <HomeWhy />
+            <HomePillars />
+            <HomePrincipals />
+            <HomeETMBand />
+            <HomeFivePoint />
+            <HomeStats />
+            <HomeCOPR />
+            <HomeTestimonial />
+            <HomeNetwork />
+            <HomeFinalCTA />
+          </main>
+          <RM_Footer />
+        </>
+      );
+    }
+    const root = ReactDOM.createRoot(document.getElementById('app'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
+
+

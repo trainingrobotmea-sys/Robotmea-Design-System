@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Stat Strip" subtitle="Dark hero strip — schools/countries/teachers" viewport="700x150" -->
+<html><head><meta charset="utf-8"><title>Stat Tiles</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg-dark); font-family: var(--font-body); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .stat { text-align: center; color: white; }
+  .num { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1; color: var(--rm-orange); }
+  .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.7); margin-top: 6px; font-weight: 700; }
+</style></head>
+<body>
+  <div class="grid">
+    <div class="stat"><div class="num">200+</div><div class="lbl">Schools</div></div>
+    <div class="stat"><div class="num">05</div><div class="lbl">Countries</div></div>
+    <div class="stat"><div class="num">700+</div><div class="lbl">Teachers</div></div>
+    <div class="stat"><div class="num">5K+</div><div class="lbl">Projects</div></div>
+    <div class="stat"><div class="num">35K+</div><div class="lbl">Students</div></div>
+  </div>
+</body></html>

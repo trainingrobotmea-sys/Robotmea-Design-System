@@ -1,0 +1,503 @@
+/* global React */
+
+/* ============ Institute Hero ============ */
+function InstituteHero() {
+  return (
+    <section className="rm-inst-hero" data-screen-label="01 Institute Hero">
+      <div className="rm-pillar-strip" style={{ position: "absolute", top: 0, left: 0, right: 0, zIndex: 3 }}>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div className="rm-container rm-inst-hero__inner">
+        <div className="rm-inst-hero__layout">
+          <div className="rm-inst-hero__title-wrap">
+            <div className="rm-eyebrow rm-eyebrow--white">The Institute</div>
+            <h1 className="rm-inst-hero__name">IERDG</h1>
+            <p className="rm-inst-hero__tagline">Where excellence matters.</p>
+            <p className="rm-inst-hero__lead">
+              The <strong style={{ color: "white" }}>Institute for EdTech Research, Development &amp; Growth</strong> is Pakistan's first international EdTech research platform — launched with our partner <strong style={{ color: "white" }}>Robotron, South Korea</strong> to advance research, certification and technology-enabled learning across Pakistan and beyond. It runs through five programs that move EdTech from theory into the classroom.
+            </p>
+            <div style={{ marginTop: 28 }}>
+              <div className="rm-inst-accred" style={{ display: "inline-flex" }}>
+                <div className="rm-inst-accred__seal">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="9" r="6"/>
+                    <path d="M8 13l-2 8 6-3 6 3-2-8"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="rm-inst-accred__txt-eyebrow">Officially Accredited</div>
+                  <div className="rm-inst-accred__txt-h">Robotron, South Korea</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="rm-inst-logo">
+            <img src="../assets/ied-logo.png" alt="IERDG — Institute for EdTech Research, Development & Growth" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ The Five Programs — overview grid + ETM redirect ============ */
+function InstitutePrograms() {
+  const programs = [
+    { n: "01", c: "var(--rm-green)",  t: "K-12 Program",                         href: "#k12",  b: "A 360° turnkey transformation bringing AI, Robotics, IoT, AR/VR, STEAM and entrepreneurship into existing curricula — through an Addition or an Integration model." },
+    { n: "02", c: "var(--rm-orange)", t: "Educational Transformation Movement",  href: "etm.html", b: "Pakistan's first South-Korean-based school transformation framework, accredited by Robotron. A complete franchise model — its own destination.", isEtm: true },
+    { n: "03", c: "var(--rm-blue)",   t: "Robotmea Emerging Technologies Centre", href: "#retc", b: "A state-of-the-art hub bridging education, research and industry — 23 short courses, incubation and prototyping at our Lahore CETC campus." },
+    { n: "04", c: "var(--rm-red)",    t: "Faculty Development Cell",             href: "#fdc",  b: "Empowering educators and school leaders with 21st-century teaching skills, international certification and continuous professional development." },
+    { n: "05", c: "var(--rm-blue)",   t: "International Diploma Program",         href: "#idp",  b: "Globally aligned certifications in emerging fields — from three months to three years, with theory plus hands-on practical application." },
+  ];
+  return (
+    <section className="rm-wings" data-screen-label="02 Five Programs">
+      <div className="rm-container">
+        <RM_Divider
+          eyebrow="What's Inside"
+          heading="Five programs. One institution."
+          lead="A research and innovation hub advancing EdTech across Pakistan and beyond — through research, academic collaboration, international certification, and five programs that reach from the classroom to the workforce."
+        />
+        <div className="rm-wings__grid">
+          {programs.map(w => (
+            <a key={w.n} href={w.href}
+               className="rm-wing-card"
+               style={{ "--accent": w.c, textDecoration: "none", color: "inherit" }}>
+              <div className="rm-wing-card__num">Program {w.n} {w.isEtm && "· External"}</div>
+              <h3 className="rm-wing-card__title">{w.t}</h3>
+              <p className="rm-wing-card__body">{w.b}</p>
+            </a>
+          ))}
+        </div>
+
+        <a href="etm.html" style={{ textDecoration: "none", display: "block" }}>
+          <div className="rm-etm-redirect">
+            <div className="rm-etm-redirect__icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+            </div>
+            <div>
+              <div className="rm-etm-redirect__label">Program 02 · Educational Transformation Movement</div>
+              <h3 className="rm-etm-redirect__title">ETM has its own world. Step inside.</h3>
+              <p className="rm-etm-redirect__sub">
+                Tagline, brand, standards, franchise structure, investor journey — ETM is a destination of its own. Visit the dedicated ETM site to see the full system.
+              </p>
+            </div>
+            <span className="rm-btn rm-btn--primary">
+              Visit the ETM Site<span className="rm-btn__arrow">→</span>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Program 01 — K-12 Program ============ */
+function ProgramK12() {
+  const pathways = [
+    {
+      tag: "Pathway A", c: "var(--rm-blue)",
+      t: "Addition Model",
+      strap: "Future-focused learning without modifying your current academic structure.",
+      points: [
+        "AI, Robotics & Coding added to your curriculum within the STEAM framework",
+        "A dedicated AI, Robotics & STEAM Lab, built to standard",
+        "Full AI, Robotics & STEAM curriculum provided",
+        "Teacher training and Monitoring & Evaluation",
+        "Implementable across every grade, K–12",
+        "Hands-on, project-based learning that builds technological literacy, creativity and problem-solving",
+      ],
+    },
+    {
+      tag: "Pathway B", c: "var(--rm-orange)",
+      t: "Integration Model",
+      strap: "Emerging technology woven into the subjects you already teach.",
+      points: [
+        "AI, Robotics, IoT and AR/VR integrated with existing Science & Mathematics",
+        "Innovation Boxes that prepare students for advanced AI, IoT and programming",
+        "A tailored integrated curriculum with complete academic planning and guidelines",
+        "Learning acceleration and skillset development",
+        "An assessment system built into the programme",
+        "Robotmea PMT — full online portal access",
+      ],
+    },
+  ];
+  const includes = [
+    "Discovery & Innovation Hubs", "Faculty Development", "Internationally-aligned Curriculum",
+    "Monitoring & Evaluation", "Refresher Training", "Ongoing Support",
+  ];
+  return (
+    <section id="k12" className="rm-wing-detail" data-screen-label="03 K-12 Program">
+      <div className="rm-container">
+        <div className="rm-wing-detail__header">
+          <div>
+            <div className="rm-wing-detail__num-block" style={{ "--accent": "var(--rm-green)" }}>
+              <span className="rm-wing-detail__num">Program 01</span>
+              <span className="rm-wing-detail__num-line"></span>
+            </div>
+            <h2 className="rm-wing-detail__title">K-12 Program</h2>
+            <p className="rm-wing-detail__tagline" style={{ "--accent": "var(--rm-green)" }}>Future-ready schools, end to end.</p>
+          </div>
+          <p className="rm-wing-detail__body">
+            A complete transformation initiative that prepares schools for the future of learning. The K-12 Program brings AI, Robotics, IoT, AR/VR, Astronomy, STEAM and Entrepreneurship into your existing curriculum — a 360° turnkey solution delivered through two flexible pathways.
+          </p>
+        </div>
+
+        <div className="rm-pathway-grid">
+          {pathways.map(p => (
+            <div key={p.t} className="rm-pathway" style={{ "--accent": p.c }}>
+              <div className="rm-pathway__tag">{p.tag}</div>
+              <h3 className="rm-pathway__title">{p.t}</h3>
+              <p className="rm-pathway__strap">{p.strap}</p>
+              <ul className="rm-pathway__list">
+                {p.points.map(x => <li key={x}>{x}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="rm-k12-includes">
+          <span className="rm-k12-includes__label">Every K-12 engagement includes</span>
+          <div className="rm-k12-includes__chips">
+            {includes.map(i => <span key={i} className="rm-k12-chip">{i}</span>)}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Program 03 — Robotmea Emerging Technologies Centre ============ */
+function ProgramRETC() {
+  const offers = [
+    { icon: <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>,
+      t: "Emerging-Tech Training", b: "AI, Robotics, IoT, AR/VR, Coding, Cybersecurity and Automation — taught hands-on by practitioners." },
+    { icon: <svg viewBox="0 0 24 24"><path d="M9 2v6l-5 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V2"/><path d="M8 2h8"/></svg>,
+      t: "Research & Innovation", b: "An applied research environment where new ideas are tested, refined and taken toward market." },
+    { icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>,
+      t: "Short, Focused Courses", b: "3–6 month programmes designed for rapid, job-ready skill acquisition." },
+    { icon: <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5"/></svg>,
+      t: "Industry-Aligned Skills", b: "Curriculum built with industry so graduates arrive ready for the roles employers are hiring for." },
+    { icon: <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 2 1.5 3.3h5c0-1.3.5-2.5 1.5-3.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg>,
+      t: "Incubation & Prototyping", b: "Technology incubation and prototyping support that turns student projects into working products." },
+    { icon: <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>,
+      t: "Certifications", b: "Professional development and certifications recognised across the emerging-technologies sector." },
+    { icon: <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7a6 6 0 0 1-12 0z"/><path d="M6 5H3v2a3 3 0 0 0 3 3M18 5h3v2a3 3 0 0 1-3 3M9 21h6M12 15v6"/></svg>,
+      t: "Challenges & Competitions", b: "Innovation challenges and competitions that push learners to build under real-world constraints." },
+    { icon: <svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="5"/><path d="M15 15l6 6M13 13a5 5 0 0 0 7 0"/></svg>,
+      t: "Industry–Academia Bridge", b: "Closing the gap between what classrooms teach and what industry needs — the centre's founding purpose." },
+  ];
+  const highlights = [
+    { n: "23", l: "Courses Offered" },
+    { n: "3–6", l: "Months per Course" },
+    { n: "Lahore", l: "CETC Campus" },
+  ];
+  return (
+    <section id="retc" className="rm-wing-detail rm-wing-detail--night" data-screen-label="04 RETC">
+      <div className="rm-container">
+        <div className="rm-wing-detail__header">
+          <div>
+            <div className="rm-wing-detail__num-block" style={{ "--accent": "var(--rm-blue)" }}>
+              <span className="rm-wing-detail__num">Program 03</span>
+              <span className="rm-wing-detail__num-line"></span>
+            </div>
+            <h2 className="rm-wing-detail__title">Robotmea Emerging Technologies Centre</h2>
+            <p className="rm-wing-detail__tagline" style={{ "--accent": "var(--rm-blue)" }}>Where education meets industry.</p>
+          </div>
+          <p className="rm-wing-detail__body">
+            A state-of-the-art hub bridging the gap between education, research and industry. RETC delivers hands-on emerging-technologies training, applied research and incubation — currently running 23 courses at our Lahore CETC campus.
+          </p>
+        </div>
+
+        <div className="rm-retc-highlights">
+          {highlights.map(h => (
+            <div key={h.l} className="rm-retc-stat">
+              <div className="rm-retc-stat__n">{h.n}</div>
+              <div className="rm-retc-stat__l">{h.l}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="rm-wing-offers rm-wing-offers--4" style={{ marginTop: 36 }}>
+          {offers.map(o => (
+            <div key={o.t} className="rm-wing-offer" style={{ "--accent": "var(--rm-blue)" }}>
+              <div className="rm-wing-offer__icon">{o.icon}</div>
+              <h3 className="rm-wing-offer__title">{o.t}</h3>
+              <p className="rm-wing-offer__body">{o.b}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Program 04 — Faculty Development Cell ============ */
+function ProgramFDC() {
+  const offers = [
+    { icon: <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>,
+      t: "Teacher Training & PD", b: "Structured professional development that brings an entire faculty up to a modern teaching standard." },
+    { icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"/></svg>,
+      t: "Educational Leadership", b: "Leadership programmes for principals and heads of department driving whole-school change." },
+    { icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M22 12h-3M5 12H2M19 5l-2 2M7 17l-2 2M5 19l2-2M17 7l2-2"/></svg>,
+      t: "AI, Robotics & STEAM", b: "Deep capability-building in AI, Robotics, STEAM education and emerging technologies." },
+    { icon: <svg viewBox="0 0 24 24"><path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 0-3 3z" transform="translate(0 -1)"/><path d="M4 4v18M8 9h6M8 13h6"/></svg>,
+      t: "Curriculum & Assessment", b: "Innovation in curriculum design and assessment — moving beyond rote learning toward evidence of real understanding." },
+    { icon: <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>,
+      t: "International Certification", b: "Internationally recognised certifications and recognition for participating educators." },
+    { icon: <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>,
+      t: "Continuous PD (CPD)", b: "Ongoing CPD cycles that keep the standard alive long after the initial training ends." },
+    { icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>,
+      t: "International L&D", b: "Access to international learning-and-development programmes, courses and exchange opportunities." },
+  ];
+  return (
+    <section id="fdc" className="rm-wing-detail rm-wing-detail--paper" data-screen-label="05 FDC">
+      <div className="rm-container">
+        <div className="rm-wing-detail__header">
+          <div>
+            <div className="rm-wing-detail__num-block" style={{ "--accent": "var(--rm-red)" }}>
+              <span className="rm-wing-detail__num">Program 04</span>
+              <span className="rm-wing-detail__num-line"></span>
+            </div>
+            <h2 className="rm-wing-detail__title">Faculty Development Cell</h2>
+            <p className="rm-wing-detail__tagline" style={{ "--accent": "var(--rm-red)" }}>Teachers first. Always.</p>
+          </div>
+          <p className="rm-wing-detail__body">
+            The single most reliable predictor of a programme's outcome is the teacher standing next to the technology. The Faculty Development Cell empowers educators and school leaders with 21st-century teaching skills — from emerging-technology pedagogy to international certification and continuous professional development.
+          </p>
+        </div>
+        <div className="rm-wing-offers rm-wing-offers--4">
+          {offers.map(o => (
+            <div key={o.t} className="rm-wing-offer" style={{ "--accent": "var(--rm-red)" }}>
+              <div className="rm-wing-offer__icon">{o.icon}</div>
+              <h3 className="rm-wing-offer__title">{o.t}</h3>
+              <p className="rm-wing-offer__body">{o.b}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Program 05 — International Diploma Program ============ */
+function ProgramIDP() {
+  const tracks = [
+    { length: "3 Months", name: "Certificate in AI Fundamentals",          why: "An applied introduction to machine learning, computer vision and the modern AI stack — project-led from day one.", tag: "Foundational" },
+    { length: "6 Months", name: "Diploma in Robotics & Coding",            why: "Hands-on electronics, mechanical design and competition-grade robotics with a programming backbone.",            tag: "Foundational" },
+    { length: "1 Year",   name: "Diploma in IoT & Smart Systems",          why: "Industrial IoT, edge computing and the connectivity layer that turns devices into infrastructure.",              tag: "Intermediate" },
+    { length: "1 Year",   name: "Diploma in Data Science",                 why: "Data engineering, analytics and applied modelling for the decisions modern organisations run on.",              tag: "Intermediate" },
+    { length: "2 Years",  name: "Advanced Diploma in Cybersecurity",       why: "Defensive and offensive security, network hardening and the practice of keeping systems safe at scale.",          tag: "Advanced" },
+    { length: "3 Years",  name: "Higher Diploma in Emerging Tech & STEAM", why: "Modular — combine AI, Robotics, IoT, EdTech and STEAM into the flagship credential of the programme.",            tag: "Flagship" },
+  ];
+  return (
+    <section id="idp" className="rm-wing-detail" data-screen-label="06 IDP">
+      <div className="rm-container">
+        <div className="rm-wing-detail__header">
+          <div>
+            <div className="rm-wing-detail__num-block" style={{ "--accent": "var(--rm-blue)" }}>
+              <span className="rm-wing-detail__num">Program 05</span>
+              <span className="rm-wing-detail__num-line"></span>
+            </div>
+            <h2 className="rm-wing-detail__title">International Diploma Program</h2>
+            <p className="rm-wing-detail__tagline" style={{ "--accent": "var(--rm-blue)" }}>Globally aligned. Career ready.</p>
+          </div>
+          <p className="rm-wing-detail__body">
+            Globally aligned certifications in emerging fields — from three months to three years. Programmes span AI, Robotics, IoT, Data Science, Cybersecurity, EdTech and STEAM, combining theory with hands-on practical application, globally recognised competencies, and clear academic and career advancement pathways.
+          </p>
+        </div>
+
+        <div className="rm-diploma-tracks">
+          <div className="rm-diploma-head">
+            <div>Length</div>
+            <div>Programme</div>
+            <div>What it's for</div>
+            <div style={{ textAlign: "right" }}>Stream</div>
+          </div>
+          {tracks.map(t => (
+            <div key={t.name} className="rm-diploma-track">
+              <div className="rm-diploma-track__length">{t.length}</div>
+              <div className="rm-diploma-track__name">{t.name}</div>
+              <div className="rm-diploma-track__why">{t.why}</div>
+              <span className="rm-diploma-track__tag">{t.tag}</span>
+            </div>
+          ))}
+          <div className="rm-diploma-foot">
+            <div className="rm-diploma-foot__copy">
+              <strong>Globally recognised.</strong> Theory plus hands-on practical application, with clear academic and career advancement pathways.
+            </div>
+            <a href="contact.html" className="rm-btn rm-btn--primary rm-btn--sm">
+              Apply Now<span className="rm-btn__arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Transform Your School — interactive icon stepper ============ */
+function InstituteTransform() {
+  const steps = [
+    {
+      n: "01", c: "var(--rm-blue)", glow: "rgba(68,158,184,.45)",
+      label: "Feasibility",
+      t: "Plan a Technical Feasibility Session",
+      tag: "Step 01 · Discovery",
+      b: "We start with a structured 90-minute session with an IERDG EdTech Specialist — on your campus or ours. We assess your physical infrastructure, your current academic plan, your teacher capacity, your community profile, and your readiness for emerging-technologies integration. You leave with a written feasibility brief, not a sales pitch.",
+      bullets: ["Campus walkthrough", "Curriculum gap analysis", "Teacher capacity assessment", "Written feasibility brief"],
+      icon: <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v3l2 2"/></svg>,
+    },
+    {
+      n: "02", c: "var(--rm-orange)", glow: "rgba(255,135,11,.5)",
+      label: "D&I Hub",
+      t: "Establish Your Discovery & Innovation Hub",
+      tag: "Step 02 · Build",
+      b: "Every Robotmea-partnered school operates a flagship innovation space, built to a single IERDG standard. We provide the room specifications, the equipment list, the programme design, the staffing model, and the safety brief. You provide the space.",
+      bullets: ["Room blueprints to standard", "Full equipment list", "Programme design", "Staffing & rotation model"],
+      icon: <svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 2 1.5 3.3h5c0-1.3.5-2.5 1.5-3.3A7 7 0 0 0 12 2z"/></svg>,
+    },
+    {
+      n: "03", c: "var(--rm-green)", glow: "rgba(125,158,62,.5)",
+      label: "Curriculum",
+      t: "Adopt the IERDG Curriculum",
+      tag: "Step 03 · Adopt",
+      b: "Bring in our globally adopted AI, Robotics and STEAM curriculum — well integrated with your existing learning outcomes and aligned with the Pakistan National Curriculum (NCP). The IERDG team handles the integration mapping so nothing in your existing programme is lost.",
+      bullets: ["K–12 STEAM scope-and-sequence", "NCP integration mapping", "Vetted project libraries", "Bilingual content"],
+      icon: <svg viewBox="0 0 24 24"><path d="M2 3h7a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-7a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h8z"/></svg>,
+    },
+    {
+      n: "04", c: "var(--rm-red)", glow: "rgba(235,72,72,.5)",
+      label: "Teachers",
+      t: "Train Your Teachers",
+      tag: "Step 04 · Certify",
+      b: "We certify your existing faculty on the Robotron, South Korea standard — no need to hire a new team. Modular training tracks for classroom teachers, school leaders, and master trainers, supported by the Faculty Development Cell embedded inside your school for continuous CPD.",
+      bullets: ["Certified Teacher Pathway", "School Leadership Track", "Master Trainer Programme", "On-campus FDC"],
+      icon: <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>,
+    },
+    {
+      n: "05", c: "var(--rm-blue)", glow: "rgba(68,158,184,.45)",
+      label: "M&E",
+      t: "Stay Connected Through Monitoring & Evaluation",
+      tag: "Step 05 · Measure",
+      b: "IERDG doesn't hand over the curriculum and walk away. Every partner school operates under our published M&E framework — quarterly site audits, anonymised central data, an annual Impact Report you can share with parents and trustees.",
+      bullets: ["Quarterly on-site audits", "Anonymised central data", "Annual Impact Report", "Direct M&E support line"],
+      icon: <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>,
+    },
+    {
+      n: "06", c: "var(--rm-orange)", glow: "rgba(255,135,11,.45)",
+      label: "Improve",
+      t: "Keep On Improving",
+      tag: "Step 06 · Evolve",
+      b: "Annual curriculum refreshes. Teacher recertification cycles. Exposure to the broader Robotmea network — competitions, peer-school events, international partner showcases. Joining IERDG is not a one-time procurement; it is an ongoing membership in a network of schools committed to the same standard.",
+      bullets: ["Annual curriculum refresh", "Teacher recertification", "Network competitions", "International exchanges"],
+      icon: <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>,
+    },
+  ];
+
+  const [idx, setIdx] = React.useState(0);
+  const step = steps[idx];
+
+  return (
+    <section id="transform" className="rm-transform-x" data-screen-label="07 Transform">
+      <div className="rm-container">
+        <div className="rm-transform-x__intro">
+          <RM_Divider
+            align="left"
+            eyebrow="For School Principals"
+            heading={<>Transform your school<br />in six steps.</>}
+          />
+          <p className="rm-transform-x__lead">
+            IERDG partners with existing schools to bring South Korean EdTech standards into your classroom — without rebuilding anything. Click any step to read it. You keep your name, your team, your community; we bring the curriculum, the training, and the accreditation.
+          </p>
+        </div>
+
+        {/* Step rail */}
+        <div className="rm-transform-x__rail" role="tablist">
+          {steps.map((s, i) => (
+            <button
+              key={s.n}
+              type="button"
+              role="tab"
+              aria-selected={i === idx}
+              onClick={() => setIdx(i)}
+              className={"rm-transform-x__step " + (i === idx ? "is-active" : "")}
+              style={{ "--accent": s.c, "--accent-glow": s.glow }}
+            >
+              <span className="rm-transform-x__step-disc">
+                {s.icon}
+                <span className="rm-transform-x__step-num">{s.n}</span>
+              </span>
+              <span className="rm-transform-x__step-label">{s.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Active step panel */}
+        <div className="rm-transform-x__panel" style={{ "--accent": step.c, "--accent-glow": step.glow }}>
+          <div className="rm-transform-x__panel-art">
+            <span className="rm-transform-x__panel-art-step">Step {step.n} of 06</span>
+            <div className="rm-transform-x__panel-art-icon">{step.icon}</div>
+          </div>
+          <div className="rm-transform-x__panel-body">
+            <div className="rm-transform-x__panel-tag">{step.tag}</div>
+            <h3 className="rm-transform-x__panel-title">{step.t}</h3>
+            <p className="rm-transform-x__panel-text">{step.b}</p>
+            <ul className="rm-transform-x__panel-bullets">
+              {step.bullets.map(x => <li key={x}>{x}</li>)}
+            </ul>
+          </div>
+        </div>
+
+        {/* Nav row */}
+        <div className="rm-transform-x__nav">
+          <button
+            className="rm-transform-x__nav-arrow"
+            onClick={() => setIdx(i => Math.max(0, i - 1))}
+            disabled={idx === 0}
+            aria-label="Previous step"
+          >
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div className="rm-transform-x__nav-counter">
+            <span>Step {String(idx + 1).padStart(2, "0")} / 06</span>
+            <span
+              className="rm-transform-x__nav-counter-bar"
+              style={{ "--accent": step.c, "--progress": ((idx + 1) / steps.length * 100) + "%" }}
+            ></span>
+            <span>{step.label}</span>
+          </div>
+          <button
+            className="rm-transform-x__nav-arrow"
+            onClick={() => setIdx(i => Math.min(steps.length - 1, i + 1))}
+            disabled={idx === steps.length - 1}
+            aria-label="Next step"
+          >
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        {/* Final CTA */}
+        <div className="rm-transform-x__final-cta">
+          <div>
+            <div className="rm-transform-x__final-h">Ready for a feasibility session?</div>
+            <div className="rm-transform-x__final-sub">It's a single 90-minute conversation. No commitment required.</div>
+          </div>
+          <div style={{ display: "flex", gap: 12, flexShrink: 0 }}>
+            <a href="contact.html" className="rm-btn rm-btn--primary">
+              Book a Session<span className="rm-btn__arrow">→</span>
+            </a>
+            <a href="#transform" className="rm-btn rm-btn--ghost-light">
+              Top of Plan
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, {
+  InstituteHero, InstitutePrograms,
+  ProgramK12, ProgramRETC, ProgramFDC, ProgramIDP,
+  InstituteTransform,
+});

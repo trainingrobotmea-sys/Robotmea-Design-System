@@ -1,0 +1,502 @@
+﻿<!DOCTYPE html>
+<!-- @dsCard group="Components" name="Website â€” Contact Us" subtitle="Hero Â· 3 front doors Â· Form + offices sidebar Â· Quick-route action cards" viewport="1280x1400" -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robotmea â€” Contact Us</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" data-from="common.jsx">
+/* global React */
+
+/* ============================================================
+   Header â€” sticky top nav, shared across all pages
+   ============================================================ */
+function RM_Header({ active }) {
+  const items = [
+    { label: "Home", href: "index.html", key: "home" },
+    { label: "IERDG", href: "institute.html", key: "institute" },
+    { label: "COPR Nexus", href: "copr-nexus.html", key: "copr" },
+    { label: "International Partners", href: "partners.html", key: "partners" },
+    { label: "Our Network", href: "network.html", key: "network" },
+    { label: "Contact Us", href: "contact.html", key: "contact" },
+  ];
+  return (
+    <header className="rm-header">
+      <div className="rm-pillar-strip"><span></span><span></span><span></span><span></span></div>
+      <div className="rm-header__utility">
+        <div className="rm-container">
+          <div className="rm-utility-row">
+            <div className="rm-utility-left">
+              <span className="rm-utility-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>
+                +92 51 6128144
+              </span>
+              <span className="rm-utility-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 6l10 7 10-7v12H2zM2 4h20l-10 7z"/></svg>
+                info@robotmea.com
+              </span>
+            </div>
+            <div className="rm-utility-locales">Islamabad Â· Dubai Â· Seoul Â· Shanghai</div>
+          </div>
+        </div>
+      </div>
+      <div className="rm-header__bar">
+        <div className="rm-container">
+          <div className="rm-row rm-row--between">
+            <a className="rm-brand" href="index.html"><img src="../assets/logo-full.png" alt="Robotmea" /></a>
+            <nav className="rm-nav">
+              {items.map(it => (
+                <a key={it.key} href={it.href}
+                   className={"rm-nav__item " + (active === it.key ? "is-active" : "")}>
+                  {it.label}
+                </a>
+              ))}
+            </nav>
+            <div className="rm-header__actions">
+              <button className="rm-search-btn" aria-label="Search">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              </button>
+              <a href="etm.html" className="rm-btn rm-btn--primary rm-btn--sm rm-btn--pill">
+                ETM Deck<span className="rm-btn__arrow">â†’</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+/* ============================================================
+   Brand divider â€” 4-tick + eyebrow + heading
+   ============================================================ */
+function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) {
+  return (
+    <div className={"rm-divider " + (align === "left" ? "rm-divider--left" : "")}>
+      <div className="rm-divider__ticks">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      {eyebrow && <div className={"rm-eyebrow " + (align === "center" ? "rm-eyebrow--center " : "") + (dark ? "rm-eyebrow--white" : "")}>{eyebrow}</div>}
+      {heading && <h2 className={"rm-h2 " + (dark ? "rm-h2--on-dark" : "")} style={{ marginTop: 14 }}>{heading}</h2>}
+      {lead && <p className={"rm-lead " + (dark ? "rm-lead--on-dark" : "")} style={{ marginTop: 18 }}>{lead}</p>}
+    </div>
+  );
+}
+
+/* ============================================================
+   Triple-credential badge â€” used everywhere
+   ============================================================ */
+function RM_Credentials({ variant = "ghost", layout = "row" }) {
+  const items = [
+    { color: "orange", text: "A Project of Robotmea" },
+    { color: "blue",   text: "Powered by ETM on South Korean Educational Standards" },
+    { color: "green",  text: "Accredited by Robotron, South Korea" },
+  ];
+  return (
+    <div className={[
+      "rm-credentials",
+      variant === "solid" ? "rm-credentials--solid" : "",
+      layout === "stacked" ? "rm-credentials--stacked" : "",
+    ].join(" ")}>
+      {items.map((it, i) => (
+        <span key={i} className={"rm-credential rm-credential--" + it.color}>
+          <span className="rm-credential__dot"></span>{it.text}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+/* ============================================================
+   Footer â€” shared across all pages
+   ============================================================ */
+function RM_Footer() {
+  const cols = [
+    { h: "Company",  items: [
+      ["About Robotmea", "institute.html"],
+      ["IERDG", "institute.html"],
+      ["COPR Nexus", "copr-nexus.html"],
+      ["Careers", "contact.html"],
+    ]},
+    { h: "Programs", items: [
+      ["K-12 Program", "institute.html#k12"],
+      ["ETM", "etm.html"],
+      ["Robotmea Emerging Tech Centre", "institute.html#retc"],
+      ["Faculty Development Cell", "institute.html#fdc"],
+      ["International Diploma Program", "institute.html#idp"],
+    ]},
+    { h: "Network",  items: [
+      ["International Partners", "partners.html"],
+      ["Our Network", "network.html"],
+      ["ETM Schools", "etm.html"],
+      ["Become a Partner", "contact.html"],
+    ]},
+    { h: "Connect",  items: [
+      ["Contact Us", "contact.html"],
+      ["Press / Media", "copr-nexus.html"],
+      ["Investor Pack", "etm.html"],
+      ["Newsletter", "contact.html"],
+    ]},
+  ];
+  return (
+    <footer className="rm-footer">
+      <div className="rm-pillar-strip rm-footer__pillar-strip"><span></span><span></span><span></span><span></span></div>
+      <div className="rm-container">
+        <div className="rm-footer__top">
+          <div className="rm-footer__brand">
+            <img src="../assets/logo-full.png" alt="Robotmea" />
+            <p>Robotmea is Pakistan's EdTech authority for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education â€” accredited by Robotron, South Korea, and the parent of the Educational Transformation Movement.</p>
+            <div className="rm-footer__statement">
+              "A Project of Robotmea Â· Powered by ETM on South Korean Educational Standards Â· Accredited by Robotron, South Korea."
+            </div>
+            <div className="rm-footer__social">
+              <a href="#" aria-label="LinkedIn">in</a>
+              <a href="#" aria-label="Instagram">IG</a>
+              <a href="#" aria-label="YouTube">YT</a>
+              <a href="#" aria-label="Facebook">f</a>
+            </div>
+          </div>
+          <div className="rm-footer__cols">
+            {cols.map(c => (
+              <div key={c.h} className="rm-footer__col">
+                <div className="rm-footer__h">{c.h}</div>
+                {c.items.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="rm-footer__bottom">
+          <span>Â© {new Date().getFullYear()} Robotmea Â· A Time Dimension Group Company</span>
+          <span>Privacy Â· Terms Â· Cookie Policy</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ============================================================
+   Page-stub â€” shared placeholder for not-yet-built pages
+   ============================================================ */
+function RM_PageStub({ eyebrow, title, body, primaryCta = "Back to Home", primaryHref = "index.html" }) {
+  return (
+    <section className="rm-stub">
+      <div className="rm-container rm-container--narrow">
+        <div className="rm-eyebrow rm-eyebrow--center rm-stub__eyebrow">{eyebrow}</div>
+        <h1 className="rm-h1 rm-stub__h1">{title}</h1>
+        <p className="rm-stub__body">{body}</p>
+        <a href={primaryHref} className="rm-btn rm-btn--primary">{primaryCta}<span className="rm-btn__arrow">â†’</span></a>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, {
+  RM_Header, RM_Footer, RM_Divider, RM_Credentials, RM_PageStub,
+});
+
+</script>
+  <script type="text/babel" data-from="contact-sections.jsx">
+/* global React */
+
+/* ============ Contact Hero ============ */
+function ContactHero() {
+  return (
+    <section className="rm-contact-hero" data-screen-label="01 Contact Hero">
+      <div className="rm-pillar-strip" style={{ position: "absolute", top: 0, left: 0, right: 0, zIndex: 3 }}>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div className="rm-container rm-contact-hero__inner">
+        <div className="rm-eyebrow rm-eyebrow--white">Get In Touch</div>
+        <h1 className="rm-contact-hero__title">
+          Let's Build<br />
+          <span className="rm-contact-hero__title-accent">Something Together.</span>
+        </h1>
+        <p className="rm-contact-hero__lead">
+          Whether you're a parent, a principal, an investor, a government partner, or press â€” there's a desk at Robotmea for you. Pick the right door below or fill in the form and we'll route your message to the right wing.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Three Front Doors ============ */
+function ContactDoors() {
+  const doors = [
+    {
+      c: "var(--rm-blue)",
+      tag: "Institute Desk",
+      name: "IERDG",
+      for: "For principals, ETM investors, diploma applicants, teachers and parents â€” anything connected to the Institute or one of its five programs.",
+      email: "institute@robotmea.com",
+      icon: <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>,
+    },
+    {
+      c: "var(--rm-orange)",
+      tag: "Communications Desk",
+      name: "COPR Nexus",
+      for: "For press, government, partnerships, events and anything COPR Nexus handles â€” including international partner intake.",
+      email: "nexus@robotmea.com",
+      icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>,
+    },
+    {
+      c: "var(--rm-green)",
+      tag: "General Enquiries",
+      name: "Robotmea HQ",
+      for: "Not sure which desk? Drop us a line here and we'll route it. Careers, sponsorships, and general questions all welcome.",
+      email: "info@robotmea.com",
+      icon: <svg viewBox="0 0 24 24"><path d="M2 6l10 7 10-7v12H2zM2 4h20l-10 7z"/></svg>,
+    },
+  ];
+  return (
+    <section className="rm-doors" data-screen-label="02 Front Doors">
+      <div className="rm-container">
+        <RM_Divider
+          eyebrow="Three Front Doors"
+          heading="Pick the right desk."
+          lead="Each desk is staffed by a different team. Picking the right one shaves days off your reply."
+        />
+        <div className="rm-doors__grid">
+          {doors.map(d => (
+            <a key={d.email} href={`mailto:${d.email}`} className="rm-door" style={{ "--accent": d.c }}>
+              <div className="rm-door__icon">{d.icon}</div>
+              <div className="rm-door__tag">{d.tag}</div>
+              <h3 className="rm-door__name">{d.name}</h3>
+              <p className="rm-door__for">{d.for}</p>
+              <span className="rm-door__email">
+                {d.email}
+                <span className="rm-door__email-arrow">â†’</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Form + Offices Sidebar ============ */
+function ContactForm() {
+  return (
+    <section className="rm-contact-form-section" data-screen-label="03 Contact Form">
+      <div className="rm-container">
+        <RM_Divider
+          eyebrow="Write To Us"
+          heading="Send us a message."
+          lead="Eight fields. Two minutes. Our team responds within two working days."
+        />
+        <div className="rm-contact-form-section__layout">
+          {/* Form */}
+          <form className="rm-form" onSubmit={(e) => { e.preventDefault(); alert("Thanks â€” your message has been queued. Wire this form to /api/contact in production."); }}>
+            <div className="rm-form__head">
+              <div>
+                <h3 className="rm-form__h">Tell us about your enquiry</h3>
+                <p className="rm-form__sub">Required fields marked with <span className="rm-form__req">*</span></p>
+              </div>
+              <div className="rm-form__counter">8 fields Â· ~2 min</div>
+            </div>
+            <div className="rm-form__grid">
+              <div className="rm-form__field">
+                <label className="rm-form__label">Full Name <span className="rm-form__req">*</span></label>
+                <input className="rm-form__input" type="text" placeholder="e.g. Asma Khan" required />
+              </div>
+              <div className="rm-form__field">
+                <label className="rm-form__label">Email <span className="rm-form__req">*</span></label>
+                <input className="rm-form__input" type="email" placeholder="you@school.edu.pk" required />
+              </div>
+              <div className="rm-form__field">
+                <label className="rm-form__label">Phone</label>
+                <input className="rm-form__input" type="tel" placeholder="+92 ..." />
+              </div>
+              <div className="rm-form__field">
+                <label className="rm-form__label">Organisation</label>
+                <input className="rm-form__input" type="text" placeholder="Your school / company" />
+              </div>
+              <div className="rm-form__field">
+                <label className="rm-form__label">Country <span className="rm-form__req">*</span></label>
+                <select className="rm-form__select" required defaultValue="Pakistan">
+                  <option>Pakistan</option>
+                  <option>United Arab Emirates</option>
+                  <option>Saudi Arabia</option>
+                  <option>Republic of Korea</option>
+                  <option>China</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div className="rm-form__field">
+                <label className="rm-form__label">I am aâ€¦ <span className="rm-form__req">*</span></label>
+                <select className="rm-form__select" required defaultValue="">
+                  <option value="" disabled>Pick oneâ€¦</option>
+                  <option>Parent</option>
+                  <option>School Principal / Owner</option>
+                  <option>Investor</option>
+                  <option>Teacher</option>
+                  <option>Government Partner</option>
+                  <option>Press / Media</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div className="rm-form__field rm-form__field--full">
+                <label className="rm-form__label">What's this about? <span className="rm-form__req">*</span></label>
+                <select className="rm-form__select" required defaultValue="">
+                  <option value="" disabled>Pick the wingâ€¦</option>
+                  <option>IERDG â€” Institute (K-12, FDC, RETC, diplomas)</option>
+                  <option>Educational Transformation Movement (ETM)</option>
+                  <option>COPR Nexus â€” Communications / Press / Partnerships</option>
+                  <option>International Partner Intake</option>
+                  <option>Careers</option>
+                  <option>General Enquiry</option>
+                </select>
+              </div>
+              <div className="rm-form__field rm-form__field--full">
+                <label className="rm-form__label">Message <span className="rm-form__req">*</span></label>
+                <textarea className="rm-form__textarea" placeholder="Tell us what you'd like to discuss â€” feasibility session, partnership, diploma admissions, press enquiryâ€¦" required></textarea>
+              </div>
+            </div>
+            <div className="rm-form__footer">
+              <p className="rm-form__legal">
+                By submitting this form you agree to be contacted by Robotmea. See our <a href="#">privacy policy</a>.
+              </p>
+              <button type="submit" className="rm-btn rm-btn--primary rm-btn--lg">
+                Send Message<span className="rm-btn__arrow">â†’</span>
+              </button>
+            </div>
+          </form>
+
+          {/* Sidebar */}
+          <div className="rm-c-side">
+            <div className="rm-office" style={{ "--accent": "var(--rm-orange)" }}>
+              <div className="rm-office__flag">
+                <span className="rm-office__flag-pill">PK</span>
+                <span className="rm-office__tag">Headquarters</span>
+              </div>
+              <h4 className="rm-office__h">Pakistan Office</h4>
+              <p className="rm-office__addr">
+                Plot 1, Street 1, F-Block, H-13<br />
+                Paris City, Islamabad â€” near NUST
+              </p>
+              <div className="rm-office__row">
+                <svg viewBox="0 0 24 24"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>
+                <a href="tel:+92512301401">+92 51 230 1401</a>
+              </div>
+              <div className="rm-office__row">
+                <svg viewBox="0 0 24 24"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>
+                <a href="tel:+923135722409">+92 313 5722409</a>
+              </div>
+              <div className="rm-office__row">
+                <svg viewBox="0 0 24 24"><path d="M2 6l10 7 10-7v12H2zM2 4h20l-10 7z"/></svg>
+                <a href="mailto:info@robotmea.com">info@robotmea.com</a>
+              </div>
+            </div>
+
+            <div className="rm-office" style={{ "--accent": "var(--rm-blue)" }}>
+              <div className="rm-office__flag">
+                <span className="rm-office__flag-pill">AE</span>
+                <span className="rm-office__tag">Regional Office</span>
+              </div>
+              <h4 className="rm-office__h">Dubai Office</h4>
+              <p className="rm-office__addr">
+                Time Dimension Middle East<br />
+                Dubai, United Arab Emirates
+              </p>
+              <div className="rm-office__row">
+                <svg viewBox="0 0 24 24"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>
+                <a href="tel:+971554107053">+971 55 410 7053</a>
+              </div>
+              <div className="rm-office__row">
+                <svg viewBox="0 0 24 24"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>
+                <a href="tel:+971527835384">+971 52 783 5384</a>
+              </div>
+              <div className="rm-office__row">
+                <svg viewBox="0 0 24 24"><path d="M2 6l10 7 10-7v12H2zM2 4h20l-10 7z"/></svg>
+                <a href="mailto:nexus@robotmea.com">nexus@robotmea.com</a>
+              </div>
+            </div>
+
+            <div className="rm-c-social">
+              <h4 className="rm-c-social__h">Follow Robotmea</h4>
+              <div className="rm-c-social__row">
+                <a className="rm-c-social__btn" href="https://www.linkedin.com/company/robotmea" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+                <a className="rm-c-social__btn" href="https://www.facebook.com/robotami/" target="_blank" rel="noreferrer" aria-label="Facebook">f</a>
+                <a className="rm-c-social__btn" href="#" aria-label="Instagram">IG</a>
+                <a className="rm-c-social__btn" href="#" aria-label="YouTube">YT</a>
+                <a className="rm-c-social__btn" href="#" aria-label="X / Twitter">ð•</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ Quick-Route Action Cards ============ */
+function ContactQuickRoutes() {
+  const routes = [
+    { c: "var(--rm-orange)", h: "ETM Investor", sub: "Build a Robotron-certified school under your own name.", to: "etm.html",
+      icon: <svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg> },
+    { c: "var(--rm-blue)",   h: "Transform My School", sub: "The 6-step IERDG plan for principals.", to: "institute.html#transform",
+      icon: <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> },
+    { c: "var(--rm-green)",  h: "Build a Solution", sub: "7-step Solution Finder Â· download a PDF brief.", to: "copr-nexus.html#finder",
+      icon: <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg> },
+    { c: "var(--rm-red)",    h: "Careers / HR", sub: "Drop your CV to hr@robotmea.com.", to: "mailto:hr@robotmea.com",
+      icon: <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> },
+  ];
+  return (
+    <section className="rm-quickroutes" data-screen-label="04 Quick Routes">
+      <div className="rm-container">
+        <RM_Divider
+          eyebrow="Skip The Form"
+          heading="Or jump straight to the right path."
+          lead="If you already know what you need, head there directly."
+        />
+        <div className="rm-quickroutes__grid">
+          {routes.map(r => (
+            <a key={r.h} href={r.to} className="rm-qroute" style={{ "--accent": r.c }}>
+              <div className="rm-qroute__icon">{r.icon}</div>
+              <h4 className="rm-qroute__h">{r.h}</h4>
+              <p className="rm-qroute__sub">{r.sub}</p>
+              <span className="rm-qroute__arrow">Open â†’</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { ContactHero, ContactDoors, ContactForm, ContactQuickRoutes });
+
+</script>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <>
+          <RM_Header active="contact" />
+          <main>
+            <ContactHero />
+            <ContactDoors />
+            <ContactForm />
+            <ContactQuickRoutes />
+          </main>
+          <RM_Footer />
+        </>
+      );
+    }
+    const root = ReactDOM.createRoot(document.getElementById('app'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
+
+
