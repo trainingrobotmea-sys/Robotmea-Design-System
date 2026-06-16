@@ -71,7 +71,7 @@ function HomeHero() {
       stats: [
         { n: "65%", l: "of children entering primary school today will work in job types that don't yet exist — World Economic Forum" },
         { n: "$15.7T", l: "potential contribution of AI to the global economy by 2030 — PwC" },
-        { n: "97M", l: "new AI & robotics-era roles projected worldwide by 2025 — WEF Future of Jobs Report" },
+        { n: "170M", l: "new jobs to be created worldwide by 2030 as technology reshapes the labour market — WEF Future of Jobs Report 2025" },
       ],
       showCredentials: false,
       primary: { label: "Explore the Institute", href: "institute.html" },

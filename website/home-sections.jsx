@@ -71,7 +71,7 @@ function HomeHero() {
       stats: [
         { n: "65%", l: "of children entering primary school today will work in job types that don't yet exist — World Economic Forum" },
         { n: "$15.7T", l: "potential contribution of AI to the global economy by 2030 — PwC" },
-        { n: "97M", l: "new AI & robotics-era roles projected worldwide by 2025 — WEF Future of Jobs Report" },
+        { n: "170M", l: "new jobs to be created worldwide by 2030 as technology reshapes the labour market — WEF Future of Jobs Report 2025" },
       ],
       showCredentials: false,
       primary: { label: "Explore the Institute", href: "institute.html" },
@@ -193,12 +193,12 @@ function HomeHero() {
 /* ============ Trust strip — international partners (Shandong removed; larger logos) ============ */
 function HomeTrust() {
   const partners = [
-    { src: "../assets/partners/robotron.png",  alt: "Robotron",  role: "Accreditation & EdTech Research",              c: "var(--rm-orange)" },
-    { src: "../assets/partners/minirobot.png", alt: "MiniRobot", role: "Industrial Robotics",                          c: "var(--rm-blue)" },
-    { src: "../assets/partners/neopia.png",    alt: "Neopia",    role: "AI, Machine Learning, IoT & Integrated Systems", c: "var(--rm-green)" },
-    { src: "../assets/partners/sinion.jpeg",   alt: "Sinion",    role: "R&D · China",         c: "var(--rm-red)" },
-    { src: "../assets/partners/tdme.png",      alt: "TDME",      role: "Industry Partner",     c: "var(--rm-orange)" },
-    { src: "../assets/partners/esim-gen.png",  alt: "esim·gen",  role: "Connectivity",        c: "var(--rm-blue)" },
+    { src: "../assets/partners/robotron-trimmed.png",  alt: "Robotron",  role: "Accreditation & EdTech Research",              c: "var(--rm-orange)" },
+    { src: "../assets/partners/minirobot-trimmed.png", alt: "MiniRobot", role: "Industrial Robotics",                          c: "var(--rm-blue)" },
+    { src: "../assets/partners/neopia-trimmed.png",    alt: "Neopia",    role: "AI, Machine Learning, IoT & Integrated Systems", c: "var(--rm-green)" },
+    { src: "../assets/partners/sinion-trimmed.png",    alt: "Sinion",    role: "R&D · China",         c: "var(--rm-red)" },
+    { src: "../assets/partners/tdme-trimmed.png",      alt: "TDME",      role: "Industry Partner",     c: "var(--rm-orange)" },
+    { src: "../assets/partners/esim-gen-trimmed.png",  alt: "esim·gen",  role: "Connectivity",        c: "var(--rm-blue)" },
   ];
   const metrics = [
     { n: "30+", l: "Countries" },
