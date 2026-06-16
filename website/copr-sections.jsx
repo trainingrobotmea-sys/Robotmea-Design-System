@@ -19,7 +19,7 @@ function CoprHero() {
           <div>
             <div className="rm-copr-hero__brand">
               <span className="rm-copr-hero__brand-tag">C</span>
-              <span className="rm-copr-hero__brand-txt">Communication · Outreach · Public Relations</span>
+              <span className="rm-copr-hero__brand-txt">Communication, Outreach and Public Relation Nexus</span>
             </div>
             <h1 className="rm-copr-hero__title">
               COPR<br />
@@ -47,110 +47,42 @@ function CoprHero() {
   );
 }
 
-/* ============ Nexus Constellation (9 formulas around the globe) ============ */
+/* ============ Nexus Formulas — clean branded grid ============ */
 function CoprNexus() {
-  // 8 chips around the globe (positions in CSS percent within the stage),
-  // 9th formula renders as the featured bar below.
-  const chips = [
-    { num: "01", a: "Hardwork + Exposure",                          r: "Excellence",  c: "var(--rm-orange)", top: "6%",   left: "5%"  },
-    { num: "02", a: "Unity + Faith",                                r: "Discipline",  c: "var(--rm-blue)",   top: "0%",   left: "58%" },
-    { num: "03", a: "Communication + Creativity",                   r: "Innovation",  c: "var(--rm-green)",  top: "32%",  left: "-2%" },
-    { num: "04", a: "Heterogeneous Connectivity + Local Understanding", r: "Real Change", c: "var(--rm-red)", top: "26%",  left: "68%" },
-    { num: "05", a: "Market Research + Business Intelligence",      r: "Success",     c: "var(--rm-orange)", top: "60%",  left: "-2%" },
-    { num: "06", a: "Transparency + Leadership",                    r: "Vision",      c: "var(--rm-blue)",   top: "58%",  left: "70%" },
-    { num: "07", a: "Strategic Thinking + Skills",                  r: "Impact",      c: "var(--rm-green)",  top: "85%",  left: "8%"  },
-    { num: "08", a: "Passion + Pragmatic Approach",                 r: "Value Creation", c: "var(--rm-red)", top: "85%",  left: "64%" },
+  const formulas = [
+    { l: "Hardwork + Exposure",                              r: "Excellence",     color: "var(--rm-orange)" },
+    { l: "Unity + Faith",                                    r: "Discipline",     color: "var(--rm-blue)"   },
+    { l: "Communication + Creativity",                       r: "Innovation",     color: "var(--rm-green)"  },
+    { l: "Heterogeneous Connectivity + Local Understanding", r: "Real Change",    color: "var(--rm-red)"    },
+    { l: "Market Research + Business Intelligence",          r: "Success",        color: "var(--rm-orange)" },
+    { l: "Transparency + Leadership",                        r: "Vision",         color: "var(--rm-blue)"   },
+    { l: "Strategic Thinking + Skills",                      r: "Impact",         color: "var(--rm-green)"  },
+    { l: "Passion + Pragmatic Approach",                     r: "Value Creation", color: "var(--rm-red)"    },
   ];
-
-  /* Clean SVG globe — teal/blue gradient sphere with meridians, parallels, and a continent silhouette */
-  const Globe = (
-    <svg className="rm-nexus__globe-svg" viewBox="0 0 200 200" aria-hidden="true">
-      <defs>
-        <radialGradient id="globeFill" cx="35%" cy="32%" r="75%">
-          <stop offset="0%"   stopColor="#7ed3e1"/>
-          <stop offset="35%"  stopColor="#2f9bb6"/>
-          <stop offset="72%"  stopColor="#176b85"/>
-          <stop offset="100%" stopColor="#0b3849"/>
-        </radialGradient>
-        <radialGradient id="globeShine" cx="30%" cy="24%" r="36%">
-          <stop offset="0%"   stopColor="#ffffff" stopOpacity=".55"/>
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
-        </radialGradient>
-      </defs>
-      {/* sphere */}
-      <circle cx="100" cy="100" r="92" fill="url(#globeFill)" stroke="#0e1419" strokeWidth="3"/>
-      {/* meridians (vertical great circles) */}
-      <g fill="none" stroke="#0e1419" strokeWidth="2" strokeLinecap="round">
-        <ellipse cx="100" cy="100" rx="92" ry="92"/>
-        <ellipse cx="100" cy="100" rx="60" ry="92"/>
-        <ellipse cx="100" cy="100" rx="28" ry="92"/>
-      </g>
-      {/* parallels (horizontal) */}
-      <g fill="none" stroke="#0e1419" strokeWidth="2" strokeLinecap="round" opacity=".85">
-        <ellipse cx="100" cy="100" rx="92" ry="60"/>
-        <ellipse cx="100" cy="100" rx="92" ry="28"/>
-      </g>
-      {/* abstract continents */}
-      <g fill="#1a6d85" opacity=".62">
-        <path d="M70 60 Q85 50 100 60 Q120 64 130 80 Q124 96 108 96 Q90 96 78 88 Q66 80 70 60 Z"/>
-        <path d="M124 110 Q140 110 150 124 Q150 140 132 142 Q116 144 116 128 Q116 116 124 110 Z"/>
-        <path d="M62 130 Q80 124 88 140 Q86 154 70 154 Q56 152 58 140 Q56 134 62 130 Z"/>
-      </g>
-      {/* highlight */}
-      <circle cx="100" cy="100" r="92" fill="url(#globeShine)"/>
-    </svg>
-  );
-
-  /* Orange orbit ring (tilted) */
-  const Orbit = (
-    <svg className="rm-nexus__orbit-svg" viewBox="0 0 600 250" aria-hidden="true">
-      <defs>
-        <linearGradient id="orbitG" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%"  stopColor="#ff870b" stopOpacity=".85"/>
-          <stop offset="55%" stopColor="#ff870b"/>
-          <stop offset="100%" stopColor="#ff870b" stopOpacity=".95"/>
-        </linearGradient>
-      </defs>
-      <g transform="rotate(-12 300 125)">
-        <ellipse cx="300" cy="125" rx="285" ry="95"
-                 fill="none" stroke="url(#orbitG)" strokeWidth="6" strokeLinecap="round"/>
-        {/* arrow head */}
-        <path d="M580 130 L600 124 L580 116 Z" fill="#ff870b"/>
-      </g>
-    </svg>
-  );
-
   return (
-    <section id="nexus" className="rm-nexus" data-screen-label="02 Nexus Constellation">
+    <section id="nexus" className="rm-section rm-copr-band" data-screen-label="02 Nexus Formulas">
       <div className="rm-container">
         <RM_Divider
           eyebrow="How We Think"
           heading="Nine formulas that govern how we work."
           lead="The COPR Nexus operating system — nine equations we apply to every conversation, every campaign, every partnership."
         />
-        <div className="rm-nexus__stage">
-          {Globe}
-          {Orbit}
-          {chips.map(ch => (
-            <div key={ch.num}
-                 className="rm-nexus__chip"
-                 style={{ top: ch.top, left: ch.left, "--accent": ch.c }}>
-              <span className="rm-nexus__chip-num">Formula {ch.num}</span>
-              <span className="rm-nexus__chip-eq">{ch.a} = <strong>{ch.r}</strong></span>
+        <div className="rm-copr-grid">
+          {formulas.map((f, i) => (
+            <div key={i} className="rm-formula-card" style={{ "--accent": f.color }}>
+              <div className="rm-formula-card__num">{String(i + 1).padStart(2, "0")}</div>
+              <p className="rm-formula-card__eq">
+                {f.l} <span style={{ color: "var(--fg-muted)" }}>=</span>
+                <span className="rm-formula-card__result">{f.r}</span>
+              </p>
             </div>
           ))}
-        </div>
-
-        <div className="rm-nexus__featured">
-          <div className="rm-nexus__featured-badge">
-            <span className="rm-nexus__featured-badge-num">09</span>
-          </div>
-          <div className="rm-nexus__featured-body">
-            <div className="rm-nexus__featured-label">The Master Equation</div>
-            <div className="rm-nexus__featured-eq">
-              COPR Nexus =
-              <span className="rm-nexus__featured-result">Transactional to Transformational</span>
-            </div>
+          <div className="rm-formula-card rm-formula-card--featured">
+            <div className="rm-formula-card__num">09</div>
+            <p className="rm-formula-card__eq">
+              COPR Nexus <span style={{ color: "rgba(255,255,255,.4)" }}>=</span>
+              <span className="rm-formula-card__result">&nbsp;From Transactional to Transformational</span>
+            </p>
           </div>
         </div>
       </div>
@@ -177,7 +109,7 @@ function CoprCapabilities() {
       b: "Site, social channels, newsletter, paid distribution.",
       icon: <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 21h10M12 17v4"/></svg> },
     { c: "var(--rm-orange)", t: "Market Research & BI",
-      b: "Pakistani and regional EdTech market scans, competitor mapping.",
+      b: "Middle East, Africa and Pakistan EdTech market scans, competitor mapping.",
       icon: <svg viewBox="0 0 24 24"><path d="M3 21V8M9 21V12M15 21V4M21 21V14"/></svg> },
     { c: "var(--rm-green)", t: "Partner & Investor Relations",
       b: "ETM franchise outreach, briefing decks, due-diligence support.",
@@ -208,4 +140,78 @@ function CoprCapabilities() {
   );
 }
 
-Object.assign(window, { CoprHero, CoprNexus, CoprCapabilities });
+/* ============ Press Release — coming soon ============ */
+function CoprPressRelease() {
+  return (
+    <div id="press-release" data-screen-label="05 Press Release">
+      <RM_PageStub
+        eyebrow="Press Release"
+        title="Press releases are coming soon."
+        body="Official statements, announcements and media kits from COPR Nexus will be published here. For media inquiries in the meantime, reach out to our team directly."
+        primaryCta="Contact Us"
+        primaryHref="contact.html"
+      />
+    </div>
+  );
+}
+
+/* ============ COPR Gallery — coming soon ============ */
+function CoprGallery() {
+  return (
+    <div id="copr-gallery" data-screen-label="06 COPR Gallery" style={{ borderTop: "1px solid var(--border-1)" }}>
+      <RM_PageStub
+        eyebrow="COPR Gallery"
+        title="The gallery is coming soon."
+        body="Photos and highlights from conferences, summits, EXPOs and award ceremonies across the COPR Nexus calendar will be published here."
+        primaryCta="See Flagship Events"
+        primaryHref="#flagship-events"
+      />
+    </div>
+  );
+}
+
+/* ============ Flagship Events ============ */
+function CoprFlagshipEvents() {
+  const events = [
+    { c: "var(--rm-blue)", t: "Conferences",
+      b: "International gatherings convening educators, policymakers and industry leaders around emerging technologies and STEAM education.",
+      icon: <svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg> },
+    { c: "var(--rm-orange)", t: "School Leadership Summits",
+      b: "Strategy sessions for principals and school leaders adopting Industry 4.0 and 5.0 ready curricula.",
+      icon: <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> },
+    { c: "var(--rm-green)", t: "National & International EXPOs",
+      b: "Large-scale exhibitions showcasing student projects, robotics builds and emerging technologies to the public.",
+      icon: <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> },
+    { c: "var(--rm-red)", t: "Global STEAM Awards",
+      b: "An annual recognition programme celebrating outstanding students, teachers and schools across the network.",
+      icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M9 14.5L7 22l5-3 5 3-2-7.5"/></svg> },
+    { c: "var(--rm-blue)", t: "International Teachers Training Program",
+      b: "Professional development that certifies educators on South Korean-accredited emerging technologies pedagogy.",
+      icon: <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg> },
+    { c: "var(--rm-green)", t: "Young Empowerment Program",
+      b: "A leadership and entrepreneurship track that equips students to apply emerging technologies to real-world challenges.",
+      icon: <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg> },
+  ];
+  return (
+    <section id="flagship-events" className="rm-cops-cap" data-screen-label="07 Flagship Events">
+      <div className="rm-container">
+        <RM_Divider
+          eyebrow="What We Run"
+          heading="Flagship events."
+          lead="The six event formats COPR Nexus runs across the Middle East, Africa and Pakistan calendar — from leadership summits to student award ceremonies."
+        />
+        <div className="rm-cops-cap__grid">
+          {events.map(it => (
+            <div key={it.t} className="rm-cap-tile" style={{ "--accent": it.c }}>
+              <div className="rm-cap-tile__icon">{it.icon}</div>
+              <h3 className="rm-cap-tile__title">{it.t}</h3>
+              <p className="rm-cap-tile__body">{it.b}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { CoprHero, CoprNexus, CoprCapabilities, CoprPressRelease, CoprGallery, CoprFlagshipEvents });

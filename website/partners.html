@@ -24,8 +24,18 @@
 function RM_Header({ active }) {
   const items = [
     { label: "Home", href: "index.html", key: "home" },
-    { label: "IERDG", href: "institute.html", key: "institute" },
-    { label: "COPR Nexus", href: "copr-nexus.html", key: "copr" },
+    { label: "IERDG", href: "institute.html", key: "institute", dropdown: [
+      { label: "K-12 Program", href: "institute.html#k12" },
+      { label: "ETM", href: "etm.html" },
+      { label: "FDC", href: "institute.html#fdc" },
+      { label: "RETC", href: "institute.html#retc" },
+      { label: "IDP", href: "institute.html#idp" },
+    ] },
+    { label: "COPR Nexus", href: "copr-nexus.html", key: "copr", dropdown: [
+      { label: "Press Release", href: "copr-nexus.html#press-release" },
+      { label: "COPR Gallery", href: "copr-nexus.html#copr-gallery" },
+      { label: "Flagship Events", href: "copr-nexus.html#flagship-events" },
+    ] },
     { label: "International Partners", href: "partners.html", key: "partners" },
     { label: "Our Network", href: "network.html", key: "network" },
     { label: "Contact Us", href: "contact.html", key: "contact" },
@@ -46,7 +56,7 @@ function RM_Header({ active }) {
                 info@robotmea.com
               </span>
             </div>
-            <div className="rm-utility-locales">Islamabad · Dubai · Seoul · Shanghai</div>
+            <div className="rm-utility-locales">Pakistan · China · South Korea · Middle East · Africa</div>
           </div>
         </div>
       </div>
@@ -56,18 +66,33 @@ function RM_Header({ active }) {
             <a className="rm-brand" href="index.html"><img src="../assets/logo-full.png" alt="Robotmea" /></a>
             <nav className="rm-nav">
               {items.map(it => (
-                <a key={it.key} href={it.href}
-                   className={"rm-nav__item " + (active === it.key ? "is-active" : "")}>
-                  {it.label}
-                </a>
+                it.dropdown ? (
+                  <div key={it.key} className="rm-nav__item-wrap">
+                    <a href={it.href}
+                       className={"rm-nav__item rm-nav__item--caret " + (active === it.key ? "is-active" : "")}>
+                      {it.label}
+                      <svg className="rm-nav__caret" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </a>
+                    <div className="rm-nav__dropdown">
+                      {it.dropdown.map(d => (
+                        <a key={d.label} href={d.href} className="rm-nav__dropdown-item">{d.label}</a>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a key={it.key} href={it.href}
+                     className={"rm-nav__item " + (active === it.key ? "is-active" : "")}>
+                    {it.label}
+                  </a>
+                )
               ))}
             </nav>
             <div className="rm-header__actions">
               <button className="rm-search-btn" aria-label="Search">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
               </button>
-              <a href="etm.html" className="rm-btn rm-btn--primary rm-btn--sm rm-btn--pill">
-                ETM Deck<span className="rm-btn__arrow">→</span>
+              <a href="#" className="rm-btn rm-btn--primary rm-btn--sm rm-btn--pill" title="IERDG Concept Deck (PDF) — link coming soon">
+                IERDG Concept Deck<span className="rm-btn__arrow">→</span>
               </a>
             </div>
           </div>
@@ -98,7 +123,7 @@ function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) 
    ============================================================ */
 function RM_Credentials({ variant = "ghost", layout = "row" }) {
   const items = [
-    { color: "orange", text: "A Project of Robotmea" },
+    { color: "orange", text: "Developed by IERDG" },
     { color: "blue",   text: "Powered by ETM on South Korean Educational Standards" },
     { color: "green",  text: "Accredited by Robotron, South Korea" },
   ];
@@ -155,9 +180,9 @@ function RM_Footer() {
         <div className="rm-footer__top">
           <div className="rm-footer__brand">
             <img src="../assets/logo-full.png" alt="Robotmea" />
-            <p>Robotmea is Pakistan's EdTech authority for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education — accredited by Robotron, South Korea, and the parent of the Educational Transformation Movement.</p>
+            <p>Robotmea is an International EdTech authority with 04 R&amp;D Arms, 01 Institute, Emerging Technologies Centre, ETM Schools Network and Fleet Network of Discovery and Innovation hubs for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education — accredited by Robotron, South Korea, in the Middle East, Africa and Pakistan region.</p>
             <div className="rm-footer__statement">
-              "A Project of Robotmea · Powered by ETM on South Korean Educational Standards · Accredited by Robotron, South Korea."
+              "Developed by IERDG, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
             </div>
             <div className="rm-footer__social">
               <a href="#" aria-label="LinkedIn">in</a>

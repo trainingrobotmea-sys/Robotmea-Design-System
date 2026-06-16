@@ -8,46 +8,74 @@ function HomeHero() {
   const slides = [
     {
       key: "main",
-      eyebrow: "Robotmea — A Time Dimension Group Company",
+      eyebrow: "Robotmea International",
       titleTop: "Transforming",
       titleAccent: "The Future Of Youth.",
-      sub: <>Robotmea is Pakistan's EdTech authority for <strong style={{ color: 'white' }}>Emerging Technologies (AI, Robotics, AR/VR, Simulation)</strong> and <strong style={{ color: 'white' }}>STEAM Education</strong> — accredited by <strong style={{ color: 'white' }}>Robotron, South Korea</strong>, and the parent of the Educational Transformation Movement (ETM) that powers Pakistan's first ETM schools.</>,
+      sub: <>Robotmea is an International EdTech authority with 04 R&amp;D Arms, 01 Institute, Emerging Technologies Centre, ETM Schools Network and Fleet Network of Discovery and Innovation hubs for <strong style={{ color: 'white' }}>Emerging Technologies (AI, Robotics, AR/VR, Simulation)</strong> and <strong style={{ color: 'white' }}>STEAM Education</strong> — accredited by <strong style={{ color: 'white' }}>Robotron, South Korea</strong>, in the Middle East, Africa and Pakistan region.</>,
       showCredentials: true,
       primary: { label: "Explore the Institute", href: "institute.html" },
       secondary: { label: "Join the ETM Movement", href: "etm.html" },
     },
     {
+      key: "values",
+      eyebrow: "For Us, Values Are Everything",
+      titleTop: "Rooted In Faith,",
+      titleAccent: "Defined By Integrity.",
+      sub: <>Our values — deeply rooted in Islam — make us valuable.</>,
+      chips: [
+        "Faith in Almighty Allah", "Uncompromising Commitment to Integrity", "Leadership",
+        "Optimism", "Perseverance", "Challenge Yourself", "Respect", "Trust",
+        "Transparency", "Excellence in Quality",
+      ],
+      showCredentials: false,
+      primary: { label: "About the Institute", href: "institute.html" },
+      secondary: { label: "Get in Touch", href: "contact.html" },
+    },
+    {
+      key: "global",
+      eyebrow: "Global Presence",
+      titleTop: "A Global Vision,",
+      titleAccent: "A Global EdTech Leader.",
+      sub: <>Our global presence, global stakeholders and global vision make us a global EdTech leader.</>,
+      chips: ["South Korea", "China", "Taiwan", "Middle East", "Africa", "Pakistan"],
+      showCredentials: false,
+      primary: { label: "Our Network", href: "network.html" },
+      secondary: { label: "International Partners", href: "partners.html" },
+    },
+    {
       key: "institute",
-      tag: "Spotlight · The Institute",
-      eyebrow: "IERDG",
+      eyebrow: <>The Institute for EdTech Research, Development and Growth – <strong style={{ color: 'white' }}>IERDG</strong></>,
       titleTop: "Where Excellence",
       titleAccent: "Matters.",
-      sub: <>Five programs. One mission. <strong style={{ color: 'white' }}>Robotron-accredited.</strong> A global <strong style={{ color: 'white' }}>Institute for EdTech Research, Development &amp; Growth</strong> — K-12 transformation, the Faculty Development Cell, the Emerging Technologies Centre, and internationally-aligned diplomas.</>,
+      sub: <>Five programs. One mission. <strong style={{ color: 'white' }}>Robotron-accredited.</strong> A global Institute for EdTech Research, Development &amp; Growth — K-12 Programs, Educational Transformational Movement, Faculty Development Cell, Robotmea Emerging Technologies Centre, and International Diploma Programs.</>,
       showCredentials: false,
       primary: { label: "Enter the Institute", href: "institute.html" },
       secondary: { label: "See the 6-Step Plan", href: "institute.html#transform" },
     },
     {
-      key: "diploma",
-      tag: "Spotlight · International Diplomas",
-      eyebrow: "International Diploma Programs",
-      titleTop: "Internationally",
-      titleAccent: "Certified Diplomas.",
-      sub: <>One to three year <strong style={{ color: 'white' }}>Robotron-certified diplomas</strong> in Robotics, AI, IoT and applied emerging technologies — South-Korean benchmarked, internationally recognised, delivered in Pakistan.</>,
-      showCredentials: false,
-      primary: { label: "Explore Diplomas", href: "institute.html#idp" },
-      secondary: { label: "Apply Now", href: "contact.html" },
-    },
-    {
       key: "etm",
-      tag: "Spotlight · Educational Transformation Movement",
-      eyebrow: "For Investors",
+      eyebrow: <>Educational Transformational Movement – <strong style={{ color: 'white' }}>A Franchise Call</strong></>,
       titleTop: "Establish Pakistan's",
       titleAccent: "Next ETM School.",
-      sub: <>ETM is Robotmea's franchise system for South-Korean-accredited Emerging Technologies schools. Investors keep their land, capital, and brand; we bring the operating standard — <strong style={{ color: 'white' }}>Robotron Certified · ETM Powered · South Korean Accredited.</strong></>,
+      sub: <>ETM is a franchise call for investors to establish and open <strong style={{ color: 'white' }}>South-Korean-accredited schools</strong> in the Islamic Republic of Pakistan. Investors keep their land, capital, and brand; we bring the operating standard — developed by IERDG, <strong style={{ color: 'white' }}>Robotron Certified · ETM Powered · South Korean Accredited.</strong></>,
       showCredentials: false,
       primary: { label: "Investor Pack", href: "etm.html" },
       secondary: { label: "Book a Discovery Call", href: "contact.html" },
+    },
+    {
+      key: "future",
+      eyebrow: "Robotmea — Preparing Generations for the Future",
+      titleTop: "Preparing Generations",
+      titleAccent: "For The Future.",
+      sub: <>Artificial Intelligence, Robotics and Emerging Technologies are reshaping every economy on earth. The institutions that prepare their youth today will lead the world of 2050.</>,
+      stats: [
+        { n: "65%", l: "of children entering primary school today will work in job types that don't yet exist — World Economic Forum" },
+        { n: "$15.7T", l: "potential contribution of AI to the global economy by 2030 — PwC" },
+        { n: "97M", l: "new AI & robotics-era roles projected worldwide by 2025 — WEF Future of Jobs Report" },
+      ],
+      showCredentials: false,
+      primary: { label: "Explore the Institute", href: "institute.html" },
+      secondary: { label: "Talk to Us", href: "contact.html" },
     },
   ];
 
@@ -91,7 +119,7 @@ function HomeHero() {
               {s.tag && (
                 <div className="rm-hero__slide-accent">{s.tag}</div>
               )}
-              <div className="rm-eyebrow rm-eyebrow--white" style={{ marginBottom: 22 }}>
+              <div className="rm-eyebrow rm-eyebrow--white rm-hero__eyebrow" style={{ marginBottom: 22 }}>
                 {s.eyebrow}
               </div>
               <h1 className="rm-h1 rm-h1--on-dark rm-hero__title">
@@ -99,6 +127,23 @@ function HomeHero() {
                 <span className="rm-hero__title-accent">{s.titleAccent}</span>
               </h1>
               <p className="rm-hero__sub">{s.sub}</p>
+              {s.chips && (
+                <div className="rm-hero__chips">
+                  {s.chips.map((c, ci) => (
+                    <span key={ci} className="rm-hero__chip">{c}</span>
+                  ))}
+                </div>
+              )}
+              {s.stats && (
+                <div className="rm-hero__stats">
+                  {s.stats.map((st, si) => (
+                    <div key={si} className="rm-hero__stat">
+                      <strong>{st.n}</strong>
+                      <span>{st.l}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
               {s.showCredentials && (
                 <div style={{ margin: "30px 0 10px" }}>
                   <RM_Credentials variant="ghost" layout="row" />
@@ -148,15 +193,15 @@ function HomeHero() {
 /* ============ Trust strip — international partners (Shandong removed; larger logos) ============ */
 function HomeTrust() {
   const partners = [
-    { src: window.__resources.pRobotron,  alt: "Robotron",  role: "Accreditation",       c: "var(--rm-orange)" },
-    { src: window.__resources.pMinirobot, alt: "MiniRobot", role: "Robotics Hardware",   c: "var(--rm-blue)" },
-    { src: window.__resources.pNeopia,    alt: "Neopia",    role: "EdTech Systems",      c: "var(--rm-green)" },
+    { src: window.__resources.pRobotron,  alt: "Robotron",  role: "Accreditation & EdTech Research",              c: "var(--rm-orange)" },
+    { src: window.__resources.pMinirobot, alt: "MiniRobot", role: "Industrial Robotics",                          c: "var(--rm-blue)" },
+    { src: window.__resources.pNeopia,    alt: "Neopia",    role: "AI, Machine Learning, IoT & Integrated Systems", c: "var(--rm-green)" },
     { src: window.__resources.pSinion,    alt: "Sinion",    role: "R&D · China",         c: "var(--rm-red)" },
     { src: window.__resources.pTdme,      alt: "TDME",      role: "Industry Partner",     c: "var(--rm-orange)" },
     { src: window.__resources.pEsimgen,   alt: "esim·gen",  role: "Connectivity",        c: "var(--rm-blue)" },
   ];
   const metrics = [
-    { n: "25+", l: "Years of R&D" },
+    { n: "30+", l: "Countries" },
     { n: "06",  l: "Global Partners" },
     { n: "03",  l: "Continents" },
   ];
@@ -166,10 +211,10 @@ function HomeTrust() {
         <div className="rm-trust__aside">
           <span className="rm-trust__eyebrow">The Alliance</span>
           <h2 className="rm-trust__title">
-            Robotmea is powered by the world&rsquo;s<br /><em>leading technology partners.</em>
+            IERDG is powered by <em>WORLD&rsquo;s Leading<br />Emerging Technologies Partners.</em>
           </h2>
           <p className="rm-trust__sub">
-            From international accreditation and robotics hardware to dedicated R&amp;D labs and global connectivity, every layer of a Robotmea classroom is built on partners who lead their field &mdash; so your students learn on technology the world already trusts.
+            From international accreditation and emerging technologies platforms to dedicated R&amp;D labs and global connectivity. At IERDG we integrate emerging technologies with curriculum to redefine the classroom environment with the help of global partners who have created impact in their respective fields.
           </p>
           <div className="rm-trust__meta">
             {metrics.map(m => (
@@ -181,8 +226,9 @@ function HomeTrust() {
           </div>
         </div>
         <div className="rm-trust__logos">
-          {partners.map(p => (
+          {partners.map((p, i) => (
             <div key={p.alt} className="rm-trust__cell" style={{ "--accent": p.c }} title={p.alt}>
+              <span className="rm-trust__index">{String(i + 1).padStart(2, "0")}</span>
               <div className="rm-trust__logo-wrap">
                 <img src={p.src} alt={p.alt} className="rm-trust__logo" />
               </div>
@@ -213,21 +259,21 @@ function HomeWhoWeAre() {
               />
             </div>
             <div className="rm-floating-badge" style={{ right: -20, bottom: -28 }}>
-              <strong>25+ Years</strong>
-              <span>Of South Korean EdTech Research</span>
+              <strong>06 Partners</strong>
+              <span>Four Global Hubs Worldwide</span>
             </div>
           </div>
           <div>
             <RM_Divider
               align="left"
               eyebrow="Who We Are"
-              heading={<>Carrying the legacy of<br />South Korea's EdTech giants.</>}
+              heading={<>A movement initiated by global technology<br />entrepreneurs to reshape international<br />educational landscape.</>}
             />
             <p className="rm-lead" style={{ marginTop: 22 }}>
-              For three decades, South Korea has quietly engineered the world's most sophisticated EdTech infrastructure — the standards, the research, the teacher pathways, the curriculum architecture. <strong>Robotmea is the institution chartered to bring that heritage to Pakistan.</strong>
+              At IERDG we build EdTech systems to redefine the global educational landscape. <strong>We are an Institute for EdTech Research, Development &amp; Growth (IERDG)</strong> with five blueprints to realign education for Industry 4.0 &amp; 5.0.
             </p>
             <p className="rm-body" style={{ marginTop: 18 }}>
-              We are accredited by <strong>Robotron, South Korea</strong> — a research institution with 25+ years of work across the public, private and development sectors globally — and partnered with the country's leading robotics, platform and connectivity innovators. Every curriculum we publish, every diploma we award, every school standard we certify carries that lineage.
+              IERDG is one of the leading research and development centres actively working in the region to popularise EdTech industries — backed by <strong>six international partners</strong> with <strong>four global hubs</strong> in South Korea, China, the Middle East &amp; Pakistan.
             </p>
             <p className="rm-body" style={{ marginTop: 14 }}>
               Through the <strong>Institute (IERDG)</strong> and the <strong>Nexus (COPR Nexus)</strong>, we don't import devices; we transplant a complete educational operating system.
@@ -265,11 +311,11 @@ function HomePillars() {
         <div className="rm-grid rm-grid--2" style={{ marginTop: 56, gap: 20 }}>
           <a href="institute.html" className="rm-pillar-card rm-pillar-card--institute">
             <div className="rm-pillar-card__icon">{InstituteIcon}</div>
-            <div className="rm-pillar-card__sub">The Institute</div>
+            <div className="rm-pillar-card__sub">Institute for EdTech Research, Development and Growth</div>
             <h3 className="rm-pillar-card__title">IERDG</h3>
             <p className="rm-pillar-card__tagline">Where excellence matters.</p>
             <p className="rm-pillar-card__body">
-              Five programs — K-12, ETM, the Faculty Development Cell, the Robotmea Emerging Technologies Centre and International Diplomas — move EdTech from theory into Pakistani classrooms, accredited by Robotron, South Korea.
+              Five blueprints – One Promise – Transforming the Future of Youth: a STEAM Educational Framework for Emerging Technologies, Innovation and Entrepreneurship.
             </p>
             <span className="rm-pillar-card__cta">
               Enter the Institute
@@ -279,11 +325,11 @@ function HomePillars() {
           </a>
           <a href="copr-nexus.html" className="rm-pillar-card rm-pillar-card--copr">
             <div className="rm-pillar-card__icon">{CoprIcon}</div>
-            <div className="rm-pillar-card__sub">The Nexus</div>
+            <div className="rm-pillar-card__sub">Communication, Outreach and Public Relation Nexus</div>
             <h3 className="rm-pillar-card__title">COPR Nexus</h3>
-            <p className="rm-pillar-card__tagline">Transactional to Transformational.</p>
+            <p className="rm-pillar-card__tagline">From Transactional to Transformational.</p>
             <p className="rm-pillar-card__body">
-              Communications, outreach and public relations — the engine that takes the Institute's work to ministries, press, parents and partners. Built on nine working formulas.
+              COPR Nexus, an engine for creating EdTech awareness through Conferences, School Leadership Summits, National and International EXPOs, Global STEAM Awards, International Teachers Training Program, and the Young Empowerment Program — a paradigm shift in the global educational stage.
             </p>
             <span className="rm-pillar-card__cta">
               Enter COPR Nexus
@@ -300,7 +346,7 @@ function HomePillars() {
 /* ============ ETM spotlight band — the investor moment ============ */
 function HomeETMBand() {
   const badges = [
-    { num: "01", text: "A Project of Robotmea" },
+    { num: "01", text: "Developed by IERDG" },
     { num: "02", text: "Powered by ETM on South Korean Educational Standards" },
     { num: "03", text: "Accredited by Robotron, South Korea" },
   ];
@@ -315,10 +361,10 @@ function HomeETMBand() {
             established under your name.
           </h2>
           <p className="rm-etm-band__statement">
-            "A Project of Robotmea, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
+            "Developed by IERDG, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
           </p>
           <p className="rm-etm-band__lead">
-            ETM is Robotmea's franchise system for building South-Korean-accredited Emerging Technologies schools across Pakistan. Investors keep their land, capital, and brand; we bring the academic plan, the Discovery & Innovation Hub, the ETM Garage, the teacher training, and the Robotron accreditation.
+            ETM is a franchise call for investors to establish a STEAM-based, South Korean-accredited emerging technologies school coupled with Islamic values in the Islamic Republic of Pakistan.
           </p>
           <div className="rm-etm-band__ctas">
             <a href="etm.html" className="rm-btn rm-btn--primary rm-btn--lg">
@@ -357,7 +403,7 @@ function HomeFivePoint() {
         <RM_Divider
           eyebrow="What Makes ETM Different"
           heading="The five-point story."
-          lead="Every ETM school is built on the same five non-negotiables — the structural reasons ETM produces graduates the existing system cannot."
+          lead="Every ETM school is built on the same five non-negotiables — the structural reasons ETM produces graduates to fulfill the need for Industry 4.0 and Industry 5.0."
         />
         <div className="rm-five-point" style={{ marginTop: 56 }}>
           {points.map(p => (
@@ -386,7 +432,7 @@ function HomeNGIS() {
             </div>
             <h2 className="rm-ngis__title">NGIS — NextGen International School.</h2>
             <p className="rm-ngis__strap">
-              "A Project of Robotmea, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
+              "Developed by IERDG, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
             </p>
             <p className="rm-ngis__body">
               The first school operating under the ETM franchise — two campuses in Karachi, opening for Pre-Primary through Grade 5, with the first cohort enrolling from August. NGIS is the live, working demonstration of the model future ETM schools will inherit.
@@ -482,7 +528,7 @@ function HomeCOPR() {
             <div className="rm-formula-card__num">09</div>
             <p className="rm-formula-card__eq">
               COPR Nexus <span style={{ color: "rgba(255,255,255,.4)" }}>=</span>
-              <span className="rm-formula-card__result">&nbsp;Transactional to Transformational</span>
+              <span className="rm-formula-card__result">&nbsp;From Transactional to Transformational</span>
             </p>
           </div>
         </div>
@@ -549,7 +595,7 @@ function HomeNetwork() {
         <RM_Divider
           eyebrow="Our Network"
           heading="On the ground."
-          lead="The schools, institutions and partners across Pakistan running Robotmea programmes."
+          lead="The schools, institutions and partners across Middle East, Africa and Pakistan running Robotmea programmes."
         />
         <div className="rm-network__grid" style={{ marginTop: 48 }}>
           {logos.map(l => (
@@ -610,7 +656,7 @@ function HomeVisionStrategic() {
             <span className="rm-manifesto-accent">The Future Of Youth.</span>
           </h2>
           <p className="rm-manifesto__sub">
-            The next Pakistani generation — every Pakistani generation — deserves a fair shot at the world it is about to inherit. That is the work.
+            Empowering future generations through emerging technologies, innovation &amp; entrepreneurship.
           </p>
           <div className="rm-manifesto__sig">Robotmea</div>
         </div>
@@ -627,7 +673,7 @@ function HomeVisionStrategic() {
             <span className="rm-manifesto-accent">For Shaping Wisdom-Driven Economies.</span>
           </h2>
           <p className="rm-manifesto__sub">
-            EdTech is the lever. Wisdom-driven economies — economies whose growth is built on what their people know, build and invent — are the outcome.
+            We are empowering nations and global communities by uplifting individuals through emerging technologies, global exposure and international connectivity.
           </p>
           <div className="rm-manifesto__sig">Robotmea</div>
         </div>
@@ -636,28 +682,28 @@ function HomeVisionStrategic() {
   );
 }
 
-/* ============ Why Robotmea \u2014 World-class positioning ============ */
+/* ============ Why Robotmea — World-class positioning ============ */
 function HomeWhy() {
   const items = [
     {
       accent: "var(--rm-blue)",
       accentSoft: "var(--rm-blue-50)",
       title: "Accredited, not affiliated",
-      body: "Robotmea is formally accredited by Robotron, South Korea \u2014 a recognised research and accreditation body \u2014 not a reseller or affiliate.",
+      body: "IERDG is a formally accredited body backed by international EdTech leaders from South Korea and China.",
       icon: <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
     },
     {
       accent: "var(--rm-orange)",
       accentSoft: "var(--rm-orange-50)",
       title: "Curriculum-first",
-      body: "We are an institute built around curriculum, teacher training and accreditation \u2014 an internationally-aligned curriculum is the heart of the work, not the hardware.",
+      body: "We are an institute built around curriculum, teachers training and accreditation — an internationally-aligned STEAM-based system well aligned and integrated with Industry 4.0 skillset development.",
       icon: <svg viewBox="0 0 24 24"><path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 0-3 3z" transform="translate(0 -2)"/><path d="M4 4v18"/><path d="M8 8h6M8 12h6"/></svg>
     },
     {
       accent: "var(--rm-green)",
       accentSoft: "var(--rm-green-50)",
       title: "Evidence-led",
-      body: "Every program operates under a published Monitoring & Evaluation rubric. We measure, we publish, we feed the findings back into the curriculum.",
+      body: "Every program operates under a published Monitoring & Evaluation rubric. We measure, we publish, we feed the findings back into the EdTech-based system.",
       icon: <svg viewBox="0 0 24 24"><path d="M3 21V8M9 21V12M15 21V4M21 21V14"/></svg>
     },
     {
@@ -672,9 +718,9 @@ function HomeWhy() {
     <section className="rm-section rm-section--tight rm-why" data-screen-label="04 Why Robotmea">
       <div className="rm-container">
         <RM_Divider
-          eyebrow="Why Robotmea"
+          eyebrow="Why IERDG"
           heading="A world-class EdTech institution."
-          lead="Four reasons Pakistani school boards, ministries and investors treat Robotmea as a peer to the world's leading EdTech institutions."
+          lead="Four reasons every educational institution, ministries and investors treat IERDG as a peer to the world's leading EdTech institutions."
         />
         <div className="rm-why__grid">
           {items.map(it => (
@@ -734,7 +780,7 @@ function HomePrincipals() {
             heading={<>Transform your school<br />in six steps.</>}
           />
           <p className="rm-principals__lead">
-            Already running a school? IERDG partners with existing institutions to bring South Korean EdTech standards into your classroom — without rebuilding anything. You keep your name, your team, your community; we bring the curriculum, the training, and the accreditation.
+            Already running a school? IERDG partners with existing institutions to bring International EdTech standards into your classroom, without rebuilding anything. You keep your name, your team, your community; we bring the curriculum, the training, and the accreditation.
           </p>
         </div>
         <div className="rm-process-flow">

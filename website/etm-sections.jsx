@@ -25,7 +25,7 @@ function EtmHero() {
               A complete educational operating system — Robotron-certified, ETM-powered, South-Korean-accredited — designed for the schools that intend to lead the next decade.
             </p>
             <div className="rm-etm-hero__statement">
-              "A Project of Robotmea, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
+              "Developed by IERDG, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
             </div>
             <div className="rm-etm-hero__ctas">
               <a href="#franchise" className="rm-btn rm-btn--primary rm-btn--lg">
@@ -312,7 +312,7 @@ function EtmJourney() {
     { c: "var(--rm-orange)", t: "Investor Pack",     b: "Full standards documentation, financial model, regional market analysis." },
     { c: "var(--rm-green)",  t: "Feasibility",       b: "Site visit, local market study, capital plan review with our team." },
     { c: "var(--rm-red)",    t: "Onboarding",        b: "Accreditation paperwork, teacher hiring + FDC setup, capex build-out." },
-    { c: "var(--rm-blue)",   t: "Launch",            b: "Your school opens as A Project of Robotmea, ETM-powered, South Korean accredited." },
+    { c: "var(--rm-blue)",   t: "Launch",            b: "Your school opens as an ETM-powered school, developed by IERDG and accredited by Robotron, South Korea." },
   ];
   return (
     <section className="rm-journey" data-screen-label="07 Investor Journey">
