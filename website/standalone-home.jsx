@@ -253,8 +253,8 @@ function HomeWhoWeAre() {
           <div style={{ position: 'relative' }}>
             <div className="rm-photo-frame rm-photo-frame--poster" style={{ aspectRatio: '2 / 3' }}>
               <img
-                src={window.__resources.legacyKoreaPoster}
-                alt="Robotmea — carrying the legacy of South Korea's EdTech giants, alongside Korean technology partners Mini Robot, Neopia, Robotron and Sinion"
+                src={window.__resources.ierdgPoster}
+                alt="IERDG — Institute for EdTech Research, Development & Growth — five blueprints: K-12 Program, Educational Transformational Movement, Robotmea Emerging Technologies Centre, Faculty Development Cell, International Diploma Program"
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
