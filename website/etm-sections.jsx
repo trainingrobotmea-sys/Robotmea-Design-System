@@ -1,4 +1,4 @@
-/* global React */
+﻿/* global React */
 
 /* ============ ETM Hero ============ */
 function EtmHero() {
@@ -25,7 +25,7 @@ function EtmHero() {
               A complete educational operating system — Robotron-certified, ETM-powered, South-Korean-accredited — designed for the schools that intend to lead the next decade.
             </p>
             <div className="rm-etm-hero__statement">
-              "A Global EdTech initiative of Robotmea. Accredited by Robotron, South Korea. Managed by nexus of Global EdTech Leaders."
+              "A Global EdTech initiative of Robotmea. Accredited by Robotron, South Korea. Managed by Global EdTech Firms."
             </div>
             <div className="rm-etm-hero__ctas">
               <a href="#franchise" className="rm-btn rm-btn--primary rm-btn--lg">

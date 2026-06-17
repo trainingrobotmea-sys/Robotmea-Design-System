@@ -3652,7 +3652,7 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
 .rm-wing-detail--night .rm-wing-detail__num-line { background: var(--accent, var(--rm-orange)); opacity: .45; }
 .rm-wing-detail__title {
   font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(20px, 2.2vw, 30px); line-height: 1.1;
+  font-size: clamp(16px, 1.8vw, 26px); line-height: 1.1;
   text-transform: uppercase; letter-spacing: .01em;
   color: var(--fg-1); margin: 0 0 14px;
 }
@@ -3842,6 +3842,68 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
 }
 .rm-idp-footer p { margin: 0; }
 
+/* IDP Slider */
+.rm-idp-slider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 32px;
+}
+.rm-idp-slider__track {
+  position: relative;
+  flex: 1;
+  min-height: 220px;
+}
+.rm-idp-slider__card {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+  transition: opacity .4s ease, transform .4s ease;
+}
+.rm-idp-slider__card.is-active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.rm-idp-slider__arrow {
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-1);
+  background: white;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all .2s ease;
+  color: var(--fg-1);
+}
+.rm-idp-slider__arrow svg { width: 18px; height: 18px; }
+.rm-idp-slider__arrow:hover {
+  border-color: var(--rm-blue);
+  color: var(--rm-blue);
+  box-shadow: var(--shadow-1);
+}
+.rm-idp-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.rm-idp-dot {
+  width: 8px; height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: var(--border-1);
+  cursor: pointer;
+  padding: 0;
+  transition: all .25s ease;
+}
+.rm-idp-dot.is-active {
+  background: var(--rm-blue);
+  width: 24px;
+}
+
 /* K-12 pathways */
 .rm-pathway-grid {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3925,7 +3987,7 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
 }
 .rm-retc-stat__n {
   font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(18px, 1.8vw, 24px); line-height: 1.2;
+  font-size: clamp(13px, 1.2vw, 16px); line-height: 1.2;
   color: var(--rm-orange);
 }
 .rm-retc-stat__l {

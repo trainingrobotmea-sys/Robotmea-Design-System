@@ -265,7 +265,7 @@ function HomeWhoWeAre() {
             <div className="rm-who-brand-panel__creds">
               <div className="rm-who-brand-panel__cred"><span className="rm-who-brand-panel__cred-dot" style={{ background: "var(--rm-orange)" }}></span>A Global EdTech initiative of Robotmea</div>
               <div className="rm-who-brand-panel__cred"><span className="rm-who-brand-panel__cred-dot" style={{ background: "var(--rm-blue)" }}></span>Accredited by Robotron, South Korea</div>
-              <div className="rm-who-brand-panel__cred"><span className="rm-who-brand-panel__cred-dot" style={{ background: "var(--rm-blue)" }}></span>Managed by nexus of Global EdTech Leaders</div>
+              <div className="rm-who-brand-panel__cred"><span className="rm-who-brand-panel__cred-dot" style={{ background: "var(--rm-blue)" }}></span>Managed by Global EdTech Firms</div>
             </div>
           </div>
           <div>
@@ -353,7 +353,7 @@ function HomeETMBand() {
   const badges = [
     { num: "01", text: "A Global EdTech initiative of Robotmea" },
     { num: "02", text: "Accredited by Robotron, South Korea" },
-    { num: "03", text: "Managed by nexus of Global EdTech Leaders" },
+    { num: "03", text: "Managed by Global EdTech Firms" },
   ];
   return (
     <section className="rm-etm-band" data-screen-label="04 ETM Spotlight">
@@ -366,7 +366,7 @@ function HomeETMBand() {
             established under your name.
           </h2>
           <p className="rm-etm-band__statement">
-            "A Global EdTech initiative of Robotmea. Accredited by Robotron, South Korea. Managed by nexus of Global EdTech Leaders."
+            "A Global EdTech initiative of Robotmea. Accredited by Robotron, South Korea. Managed by Global EdTech Firms."
           </p>
           <p className="rm-etm-band__lead">
             ETM is a franchise call for investors to establish a STEAM-based, South Korean-accredited emerging technologies school coupled with Islamic values in the Islamic Republic of Pakistan.
@@ -437,7 +437,7 @@ function HomeNGIS() {
             </div>
             <h2 className="rm-ngis__title">NGIS — NextGen International School.</h2>
             <p className="rm-ngis__strap">
-              "A Global EdTech initiative of Robotmea. Accredited by Robotron, South Korea. Managed by nexus of Global EdTech Leaders."
+              "A Global EdTech initiative of Robotmea. Accredited by Robotron, South Korea. Managed by Global EdTech Firms."
             </p>
             <p className="rm-ngis__body">
               The first school operating under the ETM franchise — two campuses in Karachi, opening for Pre-Primary through Grade 5, with the first cohort enrolling from August. NGIS is the live, working demonstration of the model future ETM schools will inherit.
