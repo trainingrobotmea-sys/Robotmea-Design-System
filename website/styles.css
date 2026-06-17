@@ -170,8 +170,8 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
 .rm-h1--on-dark { color: white; }
 .rm-h2 {
   font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(28px, 3.1vw, 42px);
-  line-height: 1.1; letter-spacing: .02em;
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: 1.1; letter-spacing: .01em;
   text-transform: uppercase; color: var(--fg-1);
   margin: 0;
 }
