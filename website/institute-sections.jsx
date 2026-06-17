@@ -361,7 +361,7 @@ function InstituteTransform() {
       icon: <svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 2 1.5 3.3h5c0-1.3.5-2.5 1.5-3.3A7 7 0 0 0 12 2z"/></svg>,
     },
     {
-      n: "03", c: "var(--rm-green)", glow: "rgba(125,158,62,.5)",
+      n: "03", c: "var(--rm-blue)", glow: "rgba(68,158,184,.45)",
       label: "Curriculum",
       t: "Adopt the IERDG Curriculum",
       tag: "Step 03 · Adopt",
@@ -370,7 +370,7 @@ function InstituteTransform() {
       icon: <svg viewBox="0 0 24 24"><path d="M2 3h7a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-7a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h8z"/></svg>,
     },
     {
-      n: "04", c: "var(--rm-red)", glow: "rgba(235,72,72,.5)",
+      n: "04", c: "var(--rm-orange)", glow: "rgba(255,135,11,.5)",
       label: "Teachers",
       t: "Train Your Teachers",
       tag: "Step 04 · Certify",

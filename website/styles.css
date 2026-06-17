@@ -784,8 +784,8 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
 .rm-five-point__card:hover { transform: translateY(-4px); box-shadow: var(--shadow-2); }
 .rm-five-point__card:nth-child(1) { border-top-color: var(--rm-blue); }
 .rm-five-point__card:nth-child(2) { border-top-color: var(--rm-orange); }
-.rm-five-point__card:nth-child(3) { border-top-color: var(--rm-green); }
-.rm-five-point__card:nth-child(4) { border-top-color: var(--rm-red); }
+.rm-five-point__card:nth-child(3) { border-top-color: var(--rm-blue); }
+.rm-five-point__card:nth-child(4) { border-top-color: var(--rm-orange); }
 .rm-five-point__card:nth-child(5) { border-top-color: var(--rm-blue); }
 .rm-five-point__num {
   font-family: var(--font-display); font-weight: 700;
@@ -1626,8 +1626,8 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
 .rm-copr-hero {
   position: relative; overflow: hidden;
   color: white;
-  padding: 130px 0 110px;
-  min-height: 720px;
+  padding: 80px 0 72px;
+  min-height: 480px;
   background: var(--rm-night);
 }
 .rm-copr-hero__video {
@@ -1655,12 +1655,15 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
 }
 .rm-copr-hero__inner { position: relative; z-index: 2; }
 .rm-copr-hero__layout {
-  display: grid; grid-template-columns: 1.15fr 1fr;
-  gap: 56px; align-items: center;
+  display: grid; grid-template-columns: 1.25fr 1fr;
+  gap: 40px; align-items: center;
+}
+.rm-copr-hero .rm-eyebrow {
+  font-size: 13px; letter-spacing: .1em; font-weight: 800;
 }
 .rm-copr-hero__brand {
   display: inline-flex; align-items: center; gap: 14px;
-  padding: 8px 16px 8px 8px; margin-bottom: 28px;
+  padding: 8px 16px 8px 8px; margin-bottom: 20px;
   background: rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.18);
   border-radius: 999px;
@@ -1678,32 +1681,31 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
 }
 .rm-copr-hero__title {
   font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(40px, 5vw, 72px); line-height: 1;
+  font-size: clamp(30px, 3.6vw, 52px); line-height: 1;
   letter-spacing: .015em; text-transform: uppercase;
-  color: white; margin: 0 0 18px;
+  color: white; margin: 16px 0 6px;
 }
 .rm-copr-hero__title-accent {
   background: linear-gradient(90deg, var(--rm-orange) 0%, var(--rm-blue) 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: block;
 }
 .rm-copr-hero__tagline {
   font-family: var(--font-display); font-style: italic;
-  font-size: 18px; line-height: 1.45;
+  font-size: 15px; line-height: 1.45;
   color: rgba(255,255,255,.86);
-  margin: 0 0 32px;
+  margin: 0 0 20px;
 }
 .rm-copr-hero__sub {
   font-size: 15px; line-height: 1.65;
   color: rgba(255,255,255,.78);
   max-width: 580px; margin: 0 0 36px;
 }
-.rm-copr-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.rm-copr-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
 .rm-copr-hero__logo {
   position: relative;
-  display: grid; place-items: center;
-  width: 100%; max-width: 480px;
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; max-width: 360px;
   margin: 0 auto;
   aspect-ratio: 1;
 }
@@ -1712,23 +1714,23 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
   object-fit: contain;
   filter:
     brightness(0) invert(1)
-    drop-shadow(0 24px 56px rgba(68,158,184,.45))
-    drop-shadow(0 14px 32px rgba(255,135,11,.30));
-  animation: rm-copr-float 9s ease-in-out infinite;
+    drop-shadow(0 20px 48px rgba(255,135,11,.28))
+    drop-shadow(0 10px 28px rgba(68,158,184,.26));
+  animation: rm-copr-float 7s ease-in-out infinite;
 }
 .rm-copr-hero__logo::before {
   content: '';
-  position: absolute; inset: -10%;
+  position: absolute; inset: -8%;
   border-radius: 999px;
   background:
-    radial-gradient(circle at 30% 30%, rgba(68,158,184,.32), transparent 55%),
-    radial-gradient(circle at 70% 70%, rgba(255,135,11,.32), transparent 55%);
+    radial-gradient(circle at 30% 30%, rgba(255,135,11,.28), transparent 55%),
+    radial-gradient(circle at 70% 70%, rgba(68,158,184,.28), transparent 55%);
   filter: blur(40px);
   z-index: -1;
 }
 @keyframes rm-copr-float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-10px) rotate(-1.5deg); }
 }
 
 /* ============ Nexus Constellation (interactive 9 formulas) ============ */
@@ -3143,7 +3145,7 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
   color: var(--fg-2);
   display: inline-flex; align-items: center; gap: 6px;
 }
-.rm-form__req { color: var(--rm-red); font-size: 12px; }
+.rm-form__req { color: var(--rm-orange); font-size: 12px; }
 .rm-form__input, .rm-form__textarea, .rm-form__select {
   font-family: var(--font-body); font-weight: 500;
   font-size: 14px;
