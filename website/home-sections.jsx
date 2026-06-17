@@ -196,7 +196,7 @@ function HomeTrust() {
     { src: "../assets/partners/robotron-trimmed.png",  alt: "Robotron",  role: "Accreditation & EdTech Research",              c: "var(--rm-orange)" },
     { src: "../assets/partners/minirobot-trimmed.png", alt: "MiniRobot", role: "Industrial Robotics",                          c: "var(--rm-blue)" },
     { src: "../assets/partners/neopia-trimmed.png",    alt: "Neopia",    role: "AI, Machine Learning, IoT & Integrated Systems", c: "var(--rm-green)" },
-    { src: "../assets/partners/sinion-trimmed.png",    alt: "Sinion",    role: "R&D · China",         c: "var(--rm-red)" },
+    { src: "../assets/partners/sinion-trimmed.png",    alt: "Sinion",    role: "R&D · China",         c: "var(--rm-red)",    imgScale: 1.45 },
     { src: "../assets/partners/tdme-trimmed.png",      alt: "TDME",      role: "Industry Partner",     c: "var(--rm-orange)" },
     { src: "../assets/partners/esim-gen-trimmed.png",  alt: "esim·gen",  role: "Connectivity",        c: "var(--rm-blue)" },
   ];
@@ -230,7 +230,7 @@ function HomeTrust() {
             <div key={p.alt} className="rm-trust__cell" style={{ "--accent": p.c }} title={p.alt}>
               <span className="rm-trust__index">{String(i + 1).padStart(2, "0")}</span>
               <div className="rm-trust__logo-wrap">
-                <img src={p.src} alt={p.alt} className="rm-trust__logo" />
+                <img src={p.src} alt={p.alt} className="rm-trust__logo" style={p.imgScale ? { transform: `scale(${p.imgScale})` } : {}} />
               </div>
               <div className="rm-trust__cap">
                 <span className="rm-trust__dot"></span>
@@ -267,7 +267,7 @@ function HomeWhoWeAre() {
             <RM_Divider
               align="left"
               eyebrow="Who We Are"
-              heading={<>A movement initiated by global technology<br />entrepreneurs to reshape international<br />educational landscape.</>}
+              heading="A global movement of technology entrepreneurs, reshaping the international educational landscape."
             />
             <p className="rm-lead" style={{ marginTop: 22 }}>
               At IERDG we build EdTech systems to redefine the global educational landscape. <strong>We are an Institute for EdTech Research, Development &amp; Growth (IERDG)</strong> with five blueprints to realign education for Industry 4.0 &amp; 5.0.

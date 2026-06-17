@@ -218,10 +218,10 @@ function ContactForm() {
               <h4 className="rm-c-social__h">Follow Robotmea</h4>
               <div className="rm-c-social__row">
                 <a className="rm-c-social__btn" href="https://www.linkedin.com/company/robotmea" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+                <a className="rm-c-social__btn" href="https://www.instagram.com/robot_mea" target="_blank" rel="noreferrer" aria-label="Instagram">IG</a>
                 <a className="rm-c-social__btn" href="https://www.facebook.com/robotami/" target="_blank" rel="noreferrer" aria-label="Facebook">f</a>
-                <a className="rm-c-social__btn" href="#" aria-label="Instagram">IG</a>
-                <a className="rm-c-social__btn" href="#" aria-label="YouTube">YT</a>
-                <a className="rm-c-social__btn" href="#" aria-label="X / Twitter">𝕏</a>
+                <a className="rm-c-social__btn" href="https://www.youtube.com/@robotmea" target="_blank" rel="noreferrer" aria-label="YouTube">YT</a>
+                <a className="rm-c-social__btn" href="https://www.tiktok.com/@robotmea" target="_blank" rel="noreferrer" aria-label="TikTok">TT</a>
               </div>
             </div>
           </div>
