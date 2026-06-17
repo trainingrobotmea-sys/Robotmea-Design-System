@@ -507,6 +507,98 @@ body { margin: 0; background: var(--bg-1); color: var(--fg-2); font-family: var(
 
 /* ============ Two-column "Who We Are" ============ */
 .rm-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+/* IERDG brand panel — replaces poster image in "Who We Are" */
+.rm-who-brand-panel {
+  background: linear-gradient(160deg, #0b1e35 0%, #0d2445 100%);
+  border-radius: 12px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 460px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.rm-who-brand-panel::after {
+  content: '';
+  position: absolute;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(24, 90, 180, 0.16) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.rm-who-brand-panel__top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.rm-who-brand-panel__logo-wrap {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+}
+.rm-who-brand-panel__logo {
+  width: 210px;
+  height: 210px;
+  object-fit: contain;
+  filter: invert(1) brightness(1.05);
+}
+.rm-who-brand-panel__tagline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--rm-orange);
+  margin-top: 24px;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 1;
+}
+.rm-who-brand-panel__sub {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.rm-who-brand-panel__creds {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.rm-who-brand-panel__cred {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  text-align: left;
+}
+.rm-who-brand-panel__cred-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .rm-who-brand-panel { min-height: 320px; padding: 40px 24px; }
+  .rm-who-brand-panel__logo { width: 160px; height: 160px; }
+}
 .rm-photo-frame {
   position: relative;
   border-radius: var(--radius-xl);

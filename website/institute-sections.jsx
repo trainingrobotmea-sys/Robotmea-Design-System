@@ -30,6 +30,12 @@ function InstituteHero() {
                 </div>
               </div>
             </div>
+            <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.58)', fontStyle: 'italic', marginTop: 18, lineHeight: 1.7 }}>
+              "Developed by IERDG, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
+            </p>
+            <div style={{ marginTop: 22 }}>
+              <RM_Credentials variant="ghost" layout="row" />
+            </div>
           </div>
           <div className="rm-inst-logo">
             <img src="../assets/ied-logo.png" alt="IERDG — Institute for EdTech Research, Development & Growth" />

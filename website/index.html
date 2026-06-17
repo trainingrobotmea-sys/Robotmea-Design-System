@@ -484,17 +484,22 @@ function HomeWhoWeAre() {
     <section className="rm-section rm-section--paper" data-screen-label="02 Who We Are">
       <div className="rm-container">
         <div className="rm-two-col">
-          <div style={{ position: 'relative' }}>
-            <div className="rm-photo-frame rm-photo-frame--poster" style={{ aspectRatio: '2 / 3' }}>
-              <img
-                src="../assets/ierdg.png"
-                alt="IERDG — Institute for EdTech Research, Development & Growth — five blueprints: K-12 Program, Educational Transformational Movement, Robotmea Emerging Technologies Centre, Faculty Development Cell, International Diploma Program"
-                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-              />
+          <div className="rm-who-brand-panel">
+            <div className="rm-who-brand-panel__top-bar">
+              <span style={{ background: "var(--rm-blue)" }}></span>
+              <span style={{ background: "var(--rm-orange)" }}></span>
+              <span style={{ background: "var(--rm-blue)" }}></span>
+              <span style={{ background: "var(--rm-orange)" }}></span>
             </div>
-            <div className="rm-floating-badge" style={{ right: -20, bottom: -28 }}>
-              <strong>06 Partners</strong>
-              <span>Four Global Hubs Worldwide</span>
+            <div className="rm-who-brand-panel__logo-wrap">
+              <img src="../assets/ied-logo.png" alt="IERDG — Institute for EdTech Research, Development & Growth" className="rm-who-brand-panel__logo" />
+            </div>
+            <div className="rm-who-brand-panel__tagline">Where Excellence Matters.</div>
+            <div className="rm-who-brand-panel__sub">Middle East · Africa · Pakistan</div>
+            <div className="rm-who-brand-panel__creds">
+              <div className="rm-who-brand-panel__cred"><span className="rm-who-brand-panel__cred-dot" style={{ background: "var(--rm-orange)" }}></span>Developed by IERDG</div>
+              <div className="rm-who-brand-panel__cred"><span className="rm-who-brand-panel__cred-dot" style={{ background: "var(--rm-blue)" }}></span>Powered by ETM on South Korean Educational Standards</div>
+              <div className="rm-who-brand-panel__cred"><span className="rm-who-brand-panel__cred-dot" style={{ background: "var(--rm-orange)" }}></span>Accredited by Robotron, South Korea</div>
             </div>
           </div>
           <div>
@@ -733,12 +738,12 @@ function HomeCOPR() {
   const formulas = [
     { l: "Hardwork + Exposure",                         r: "Excellence",     color: "var(--rm-orange)" },
     { l: "Unity + Faith",                               r: "Discipline",     color: "var(--rm-blue)"   },
-    { l: "Communication + Creativity",                  r: "Innovation",     color: "var(--rm-green)"  },
-    { l: "Heterogeneous Connectivity + Local Understanding", r: "Real Change", color: "var(--rm-red)"    },
+    { l: "Communication + Creativity",                  r: "Innovation",     color: "var(--rm-orange)"  },
+    { l: "Heterogeneous Connectivity + Local Understanding", r: "Real Change", color: "var(--rm-blue)"    },
     { l: "Market Research + Business Intelligence",     r: "Success",        color: "var(--rm-orange)" },
     { l: "Transparency + Leadership",                   r: "Vision",         color: "var(--rm-blue)"   },
-    { l: "Strategic Thinking + Skills",                 r: "Impact",         color: "var(--rm-green)"  },
-    { l: "Passion + Pragmatic Approach",                r: "Value Creation", color: "var(--rm-red)"    },
+    { l: "Strategic Thinking + Skills",                 r: "Impact",         color: "var(--rm-orange)"  },
+    { l: "Passion + Pragmatic Approach",                r: "Value Creation", color: "var(--rm-blue)"    },
   ];
   return (
     <section className="rm-section rm-copr-band" data-screen-label="08 COPR Formulas">
@@ -984,12 +989,12 @@ function HomePrincipals() {
       icon: <svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 2 1.5 3.3h5c0-1.3.5-2.5 1.5-3.3A7 7 0 0 0 12 2z"/></svg>
     },
     {
-      n: "03", t: "Adopt the Curriculum", color: "var(--rm-green)",
+      n: "03", t: "Adopt the Curriculum", color: "var(--rm-orange)",
       b: "Bring in IERDG's globally adopted AI, Robotics and STEAM curriculum — integrated with your existing learning outcomes.",
       icon: <svg viewBox="0 0 24 24"><path d="M2 3h7a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-7a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h8z"/></svg>
     },
     {
-      n: "04", t: "Train Your Teachers", color: "var(--rm-red)",
+      n: "04", t: "Train Your Teachers", color: "var(--rm-blue)",
       b: "Certify your faculty on the Robotron standard. Continuous Professional Development through our Faculty Development Cell.",
       icon: <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     },
