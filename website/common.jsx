@@ -105,9 +105,9 @@ function RM_Divider({ eyebrow, heading, lead, align = "center", dark = false }) 
    ============================================================ */
 function RM_Credentials({ variant = "ghost", layout = "row" }) {
   const items = [
-    { color: "orange", text: "Developed by IERDG" },
-    { color: "blue",   text: "Powered by ETM on South Korean Educational Standards" },
-    { color: "green",  text: "Accredited by Robotron, South Korea" },
+    { color: "orange", text: "A Global EdTech initiative of Robotmea" },
+    { color: "blue",   text: "Accredited by Robotron, South Korea" },
+    { color: "blue",   text: "Managed by nexus of Global EdTech Leaders" },
   ];
   return (
     <div className={[
@@ -164,7 +164,7 @@ function RM_Footer() {
             <img src="../assets/logo-full.png" alt="Robotmea" />
             <p>Robotmea is an International EdTech authority with 04 R&amp;D Arms, 01 Institute, Emerging Technologies Centre, ETM Schools Network and Fleet Network of Discovery and Innovation hubs for Emerging Technologies (AI, Robotics, AR/VR, Simulation) and STEAM Education — accredited by Robotron, South Korea, in the Middle East, Africa and Pakistan region.</p>
             <div className="rm-footer__statement">
-              "Developed by IERDG, Powered by ETM on South Korean Educational Standards. Accredited by Robotron, South Korea."
+              "A Global EdTech initiative of Robotmea. Accredited by Robotron, South Korea. Managed by nexus of Global EdTech Leaders."
             </div>
             <div className="rm-footer__social">
               <a href="https://www.linkedin.com/company/robotmea" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>

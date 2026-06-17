@@ -8,14 +8,18 @@ function IntlHero() {
         <span></span><span></span><span></span><span></span>
       </div>
       <div className="rm-container rm-intl-hero__inner">
-        <div className="rm-eyebrow rm-eyebrow--white">Global Ecosystem</div>
+        <div className="rm-eyebrow rm-eyebrow--white">International Partners</div>
         <h1 className="rm-intl-hero__title">
-          Where Robotmea<br />
-          <span className="rm-intl-hero__title-accent">Draws Its Standard.</span>
+          IERDG is powered by WORLD's<br />
+          <span className="rm-intl-hero__title-accent">Leading Emerging Technologies Partners.</span>
         </h1>
         <p className="rm-intl-hero__lead">
-          Robotmea is not a local vendor; we are the Middle East, Africa and Pakistan delivery arm of a network of South Korean research institutions, hardware innovators, and chambers of commerce — organisations with decades of evidence behind every kit, every curriculum, every certification we put our name to.
+          From international accreditation and emerging technologies platforms to dedicated R&D labs and global connectivity. At IERDG we integrate emerging technologies with curriculum to redefine the classroom environment with the help of global partners who have created impact in their respective fields.
         </p>
+        <div className="rm-intl-hero__ctas">
+          <a href="#partners" className="rm-btn rm-btn--primary rm-btn--lg">Meet Our Partners<span className="rm-btn__arrow">→</span></a>
+          <a href="#accreds" className="rm-btn rm-btn--ghost-light rm-btn--lg">View Certifications</a>
+        </div>
       </div>
     </section>
   );
@@ -26,8 +30,8 @@ function IntlMetrics() {
   const metrics = [
     { c: "var(--rm-orange)", n: "30+",  l: "Years Combined Heritage",  sub: "Across our South Korean R&D and accreditation partners." },
     { c: "var(--rm-blue)",   n: "07",   l: "International Partners",   sub: "Across Korea, the Middle East and connectivity technologies." },
-    { c: "var(--rm-green)",  n: "11",   l: "Patents Held",             sub: "Granted to Neopia for educational electronic block systems." },
-    { c: "var(--rm-red)",    l: "ISO 9001 · CE · FCC", n: "Certified", sub: "Quality, safety and electromagnetic-compliance marks held by partners." },
+    { c: "var(--rm-blue)",   n: "30+",  l: "Countries",                sub: "Across Middle East, Africa and Pakistan — classrooms on world-class emerging technologies standards." },
+    { c: "var(--rm-orange)", l: "ISO 9001 · CE · FCC", n: "Certified", sub: "Quality, safety and electromagnetic-compliance marks held by partners." },
   ];
   return (
     <section className="rm-intl-metrics" data-screen-label="02 Metrics">
@@ -49,6 +53,22 @@ function IntlMetrics() {
 /* ============ Partner Cards ============ */
 function IntlPartners() {
   const partners = [
+    {
+      logo: "../assets/partners/tdme-trimmed.png",
+      country: "United Arab Emirates",
+      c: "var(--rm-orange)",
+      role: "Parent Group",
+      name: "Time Dimension Middle East",
+      strap: "The MENA holding arm behind Robotmea.",
+      lead: "TDME is Robotmea's Middle-East-headquartered parent group — focused on EdTech, applied innovation, and youth development across the MENA region. TDME provides Robotmea with regional capital, government relationships across the Gulf, and a direct line into MENA innovation funds and procurement frameworks.",
+      facts: [
+        { n: "MENA", l: "Regional Reach" },
+        { n: "EdTech", l: "Sector Focus" },
+        { n: "Innovation", l: "Mandate" },
+      ],
+      what: ["Parent Holding", "MENA Channels", "Innovation Capital", "Government Relations"],
+      url: "https://tdme.net",
+    },
     {
       logo: "../assets/partners/robotron.png",
       country: "Republic of Korea",
@@ -84,7 +104,7 @@ function IntlPartners() {
     {
       logo: "../assets/partners/minirobot.png",
       country: "Republic of Korea",
-      c: "var(--rm-green)",
+      c: "var(--rm-blue)",
       role: "Robotics Hardware Partner",
       name: "MiniRobot",
       strap: "Performance-grade robotics, built for the classroom.",
@@ -96,38 +116,6 @@ function IntlPartners() {
       ],
       what: ["Humanoid Robotics", "Competition Platforms", "AI Robotics", "Schools & Museums"],
       url: "https://minirobot.co.kr",
-    },
-    {
-      logo: "../assets/partners/tdme.png",
-      country: "United Arab Emirates",
-      c: "var(--rm-red)",
-      role: "Parent Group",
-      name: "Time Dimension Middle East",
-      strap: "The MENA holding arm behind Robotmea.",
-      lead: "TDME is Robotmea's Middle-East-headquartered parent group — focused on EdTech, applied innovation, and youth development across the MENA region. TDME provides Robotmea with regional capital, government relationships across the Gulf, and a direct line into MENA innovation funds and procurement frameworks.",
-      facts: [
-        { n: "MENA", l: "Regional Reach" },
-        { n: "EdTech", l: "Sector Focus" },
-        { n: "Innovation", l: "Mandate" },
-      ],
-      what: ["Parent Holding", "MENA Channels", "Innovation Capital", "Government Relations"],
-      url: "https://tdme.net",
-    },
-    {
-      logo: "../assets/partners/esim-gen.png",
-      country: "Global Connectivity",
-      c: "var(--rm-blue)",
-      role: "Collaborative Connectivity Partner",
-      name: "esim·gen",
-      strap: "Keeping the Robotmea team connected across the globe.",
-      lead: "esim·gen is Robotmea's collaborative partner for connectivity services — providing the SIM and eSIM infrastructure that keeps the Robotmea team online wherever the work takes us. As our people, devices and IoT-classroom hardware move between Pakistan, Korea, the Middle East and beyond, esim·gen ensures seamless, friction-free connectivity across borders.",
-      facts: [
-        { n: "eSIM", l: "Provisioning" },
-        { n: "Global", l: "Coverage" },
-        { n: "Team", l: "Always Online" },
-      ],
-      what: ["eSIM Provisioning", "Global Connectivity", "Cross-Border Coverage", "Travel Connectivity"],
-      url: "https://esimgen.com",
     },
     {
       logo: "../assets/partners/sinion.jpeg",
@@ -145,14 +133,30 @@ function IntlPartners() {
       what: ["China R&D", "Emerging-Tech Access", "Hardware Sourcing", "Regional Tailoring"],
       url: "#",
     },
+    {
+      logo: "../assets/partners/esim-gen.png",
+      country: "Global Connectivity",
+      c: "var(--rm-blue)",
+      role: "Collaborative Connectivity Partner",
+      name: "esim·gen",
+      strap: "Keeping the Robotmea team connected across the globe.",
+      lead: "esim·gen is Robotmea's collaborative partner for connectivity services — providing the SIM and eSIM infrastructure that keeps the Robotmea team online wherever the work takes us. As our people, devices and IoT-classroom hardware move between Pakistan, Korea, the Middle East and beyond, esim·gen ensures seamless, friction-free connectivity across borders.",
+      facts: [
+        { n: "eSIM", l: "Provisioning" },
+        { n: "Global", l: "Coverage" },
+        { n: "Team", l: "Always Online" },
+      ],
+      what: ["eSIM Provisioning", "Global Connectivity", "Cross-Border Coverage", "Travel Connectivity"],
+      url: "https://esimgen.com",
+    },
   ];
   return (
-    <section className="rm-partners-page" data-screen-label="03 Partners">
+    <section id="partners" className="rm-partners-page" data-screen-label="03 Partners">
       <div className="rm-container">
         <RM_Divider
           eyebrow="Our International Partners"
           heading="The institutions our standard rests on."
-          lead="Each partner anchors a different layer of Robotmea's work — accreditation, hardware, curriculum, capital, connectivity. Together they form the global ecosystem that gives classrooms across Pakistan, the Middle East and Africa world-class footing."
+          lead="Each partner anchors a different layer of Robotmea's work — accreditation, hardware, curriculum, capital, global exposure and connectivity. Together they form a global ecosystem that gives classrooms international educational benchmarks with world class emerging technologies standards in the region."
         />
         <div style={{ marginTop: 16 }}>
           {partners.map(p => (
@@ -245,7 +249,7 @@ function IntlAccreds() {
     },
   ];
   return (
-    <section className="rm-accreds" data-screen-label="04 Accreds">
+    <section id="accreds" className="rm-accreds" data-screen-label="04 Accreds">
       <div className="rm-container rm-accreds__inner">
         <RM_Divider dark
           eyebrow="Accreditations & Certifications"
@@ -272,8 +276,8 @@ function IntlPresence() {
   const places = [
     { c: "var(--rm-orange)", flag: "PK", where: "Pakistan", what: "Delivery Headquarters · ETM Schools" },
     { c: "var(--rm-blue)",   flag: "KR", where: "Republic of Korea", what: "Robotron · Neopia · MiniRobot" },
-    { c: "var(--rm-red)",    flag: "AE", where: "United Arab Emirates", what: "TDME — Parent Group, MENA Office" },
-    { c: "var(--rm-green)",  flag: "CN", where: "China", what: "Industry & Manufacturing Partners" },
+    { c: "var(--rm-orange)", flag: "AE", where: "United Arab Emirates", what: "TDME — Parent Group, MENA Office" },
+    { c: "var(--rm-blue)",   flag: "CN", where: "China", what: "Industry & Manufacturing Partners" },
     { c: "var(--rm-blue)",   flag: "INTL", where: "Cross-Border", what: "esim·gen — Connectivity Across Markets" },
   ];
   return (
@@ -327,13 +331,13 @@ function IntlPresence() {
                 <text x="660" y="160" textAnchor="middle" fontFamily="Montserrat, sans-serif" fontSize="10" fontWeight="800" fill="#14202b" letterSpacing="1.5">KOREA</text>
 
                 {/* UAE */}
-                <circle cx="440" cy="200" r="11" fill="#eb4848" opacity=".22"/>
-                <circle cx="440" cy="200" r="5.5" fill="#eb4848" stroke="white" strokeWidth="2.5"/>
+                <circle cx="440" cy="200" r="11" fill="#ff870b" opacity=".22"/>
+                <circle cx="440" cy="200" r="5.5" fill="#ff870b" stroke="white" strokeWidth="2.5"/>
                 <text x="440" y="228" textAnchor="middle" fontFamily="Montserrat, sans-serif" fontSize="10" fontWeight="800" fill="#14202b" letterSpacing="1.5">UAE</text>
 
                 {/* China */}
-                <circle cx="620" cy="160" r="11" fill="#7d9e3e" opacity=".22"/>
-                <circle cx="620" cy="160" r="5.5" fill="#7d9e3e" stroke="white" strokeWidth="2.5"/>
+                <circle cx="620" cy="160" r="11" fill="#449eb8" opacity=".22"/>
+                <circle cx="620" cy="160" r="5.5" fill="#449eb8" stroke="white" strokeWidth="2.5"/>
                 <text x="610" y="190" textAnchor="middle" fontFamily="Montserrat, sans-serif" fontSize="10" fontWeight="800" fill="#14202b" letterSpacing="1.5">CHINA</text>
               </g>
             </svg>

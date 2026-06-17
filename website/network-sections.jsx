@@ -14,7 +14,7 @@ function NetHero() {
           <span className="rm-net-hero__title-accent">& Partners On The Ground.</span>
         </h1>
         <p className="rm-net-hero__lead">
-          Robotmea is delivered through a network of institutions across Pakistan, the Middle East and Africa — universities, school chains, residential schools, community foundations, and learning centres. Each operates Robotmea programmes inside its own brand, on its own ground, to a shared global standard.
+          Robotmea in last 10 years has launched and implemented edtech based solutions in Public, Private and Development sector organisations. The programs have been developed around STEAM Educational frameworks by integrating Emerging Technologies with the existing curricula of K-12 and beyond.
         </p>
       </div>
     </section>
@@ -25,9 +25,9 @@ function NetHero() {
 function NetStats() {
   const stats = [
     { c: "var(--rm-orange)", n: "250+", l: "Discovery & Innovation Hubs" },
-    { c: "var(--rm-blue)",   n: "120+", l: "Institutions" },
-    { c: "var(--rm-green)",  n: "All",  l: "Levels — K-12 To University" },
-    { c: "var(--rm-red)",    n: "1",    l: "Shared Robotron Standard" },
+    { c: "var(--rm-blue)",   n: "30+",  l: "Countries" },
+    { c: "var(--rm-blue)",   n: "All",  l: "Levels — K-12 To University" },
+    { c: "var(--rm-orange)", n: "1",    l: "Shared Robotron Standard" },
   ];
   return (
     <section className="rm-net-stats">
@@ -47,13 +47,12 @@ function NetStats() {
 
 /* ============ Tier 2 — Long-tail school network grid ============ */
 function NetGrid() {
-  // Curated, uniform partner logos ("Logos for our partners section" set)
+  const flagship = ["01","02","03","04","05","07","08","09","10"];
   const slugs = [
-    "01","02","03","04","05","07","08","09","10","11","12","13","14","15","16","17","18",
+    "11","12","13","14","15","16","17","18",
     "20","21","22","23","24","26","27","28","29","30","31","32","33","34","35",
     "37","38","39","40","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58"
   ];
-  // Additional partner logos from the full logo library
   const extras = [
     "extra-001.png","extra-002.png","extra-003.png","extra-004.jfif","extra-005.png",
     "extra-006.png","extra-007.png","extra-008.png","extra-009.png","extra-010.png",
@@ -68,11 +67,24 @@ function NetGrid() {
     "extra-051.png","extra-052.png","extra-053.jpeg","extra-054.jpeg","extra-055.jpeg",
     "extra-056.jpeg","extra-057.jpeg","extra-058.jpeg"
   ];
-  const total = slugs.length + extras.length;
+  const total = flagship.length + slugs.length + extras.length;
   return (
     <section className="rm-net-tier rm-net-tier--alt" data-screen-label="03 Network Grid">
       <div className="rm-container">
-        <div className="rm-net-tier__head">
+        <RM_Divider
+          eyebrow="Flagship Institutions"
+          heading={<>Key partners across<br />Middle East, Africa &amp; Pakistan.</>}
+          lead="Our flagship institutional partners — the leading schools, universities and learning centres that anchor the Robotmea STEAM standard across the MEAP region."
+        />
+        <div className="rm-net-flagship__grid">
+          {flagship.map(s => (
+            <div key={`f-${s}`} className="rm-net-flagship__cell">
+              <img src={`../assets/network/partner-${s}.png`} alt={`Flagship institution ${s}`} loading="lazy" />
+            </div>
+          ))}
+        </div>
+
+        <div className="rm-net-tier__head" style={{ marginTop: 72 }}>
           <RM_Divider
             align="left"
             eyebrow="Extended Network"
