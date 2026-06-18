@@ -265,7 +265,7 @@ function IntlMetrics() {
     { c: "var(--rm-orange)", n: "30+",  l: "Years Combined Heritage",  sub: "Across our South Korean R&D and accreditation partners." },
     { c: "var(--rm-blue)",   n: "07",   l: "International Partners",   sub: "Across Korea, the Middle East and connectivity technologies." },
     { c: "var(--rm-blue)",   n: "30+",  l: "Countries",                sub: "Across Middle East, Africa and Pakistan — classrooms on world-class emerging technologies standards." },
-    { c: "var(--rm-orange)", l: "ISO 9001 · CE · FCC", n: "Certified", sub: "Quality, safety and electromagnetic-compliance marks held by partners." },
+    { c: "var(--rm-orange)", l: "ISO 9001 · CE · FCC · ASTM", n: "Certified", sub: "Quality, safety and electromagnetic-compliance marks held by partners." },
   ];
   return (
     <section className="rm-intl-metrics" data-screen-label="02 Metrics">
@@ -446,15 +446,27 @@ function IntlAccreds() {
       icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8 13l-2 8 6-3 6 3-2-8"/></svg>,
     },
     {
-      tag: "Product Safety",
-      title: "CE Marking — European Conformity",
-      body: "All electronic kits in our deployment meet European Conformity standards for health, safety and environmental protection.",
+      tag: "Toy Safety",
+      title: "General Certificate of Conformity — ASTM F963-11",
+      body: "Robotron hardware holds a General Certificate of Conformity to ASTM F963-11 Standard Consumer Safety Specification for Toy Safety, verified by Korea Conformity Laboratories (KCL).",
+      icon: <svg viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>,
+    },
+    {
+      tag: "CE — Product Safety",
+      title: "EC Declaration of Conformity",
+      body: "EC Declaration of Conformity under TOY Directive 2009/48/EC — attested by KTR (Korea Testing & Research Institute), National Certification Body.",
+      icon: <svg viewBox="0 0 24 24"><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z"/><path d="M9 9l-1 6M14 9l-1 6M16 9h-3M16 12h-3"/></svg>,
+    },
+    {
+      tag: "CE — Multi-Directive",
+      title: "EU Declaration of Conformity",
+      body: "EU Declaration of Conformity covering Low Voltage Directive 2006/95/EC, TOY Directive 2009/48/EC, and EMC Directive 2004/108/EC — issued by ROBOTRON Co. Ltd.",
       icon: <svg viewBox="0 0 24 24"><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9 9 4 9 9z"/><path d="M9 9l-1 6M14 9l-1 6M16 9h-3M16 12h-3"/></svg>,
     },
     {
       tag: "Electromagnetic",
-      title: "FCC Certified",
-      body: "Federal Communications Commission certification for electromagnetic emissions on connected classroom hardware.",
+      title: "Certificate of EMC Compliance — FCC",
+      body: "Certificate of EMC Compliance to FCC part 15 subpart B, Class B — verified by EMC Compliance Ltd., confirming compliance with Canadian ICES-003 regulations.",
       icon: <svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 0 1 14 0"/><path d="M2 12a10 10 0 0 1 20 0"/><circle cx="12" cy="12" r="2"/></svg>,
     },
     {

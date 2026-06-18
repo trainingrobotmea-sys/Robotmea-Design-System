@@ -303,7 +303,7 @@ function ProgramIDP() {
 
   const startTimer = () => {
     clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => setIdx(i => (i + 1) % tracks.length), 3500);
+    timerRef.current = setInterval(() => setIdx(i => (i + 1) % tracks.length), 5000);
   };
   useEffect(() => { startTimer(); return () => clearInterval(timerRef.current); }, []);
 
@@ -332,20 +332,32 @@ function ProgramIDP() {
           </button>
           <div className="rm-idp-slider__track">
             {tracks.map((card, i) => (
-              <div key={card.name} className={"rm-idp-card rm-idp-slider__card " + (i === idx ? "is-active" : "")} style={{ "--accent": card.c }}>
-                <div className="rm-idp-card__top">
-                  <div className="rm-idp-card__num">{card.num}</div>
-                  <span className="rm-idp-card__tag">{card.tag}</span>
+              <div key={card.name} className={"rm-idp-slider__card " + (i === idx ? "is-active" : "")} style={{ "--accent": card.c }}>
+                <div className="rm-idp-card2">
+                  <div className="rm-idp-card2__panel">
+                    <div className="rm-idp-card2__deco">{card.num}</div>
+                    <span className="rm-idp-card2__tag">{card.tag}</span>
+                  </div>
+                  <div className="rm-idp-card2__body">
+                    <div className="rm-idp-card2__counter">{i + 1} <span>/ {tracks.length}</span></div>
+                    <h3 className="rm-idp-card2__name">{card.name}</h3>
+                    <p className="rm-idp-card2__why">{card.why}</p>
+                    <div className="rm-idp-card2__duration">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+                      Fast-Track / Slow Track
+                    </div>
+                  </div>
                 </div>
-                <h3 className="rm-idp-card__name">{card.name}</h3>
-                <p className="rm-idp-card__why">{card.why}</p>
-                <div className="rm-idp-card__duration">Fast-Track / Slow Track</div>
               </div>
             ))}
           </div>
           <button className="rm-idp-slider__arrow" onClick={() => go(idx + 1)} aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
+        </div>
+
+        <div className="rm-idp-progress">
+          <div className="rm-idp-progress__bar" key={idx}></div>
         </div>
 
         <div className="rm-idp-dots">

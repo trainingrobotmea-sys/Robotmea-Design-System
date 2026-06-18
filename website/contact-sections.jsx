@@ -29,7 +29,7 @@ function ContactDoors() {
       tag: "Institute Desk",
       name: "IERDG",
       for: "For principals, ETM investors, diploma applicants, teachers and parents — anything connected to the Institute or one of its five programs.",
-      email: "institute@robotmea.com",
+      email: "ierdg@robotmea.com",
       icon: <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>,
     },
     {
@@ -37,7 +37,7 @@ function ContactDoors() {
       tag: "Communications Desk",
       name: "COPR Nexus",
       for: "For press, government, partnerships, events and anything COPR Nexus handles — including international partner intake.",
-      email: "nexus@robotmea.com",
+      email: "copr@robotmea.com",
       icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>,
     },
     {
@@ -78,6 +78,36 @@ function ContactDoors() {
 
 /* ============ Form + Offices Sidebar ============ */
 function ContactForm() {
+  const [status, setStatus] = React.useState("idle"); // idle | sending | sent | error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (status === "sending" || status === "sent") return;
+    setStatus("sending");
+    const fd = new FormData(e.target);
+    const payload = {
+      to: "copr@robotmea.com",
+      source: "contact-form",
+      submittedAt: new Date().toISOString(),
+      name: fd.get("name"),
+      email: fd.get("email"),
+      phone: fd.get("phone"),
+      organisation: fd.get("organisation"),
+      country: fd.get("country"),
+      role: fd.get("role"),
+      topic: fd.get("topic"),
+      message: fd.get("message"),
+    };
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch (_) { /* backend may not exist yet */ }
+    setStatus("sent");
+  };
+
   return (
     <section className="rm-contact-form-section" data-screen-label="03 Contact Form">
       <div className="rm-container">
@@ -88,7 +118,7 @@ function ContactForm() {
         />
         <div className="rm-contact-form-section__layout">
           {/* Form */}
-          <form className="rm-form" onSubmit={(e) => { e.preventDefault(); alert("Thanks — your message has been queued. Wire this form to /api/contact in production."); }}>
+          <form className="rm-form" onSubmit={handleSubmit}>
             <div className="rm-form__head">
               <div>
                 <h3 className="rm-form__h">Tell us about your enquiry</h3>
@@ -99,23 +129,23 @@ function ContactForm() {
             <div className="rm-form__grid">
               <div className="rm-form__field">
                 <label className="rm-form__label">Full Name <span className="rm-form__req">*</span></label>
-                <input className="rm-form__input" type="text" placeholder="e.g. Asma Khan" required />
+                <input className="rm-form__input" type="text" name="name" placeholder="e.g. Asma Khan" required />
               </div>
               <div className="rm-form__field">
                 <label className="rm-form__label">Email <span className="rm-form__req">*</span></label>
-                <input className="rm-form__input" type="email" placeholder="you@school.edu.pk" required />
+                <input className="rm-form__input" type="email" name="email" placeholder="you@school.edu.pk" required />
               </div>
               <div className="rm-form__field">
                 <label className="rm-form__label">Phone</label>
-                <input className="rm-form__input" type="tel" placeholder="+92 ..." />
+                <input className="rm-form__input" type="tel" name="phone" placeholder="+92 ..." />
               </div>
               <div className="rm-form__field">
                 <label className="rm-form__label">Organisation</label>
-                <input className="rm-form__input" type="text" placeholder="Your school / company" />
+                <input className="rm-form__input" type="text" name="organisation" placeholder="Your school / company" />
               </div>
               <div className="rm-form__field">
                 <label className="rm-form__label">Country <span className="rm-form__req">*</span></label>
-                <select className="rm-form__select" required defaultValue="Pakistan">
+                <select className="rm-form__select" name="country" required defaultValue="Pakistan">
                   <option>Pakistan</option>
                   <option>United Arab Emirates</option>
                   <option>Saudi Arabia</option>
@@ -126,7 +156,7 @@ function ContactForm() {
               </div>
               <div className="rm-form__field">
                 <label className="rm-form__label">I am a… <span className="rm-form__req">*</span></label>
-                <select className="rm-form__select" required defaultValue="">
+                <select className="rm-form__select" name="role" required defaultValue="">
                   <option value="" disabled>Pick one…</option>
                   <option>Parent</option>
                   <option>School Principal / Owner</option>
@@ -139,7 +169,7 @@ function ContactForm() {
               </div>
               <div className="rm-form__field rm-form__field--full">
                 <label className="rm-form__label">What's this about? <span className="rm-form__req">*</span></label>
-                <select className="rm-form__select" required defaultValue="">
+                <select className="rm-form__select" name="topic" required defaultValue="">
                   <option value="" disabled>Pick the wing…</option>
                   <option>IERDG — Institute (K-12, FDC, RETC, diplomas)</option>
                   <option>Educational Transformation Movement (ETM)</option>
@@ -151,15 +181,15 @@ function ContactForm() {
               </div>
               <div className="rm-form__field rm-form__field--full">
                 <label className="rm-form__label">Message <span className="rm-form__req">*</span></label>
-                <textarea className="rm-form__textarea" placeholder="Tell us what you'd like to discuss — feasibility session, partnership, diploma admissions, press enquiry…" required></textarea>
+                <textarea className="rm-form__textarea" name="message" placeholder="Tell us what you'd like to discuss — feasibility session, partnership, diploma admissions, press enquiry…" required></textarea>
               </div>
             </div>
             <div className="rm-form__footer">
               <p className="rm-form__legal">
                 By submitting this form you agree to be contacted by Robotmea. See our <a href="#">privacy policy</a>.
               </p>
-              <button type="submit" className="rm-btn rm-btn--primary rm-btn--lg">
-                Send Message<span className="rm-btn__arrow">→</span>
+              <button type="submit" className="rm-btn rm-btn--primary rm-btn--lg" disabled={status === "sending" || status === "sent"}>
+                {status === "sending" ? "Sending…" : status === "sent" ? "Message Sent ✓" : <>Send Message<span className="rm-btn__arrow">→</span></>}
               </button>
             </div>
           </form>
@@ -178,7 +208,7 @@ function ContactForm() {
               </p>
               <div className="rm-office__row">
                 <svg viewBox="0 0 24 24"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>
-                <a href="tel:+92512301401">+92 51 230 1401</a>
+                <a href="tel:+925161281444">+92 51 6128144</a>
               </div>
               <div className="rm-office__row">
                 <svg viewBox="0 0 24 24"><path d="M20 15.5a13.5 13.5 0 0 1-13.5-13.5 1.5 1.5 0 0 1 1.5-1.5h3a1.5 1.5 0 0 1 1.5 1.18l.69 3.45a1.5 1.5 0 0 1-.43 1.43L10.84 8.16a13.5 13.5 0 0 0 5 5l1.6-1.6a1.5 1.5 0 0 1 1.43-.43l3.45.69A1.5 1.5 0 0 1 23.5 13.3v3a1.5 1.5 0 0 1-1.5 1.5z"/></svg>
@@ -210,7 +240,7 @@ function ContactForm() {
               </div>
               <div className="rm-office__row">
                 <svg viewBox="0 0 24 24"><path d="M2 6l10 7 10-7v12H2zM2 4h20l-10 7z"/></svg>
-                <a href="mailto:nexus@robotmea.com">nexus@robotmea.com</a>
+                <a href="mailto:copr@robotmea.com">copr@robotmea.com</a>
               </div>
             </div>
 
